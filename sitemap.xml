@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite-url/VSCode/VSCode-Installation/</loc>
+    
+    <lastmod>2022-03-04</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/tags/index.html</loc>
     
-    <lastmod>2022-03-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     
   </url>
   
@@ -23,14 +30,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/cn/Hexo-Theme-LiveMyLife/</loc>
-    
-    <lastmod>2020-04-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/en/Hexo-Theme-LiveMyLife/</loc>
+    <loc>http://yoursite-url/Git/Hexo-Theme-LiveMyLife/</loc>
     
     <lastmod>2020-04-16</lastmod>
     
@@ -53,7 +53,7 @@
 
   <url>
     <loc>http://yoursite-url/</loc>
-    <lastmod>2022-03-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,7 +61,14 @@
   
   <url>
     <loc>http://yoursite-url/tags/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2022-03-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/VSCode/</loc>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -70,7 +77,14 @@
   
   <url>
     <loc>http://yoursite-url/categories/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2022-03-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/categories/VSCode/</loc>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
