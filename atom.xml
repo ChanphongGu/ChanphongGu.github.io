@@ -6,7 +6,7 @@
   <link href="http://yoursite-url/atom.xml" rel="self"/>
   
   <link href="http://yoursite-url/"/>
-  <updated>2022-05-29T18:10:43.000Z</updated>
+  <updated>2022-06-03T04:10:43.000Z</updated>
   <id>http://yoursite-url/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>c++解除流同步与绑定</title>
+    <link href="http://yoursite-url/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/"/>
+    <id>http://yoursite-url/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/</id>
+    <published>2022-06-03T04:10:43.000Z</published>
+    <updated>2022-06-03T04:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="c-解除流同步与绑定"><a href="#c-解除流同步与绑定" class="headerlink" title="c++解除流同步与绑定"></a>c++解除流同步与绑定</h1><h3 id="关闭同步"><a href="#关闭同步" class="headerlink" title="关闭同步"></a>关闭同步</h3><blockquote><p>If the streams are synchronized, a program can mix iostream operations with stdio operations, and their observable effects are guaranteed to follow the same order as used in the thread.</p></blockquote><p><code>ios::sync_with_stdio = false;(默认true)</code></p><p>默认情况下，c++为了兼容c，将iostream与stdio绑定，为了避免混用printf和cout而造成的输出顺序和代码语句不一致的问题。如果解除同步，输出的结果无法预测，但是可以提升执行效率。建议解除同步后，不要混用iostream与stdio。</p><h3 id="解除cin与cout绑定"><a href="#解除cin与cout绑定" class="headerlink" title="解除cin与cout绑定"></a>解除cin与cout绑定</h3><blockquote><p>cin is tied to the standard output stream cout (see ios::tie), which indicates that cout’s buffer is flushed (see ostream::flush) before each i/o operation performed on cin.</p></blockquote><p><code>cin.tie(NULL)</code>、<code>cout.tie(NULL) ;</code> </p><p>默认情况下，cin与cout绑定至同一个标准流，在cin读取数据之前都需要调用<code>flush()</code>函数，将cout流的缓冲刷新至输出文件中。</p><p>解除cin与cout绑定可减少flush次数，提升执行效率。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;c-解除流同步与绑定&quot;&gt;&lt;a href=&quot;#c-解除流同步与绑定&quot; class=&quot;headerlink&quot; title=&quot;c++解除流同步与绑定&quot;&gt;&lt;/a&gt;c++解除流同步与绑定&lt;/h1&gt;&lt;h3 id=&quot;关闭同步&quot;&gt;&lt;a href=&quot;#关闭同步&quot; class=&quot;he</summary>
+      
+    
+    
+    
+    <category term="c++" scheme="http://yoursite-url/categories/c/"/>
+    
+    
+    <category term="c++" scheme="http://yoursite-url/tags/c/"/>
+    
+  </entry>
   
   <entry>
     <title>MARCH:MAze Routing Under a Concurrent and Hierarchical Scheme for Buses</title>
