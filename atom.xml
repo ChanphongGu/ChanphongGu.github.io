@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>GCFBlog</title>
+  <icon>https://www.gravatar.com/avatar/9f02cd45ebf24371e1b64ae0b644732f</icon>
+  <subtitle>This is GCF&#39;s blog</subtitle>
+  <link href="http://yoursite-url/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite-url/"/>
+  <updated>2022-05-29T18:10:43.000Z</updated>
+  <id>http://yoursite-url/</id>
+  
+  <author>
+    <name>Gu</name>
+    <email>chanphonggu@qq.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MARCH:MAze Routing Under a Concurrent and Hierarchical Scheme for Buses</title>
+    <link href="http://yoursite-url/2019_DAC_Chunk_March/2019_DAC_Chunk_March/"/>
+    <id>http://yoursite-url/2019_DAC_Chunk_March/2019_DAC_Chunk_March/</id>
+    <published>2022-05-29T18:10:43.000Z</published>
+    <updated>2022-05-29T18:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1><strong>MARCH</strong>: MAze Routing Under a Concurrent and Hierarchical Scheme for Buses</h1><h2 id="前言：">前言：</h2><p>该篇文献与pcb上的总线布线有关，是基于总线并行与分层方案下的迷宫布线。</p><h2 id="开篇几问：">开篇几问：</h2><h3 id="1-该文主要讲述了什么？">1.该文主要讲述了什么？</h3><h3 id="2-提出了何种解决方案">2.提出了何种解决方案?</h3><h2 id="参考链接：">参考链接：</h2><p><a href="https://dl.acm.org/doi/abs/10.1145/3316781.3317860">MARCH:MAze Routing Under a Concurrent and Hierarchical Scheme for Buses</a></p><h2 id="一-论文简介">一. 论文简介</h2><h3 id="1-作者：陈劲松-刘金伟-陈庚杰-郑丹-伊万杰琳">1. 作者：陈劲松 刘金伟 陈庚杰 郑丹 伊万杰琳</h3><h3 id="2-期刊杂志：">2. 期刊杂志：/</h3><h3 id="3-引用数：4">3. 引用数：4</h3><h3 id="4-论文背景">4. 论文背景</h3><p>现代超大规模集成电路技术的不断发展给片上互连带来了新的挑战。与经典的逐网布线不同，总线布线除了考虑线长、过孔数和其他设计规则外，还要求同一总线中的所有网络（位)共享相似甚至相同的拓扑。</p><h3 id="5-应用场景">5. 应用场景</h3><p>总线布线</p><h2 id="二-创新点和贡献：">二. 创新点和贡献：</h2><p>在该文中，为实现总线布线中的相同拓扑，采用了所有位同时布线的方式。<br>算法思想：粗粒度的拓扑感知路径规划、细粒度的位轨道分配、撕裂重布的方法<br>结果：比2018 IC/CAD的第一名在质量与时间上都更优。</p><h2 id="三-相关领域的概述-related-work">三. 相关领域的概述(related work)</h2><p>布线已经被许多以前的工作很好地研究过，包括全局布线(例如ARCHER [1]、NCTU-GR[2]和NTHURoute [3]）和详细布线（例如TritonRoute [4]和 Dr. CU[5] ）。然而，由于难以保持拓扑一致性，这些工作的技术很难直接应用于总线布线。如果总线是逐位处理的，则后面的位可能缺少可用于布线的轨道段，尤其是当布线轨道配置不均匀且复杂的。在最坏的情况下，在找到可行的拓扑之前需要进行大量的试错。</p><p>以前有一些工作处理与印刷电路板(PCB)设计上的逃逸布线相关的问题，例如引脚分配保证可布线性[6]，层分配以最小化使用的层数[7]，以及基于ILP的解决方案[8]来解决整个公交规划问题。然而，对于PCB设计上的典型逃逸布线，尽管总线位通常一起布线，但同一总线的不同位之间不需要具有相同的拓扑结构。</p><p>为了观察拓扑约束，Streak [9]使用一个代表位来生成一组拓扑候选，然后应用ILP来选择一个好的拓扑。总线中的所有其他位都尝试跟随选定的位。但是，由于缺乏布线资源可能无法实现所选拓扑。为了解决这个问题，Streak中有一个后细化阶段，将原始总线划分为多个子总线，不同的子总线将具有不同的拓扑。因此，Streak中的技术对这个问题没有用处，因为总线不能被分成不同拓扑的子总线。除了Streak，以前很少有针对具有拓扑约束的布线总线的工作。</p><h2 id="四-作者的方案">四. 作者的方案</h2><p>MARCH:它同时路由总线中的所有位，而不是逐位处理。这种并发性直接以构造正确的方式捕获拓扑一致性约束以及其他目标（例如线长）和约束（例如间距）。<br>为提高MARCH的效率而设计了一个分层框架，由拓扑感知路径规划(TAP)和比特轨道分配(TAB）组成。TAP是有效的，因为它可以工作<br>得到粗粒度的解空间 。TAB生成细粒度的布线解决方案，但它也通过仅搜索TAB提供的区域来提高效率 。<br>最后提供了一个有效的撕毁和改道方案(RR)，以进一步提高布线解决方案的质量。</p><p><img src="process1.png" alt="流程图"></p><h2 id="五-主要的信息流（approach）">五. 主要的信息流（approach）</h2><h3 id="BGG">BGG:</h3><p>基于总线的网格图，根据输入的信息进行初始化，作为后续TAP、TAB、RR的数据结构。<br>边缘容量：边缘上满足总线宽度的可布线轨道数。<br>历史成本：h<em>new</em>=a*N<em>space</em>+b*h<em>old</em></p><h3 id="TAP">TAP:</h3><p>拓扑感知路径规划，目的是生成粗粒度的可布线路径区域。<br>front line:由前排的G cell构成，仅在RR阶段会更新。<br>交换节点：判断层交换安全的节点，由4*4 G cell构成。涉及位顺序交换与翻转位顺序交换。为求得翻转顺序下的最大位数算法步骤大致如下图：</p><p><img src="alg1.png" alt="算法步骤"></p><p>费用成本：线长成本+线段计数成本+间距违规成本</p><h3 id="TAB">TAB:</h3><p>位轨道分配，目的是生成细粒度的轨道分配方案，由四个部分构成：<br>粗轨道选择、轨道段范围估计、精确轨道选择、精确轨道段范围分配</p><h3 id="RR">RR:</h3><p>撕毁和重布线，目的是优化方案，这里包括两个部分：<br>（1）将历史成本添加到BGG的边缘中 （2）无违规路线资源不足，扩大front line</p><h2 id="六-总结：">六. 总结：</h2><p>该文中作者提出了基于总线并行与分配方案的迷宫布线方法，目的是为解决总线各位同时布线的一致拓扑问题，并取得了比2018 IC/CAD第一名更为优秀的质量与速度。<br>其中大致由三部分构成：拓扑路径规划（TAP）、位轨道分配（TAB）、撕裂与重布线（RR），TAP是为取得粗粒度的布线路径空间，TAB则是为取得细粒度的布线方案，RR通过改良front line的大小，来提升布线方案。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;strong&gt;MARCH&lt;/strong&gt;: MAze Routing Under a Concurrent and Hierarchical Scheme for Buses&lt;/h1&gt;
+&lt;h2 id=&quot;前言：&quot;&gt;前言：&lt;/h2&gt;
+&lt;p&gt;该篇文献与pcb上的总线布线有关</summary>
+      
+    
+    
+    
+    <category term="pcb" scheme="http://yoursite-url/categories/pcb/"/>
+    
+    
+    <category term="pcb route" scheme="http://yoursite-url/tags/pcb-route/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 剑指offer32-1</title>
+    <link href="http://yoursite-url/lc_offer_32-1/lc_offer_32-1/"/>
+    <id>http://yoursite-url/lc_offer_32-1/lc_offer_32-1/</id>
+    <published>2022-05-28T18:10:43.000Z</published>
+    <updated>2022-05-28T18:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="LeetCode-剑指offer32-1">LeetCode 剑指offer32-1</h2><h3 id="题目">题目</h3><blockquote><p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p><blockquote><p>例如:<br>给定二叉树: [3,9,20,null,null,15,7],<br><img src="question1.png" alt="树结构"><br>返回：<br><img src="question2.png" alt="结果"></p></blockquote></blockquote><h3 id="算法思想">算法思想</h3><p>经典的层序遍历，可使用队列实现。从根节点开始，队首每弹出一个节点，就访问这个节点的值，并将其子节点入队。<br>循环操作，直到队内没有节点，即结束。</p><h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">levelOrder</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//变量声明</span></span><br><span class="line">        queue&lt;TreeNode*&gt; qNode;<span class="comment">//node队列，存储当前未遍历的部分节点</span></span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; result;<span class="comment">//数组存储结果</span></span><br><span class="line">        <span class="comment">//判空条件</span></span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> result;</span><br><span class="line">        <span class="comment">//算法步骤</span></span><br><span class="line">        qNode.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">while</span>(!qNode.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            TreeNode* curNode = qNode.<span class="built_in">front</span>();</span><br><span class="line">            result.<span class="built_in">push_back</span>(curNode-&gt;val);</span><br><span class="line">            <span class="keyword">if</span>(curNode-&gt;left) qNode.<span class="built_in">push</span>(curNode-&gt;left);</span><br><span class="line">            <span class="keyword">if</span>(curNode-&gt;right) qNode.<span class="built_in">push</span>(curNode-&gt;right);</span><br><span class="line">            qNode.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//处理结果</span></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="复杂度分析">复杂度分析</h3><p>时间复杂度：对每个节点只访问一次，复杂度为O(n)。</p><p>空间复杂度：最差情况下，即当树为平衡二叉树时，最多有 N/2个树节点同时在 queue 中，使用 O(N) 大小的额外空间。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;LeetCode-剑指offer32-1&quot;&gt;LeetCode 剑指offer32-1&lt;/h2&gt;
+&lt;h3 id=&quot;题目&quot;&gt;题目&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。&lt;/p&gt;
+&lt;blockquo</summary>
+      
+    
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/categories/LeetCode/"/>
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 剑指offer26</title>
+    <link href="http://yoursite-url/lc_offer_26/lc_offer_26/"/>
+    <id>http://yoursite-url/lc_offer_26/lc_offer_26/</id>
+    <published>2022-05-28T18:10:43.000Z</published>
+    <updated>2022-05-28T18:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="LeetCode-剑指offer26">LeetCode 剑指offer26</h2><h3 id="题目">题目</h3><blockquote><p>输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)<br>B是A的子结构， 即 A中有出现和B相同的结构和节点值。</p></blockquote><p>例如:<br>给定的树 A:</p><blockquote><blockquote><p>例如:<br>给定二叉树: [3,9,20,null,null,15,7],<br><img src="q1.png" alt="树结构"><br>给定的树B：<br><img src="q2.png" alt="结果"><br>结果：返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。</p></blockquote></blockquote><p>示例：<br><img src="r1.png" alt="special"></p><h3 id="算法思想">算法思想</h3><p>1.先利用先序遍历，遍历A树中的每一个节点。<br>2.访问到节点a时，利用层序遍历判断当前a为根节点的子树是否匹配B树的结构。若匹配返回true，反之false。<br>3.若节点a为根节点的子树无法匹配，则继续搜索a的左右子树是否能够匹配。回到2，直到A中找到匹配树B的子树，或者遍历A中每个节点，无法找到并返回false；</p><h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSubStructure</span><span class="params">(TreeNode* A, TreeNode* B)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (A!=<span class="literal">nullptr</span> &amp;&amp; B!=<span class="literal">nullptr</span>)</span><br><span class="line">            &amp;&amp;(<span class="built_in">isMatchedSubStructure</span>(A,B)</span><br><span class="line">                ||<span class="built_in">isSubStructure</span>(A-&gt;left,B)</span><br><span class="line">                ||<span class="built_in">isSubStructure</span>(A-&gt;right,B));</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatchedSubStructure</span><span class="params">(TreeNode* A, TreeNode* B)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(A-&gt;val!=B-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        queue&lt;TreeNode*&gt; qTreeA;</span><br><span class="line">        queue&lt;TreeNode*&gt; qTreeB;</span><br><span class="line">        qTreeA.<span class="built_in">push</span>(A);</span><br><span class="line">        qTreeB.<span class="built_in">push</span>(B);</span><br><span class="line">        <span class="keyword">while</span>(!qTreeB.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            TreeNode* tnodeA = qTreeA.<span class="built_in">front</span>();</span><br><span class="line">            TreeNode* tnodeB = qTreeB.<span class="built_in">front</span>();</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;val!=tnodeB-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;left&amp;&amp; tnodeB-&gt;left)&#123;</span><br><span class="line">                qTreeA.<span class="built_in">push</span>(tnodeA-&gt;left);</span><br><span class="line">                qTreeB.<span class="built_in">push</span>(tnodeB-&gt;left);</span><br><span class="line">            </span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(tnodeB-&gt;left) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;right &amp;&amp; tnodeB-&gt;right)&#123;</span><br><span class="line">                qTreeA.<span class="built_in">push</span>(tnodeA-&gt;right);</span><br><span class="line">                qTreeB.<span class="built_in">push</span>(tnodeB-&gt;right);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(tnodeB-&gt;right) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            qTreeA.<span class="built_in">pop</span>();</span><br><span class="line">            qTreeB.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="复杂度分析">复杂度分析</h3><p>m为A树大小，n为B树大小。<br>时间复杂度：最坏情况下对A的每个节点只访问一次，访问到根节点相同的需要进行匹配，匹配的复杂度为O(n)。故最坏情况下，时间复杂度为O(mn)。</p><p>空间复杂度：O(m)。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;LeetCode-剑指offer26&quot;&gt;LeetCode 剑指offer26&lt;/h2&gt;
+&lt;h3 id=&quot;题目&quot;&gt;题目&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)&lt;br&gt;
+B是A的子结构</summary>
+      
+    
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/categories/LeetCode/"/>
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 剑指offer32-3</title>
+    <link href="http://yoursite-url/lc_offer_32-3/lc_offer_32-3/"/>
+    <id>http://yoursite-url/lc_offer_32-3/lc_offer_32-3/</id>
+    <published>2022-05-28T18:10:43.000Z</published>
+    <updated>2022-05-28T18:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="LeetCode-剑指offer32-3">LeetCode 剑指offer32-3</h2><h3 id="题目">题目</h3><blockquote><p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p><blockquote><p>例如:<br>给定二叉树: [3,9,20,null,null,15,7],<br><img src="question1.png" alt="树结构"><br>返回：<br><img src="question2.png" alt="结果"></p></blockquote></blockquote><h3 id="算法思想">算法思想</h3><p>层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节点的子节点插入队列中。设置参数direction表示当前层的奇偶性，每取一层，根据当前层奇偶性输入到结果数组，循环直至队列为空，输出结果。</p><h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">levelOrder</span>(TreeNode* root) &#123;</span><br><span class="line">        <span class="comment">//变量声明</span></span><br><span class="line">        queue&lt;TreeNode*&gt; qNode;</span><br><span class="line">        <span class="keyword">bool</span> direction = <span class="literal">true</span>;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="comment">//判空条件</span></span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> ret;</span><br><span class="line">        <span class="comment">//算法步骤</span></span><br><span class="line">        qNode.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">while</span>(!qNode.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="keyword">int</span> current_layer_size = qNode.<span class="built_in">size</span>();</span><br><span class="line">            vector&lt;<span class="keyword">int</span>&gt; layer_ret;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;current_layer_size;i++)&#123;</span><br><span class="line">                TreeNode* node = qNode.<span class="built_in">front</span>();</span><br><span class="line">                <span class="keyword">if</span>(direction) layer_ret.<span class="built_in">push_back</span>(node-&gt;val);</span><br><span class="line">                <span class="keyword">else</span> layer_ret.<span class="built_in">emplace</span>(layer_ret.<span class="built_in">begin</span>(),node-&gt;val);</span><br><span class="line">                <span class="keyword">if</span>(node-&gt;left) qNode.<span class="built_in">push</span>(node-&gt;left);</span><br><span class="line">                <span class="keyword">if</span>(node-&gt;right) qNode.<span class="built_in">push</span>(node-&gt;right);</span><br><span class="line">                qNode.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            direction = !direction;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(layer_ret);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//处理结果</span></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="复杂度分析">复杂度分析</h3><p>时间复杂度：对每个节点只访问一次，复杂度为O(n)。</p><p>空间复杂度：O(1)。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;LeetCode-剑指offer32-3&quot;&gt;LeetCode 剑指offer32-3&lt;/h2&gt;
+&lt;h3 id=&quot;题目&quot;&gt;题目&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序</summary>
+      
+    
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/categories/LeetCode/"/>
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机自顶向下Wireshark实验ARP部分</title>
+    <link href="http://yoursite-url/ethernet/ethernet/"/>
+    <id>http://yoursite-url/ethernet/ethernet/</id>
+    <published>2022-05-08T00:05:00.000Z</published>
+    <updated>2022-05-08T00:05:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="实验1">实验1</h3><p><img src="lab1.png" alt="image-20221121170604169"></p><p><strong>第一个http get报文</strong></p><blockquote><p><strong>1.What is the 48-bit Ethernet address of your computer?</strong></p></blockquote><p>本机MAC: b4 : 0e : de : 6b : 1a : b1</p><p><img src="lab1-QA-1.png" alt="image-20221121170747646"></p><blockquote><p><strong>2.What is the 48-bit destination address in the Ethernet frame? Is this the Ethernet</strong><br><strong>address of <a href="http://gaia.cs.umass.edu">gaia.cs.umass.edu</a>? (Hint: the answer is no). What device has this as its</strong><br><strong>Ethernet address? [Note: this is an important question, and one that students</strong><br><strong>sometimes get wrong. Re-read pages 468-469 in the text and make sure you</strong><br><strong>understand the answer here.]</strong></p></blockquote><p>见题1上图</p><p>目的MAC: 4c : 77 : 66 : ab : 85 : bc；</p><p>这是路由器MAC地址。</p><blockquote><p><strong>3.Give the hexadecimal value for the two-byte Frame type field. What upper layer</strong><br><strong>protocol does this correspond to?</strong></p></blockquote><p>ipv4 （0x0800)</p><blockquote><p><strong>4.How many bytes from the very start of the Ethernet frame does the ASCII “G” in</strong><br><strong>“GET” appear in the Ethernet frame?</strong></p></blockquote><p>前面的字节数 = ethernet首部14字节+ipv4首部20字节+TCP首部32字节 = 66字节</p><p><img src="lab1-QA-4.png" alt="image-20221121171717711"></p><p><strong>第一个http response报文</strong></p><p><img src="lab1-1.png" alt="image-20221121171811862"></p><blockquote><p><strong>5.What is the value of the Ethernet source address? Is this the address of your</strong><br><strong>computer, or of <a href="http://gaia.cs.umass.edu">gaia.cs.umass.edu</a> (Hint: the answer is no). What device has this</strong><br><strong>as its Ethernet address?</strong></p></blockquote><p>源MAC:4c : 77 : 66 : ab : 85 : bc</p><p>该MAC地址是第一跳路由器的MAC地址</p><p><img src="lab1-QA-5.png" alt="image-20221121172114465"></p><blockquote><p><strong>6.What is the destination address in the Ethernet frame? Is this the Ethernet address</strong><br><strong>of your computer?</strong></p></blockquote><p>见上题图</p><p>目的MAC：b4 : 0e : de : 6b : 1a : b1，是本机MAC地址。</p><blockquote><p><strong>7.Give the hexadecimal value for the two-byte Frame type field. What upper layer</strong><br><strong>protocol does this correspond to?</strong></p></blockquote><p>IPv4（0x0800)</p><blockquote><p><strong>8.How many bytes from the very start of the Ethernet frame does the ASCII “O” in</strong><br><strong>“OK” (i.e., the HTTP response code) appear in the Ethernet frame?</strong></p></blockquote><p>由于http报文太大，被分为多个报文段传送，下图是第一个报文段，携带含有http首部的一些信息，</p><p>O前面字节数 = ethernet首部14字节+ipv4首部20字节+TCP首部32字节 + http报文偏移量13字节 = 79字节</p><p><img src="lab1-QA-8.png" alt="image-20221121172803825"></p><h3 id="实验2">实验2</h3><p><img src="lab2.png" alt="lab2"></p><blockquote><p><strong>9.Write down the contents of your computer’s ARP cache. What is the meaning of</strong><br><strong>each column value?</strong></p></blockquote><p>接口代表不同的网卡；</p><p>ip地址MAC地址类型</p><p>ff-ff-ff-ff-ff-ff 为广播地址</p><p><strong>由于电脑上其他应用一直在发送数据报，导致本机发出的arp数据报经常捕捉不到，故采用官方数据进行分析。</strong></p><p><strong>该实验以官方提供的Wireshark捕获文件为基础分析。</strong></p><p><strong>请访问官网获取文件：[课件地址]( <a href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-">http://gaia.cs.umass.edu/wireshark-labs/wireshark-</a><br>traces.zip)</strong></p><p><img src="lab2-1.png" alt="image-20221121182243732"></p><blockquote><p><strong>10.What are the hexadecimal values for the source and destination addresses in the</strong><br><strong>Ethernet frame containing the ARP request message?</strong></p></blockquote><p>源MAC: 00-d0-59-a9-3d-68</p><p>目的MAC: ff-ff-ff-ff-ff-ff</p><blockquote><p><strong>11.Give the hexadecimal value for the two-byte Ethernet Frame type field. What</strong><br><strong>upper layer protocol does this correspond to?</strong></p></blockquote><p>类型： ARP（0x0806)</p><blockquote><p><strong>12.Download the ARP specification from</strong><br><strong><a href="ftp://ftp.rfc-editor.org/in-notes/std/std37.txt">ftp://ftp.rfc-editor.org/in-notes/std/std37.txt</a>. A readable, detailed discussion of</strong><br><strong>ARP is also at <a href="http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html">http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html</a>.</strong><br><strong>a) How many bytes from the very beginning of the Ethernet frame does the</strong><br><strong>ARP opcode field begin?</strong><br><strong>b) What is the value of the opcode field within the ARP-payload part of the</strong><br><strong>Ethernet frame in which an ARP request is made?</strong><br><strong>c) Does the ARP message contain the IP address of the sender?</strong><br><strong>d) Where in the ARP request does the “question” appear – the Ethernet</strong><br><strong>address of the machine whose corresponding IP address is being queried?</strong></p></blockquote><p><img src="lab2-QA-12-1.png" alt="image-20221121183935405"></p><p><img src="lab2-QA-12.png" alt="image-20221121183550507"></p><p>a) 20 字节 = ethernet首部14字节+硬件类型2字节+协议类型2字节+硬件地址大小1字节+协议地址大小1字节</p><p>b) opcode val: 1(request)</p><p>c) 包含发送方ip地址</p><p>d) 在target字段。</p><blockquote><p><strong>13.Now find the ARP reply that was sent in response to the ARP request.</strong><br><strong>a) How many bytes from the very beginning of the Ethernet frame does the</strong><br><strong>ARP opcode field begin?</strong><br><strong>b) What is the value of the opcode field within the ARP-payload part of the</strong><br><strong>Ethernet frame in which an ARP response is made?</strong><br><strong>c) Where in the ARP message does the “answer” to the earlier ARP request</strong><br><strong>appear – the IP address of the machine having the Ethernet address whose</strong><br><strong>corresponding IP address is being queried?</strong></p></blockquote><p><img src="lab2-QA-13.png" alt="image-20221121185746473"></p><p>a)  20 字节 = ethernet首部14字节+硬件类型2字节+协议类型2字节+硬件地址大小1字节+协议地址大小1字节</p><p>b) opcode val: 2(reply)</p><p>c) sender的MAC 与IP地址字段</p><blockquote><p><strong>14.What are the hexadecimal values for the source and destination addresses in the</strong><br><strong>Ethernet frame containing the ARP reply message?</strong></p></blockquote><p>源MAC: 00-06-25-da-af-73</p><p>目的MAC: 00-d0-59-a9-68</p><blockquote><p><strong>15.Open the ethernet-ethereal-trace-1 trace file in</strong><br><strong><a href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip">http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip</a>. The first and second</strong><br><strong>ARP packets in this trace correspond to an ARP request sent by the computer</strong><br><strong>running Wireshark, and the ARP reply sent to the computer running Wireshark by</strong><br><strong>the computer with the ARP-requested Ethernet address. But there is yet another</strong><br><strong>computer on this network, as indicated by packet 6 – another ARP request. Why</strong><br><strong>is there no ARP reply (sent in response to the ARP request in packet 6) in the</strong><br><strong>packet trace?</strong></p></blockquote><p>arp reply数据报是单播，故本机没有收到。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;实验1&quot;&gt;实验1&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;lab1.png&quot; alt=&quot;image-20221121170604169&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一个http get报文&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;stron</summary>
+      
+    
+    
+    
+    <category term="计算机网络" scheme="http://yoursite-url/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计算机自顶向下Wireshark实验" scheme="http://yoursite-url/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWireshark%E5%AE%9E%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机自顶向下Wireshark实验ICMP部分</title>
+    <link href="http://yoursite-url/icmp/icmp/"/>
+    <id>http://yoursite-url/icmp/icmp/</id>
+    <published>2022-05-07T00:00:00.000Z</published>
+    <updated>2022-05-07T00:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="实验1-PING">实验1 PING</h3><p><img src="lab1.png" alt="image-20221121004131492"></p><p><img src="lab1-2.png" alt="image-20221121004252897"></p><blockquote><p><strong>1.What is the IP address of your host? What is the IP address of the destination</strong><br><strong>host?</strong></p></blockquote><p>本地ip：192.168.1.103</p><p>目的ip：143.89.12.134</p><blockquote><p><strong>2.Why is it that an ICMP packet does not have source and destination port</strong><br><strong>numbers?</strong></p></blockquote><p>ICMP报文是直接封装进ip数据报的，没有涉及到传输层，所以没有端口。</p><blockquote><p><strong>3.Examine one of the ping request packets sent by your host. What are the ICMP type and code numbers? What other fields does this ICMP packet have? How many bytes are the checksum, sequence number and identifier fields?</strong></p></blockquote><p>ICMP 类型：8</p><p>code number: 0</p><p><img src="lab1-QA-3.png" alt="image-20221121005430367"></p><blockquote><p><strong>4.Examine the corresponding ping reply packet. What are the ICMP type and code numbers? What other fields does this ICMP packet have? How many bytes are the checksum, sequence number and identifier fields?</strong></p></blockquote><p>ICMP 类型：0</p><p>code number:0</p><p>checksum: 0x3wa1  2字节</p><p>Identifier ： 2字节</p><blockquote><p>Identifier(BE): 1  2字节</p><p>Identifier(LE): 256  2字节</p></blockquote><p>Sequence number：  2字节</p><blockquote><p>Sequence number(BE): 5818  字节</p><p>Sequence number(LE): 47638  字节</p></blockquote><p><img src="lab1-QA-4.png" alt="image-20221121010152845"></p><h3 id="实验2-Tracert">实验2 Tracert</h3><p><img src="lab2.png" alt="lab2"></p><p><img src="lab2-2.png" alt="image-20221121013650972"></p><blockquote><p><strong>5.What is the IP address of your host? What is the IP address of the target</strong><br><strong>destination host?</strong></p></blockquote><p>本机ip:192.168.1.103</p><p>目标ip：128.93.162.83</p><blockquote><p><strong>6.If ICMP sent UDP packets instead (as in Unix/Linux), would the IP protocol</strong><br><strong>number still be 01 for the probe packets? If not, what would it be?</strong></p></blockquote><p>采用UDP发送的ICMP报文，协议号是17。</p><blockquote><p><strong>7.Examine the ICMP echo packet in your screenshot. Is this different from the ICMP ping query packets in the first half of this lab? If yes, how so?</strong></p></blockquote><p>echo报文包括echo request和echo reply。</p><p>此题本意是指这里的echo报文和先前的ping query是否一样，因为tracert每轮都是使用ping来发送报文的。</p><p>所以发出的echo requet就是先前的ping query，不过序列号可不一样。</p><p>不过注意，echo （ping） reply 类型号为0，</p><p>echo （ping） request类型号为8 。</p><blockquote><p><strong>8.Examine the ICMP error packet in your screenshot. It has more fields than the ICMP echo packet. What is included in those fields?</strong></p></blockquote><p>ICMP error类型号是11，code是0，并包含ICMP请求报文的ip数据报。</p><p>与ICMP echo request报文相比多了echo请求报文的ip数据报字段；</p><p>与ICMP echo reply倒是没有多了什么。</p><blockquote><p><strong>9.Examine the last three ICMP packets received by the source host. How are these  packets different from the ICMP error packets? Why are they different?</strong></p></blockquote><p>最后三个ICMP报文是已访问到的主机返回的，不是路由器返回的错误报文，所以是ICMP echo （ping) reply报文。</p><blockquote><p><strong>10.Within the tracert measurements, is there a link whose delay is significantly  longer than others? Refer to the screenshot in Figure 4, is there a link whose  delay is significantly longer than others? On the basis of the router names, can  you guess the location of the two routers on the end of this link?</strong></p></blockquote><p><img src="lab-QA-10-1.png" alt="image-20221121021544255"></p><p>有，第8个路由器显著比其他时延高，该路由器不在本土，本机在中国大陆。</p><p>经查询，该ip位于北美。</p><p><img src="lab-QA-10.png" alt="image-20221121021454272"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;实验1-PING&quot;&gt;实验1 PING&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;lab1.png&quot; alt=&quot;image-20221121004131492&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;lab1-2.png&quot; alt=&quot;image-20221121004252</summary>
+      
+    
+    
+    
+    <category term="计算机网络" scheme="http://yoursite-url/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计算机自顶向下Wireshark实验" scheme="http://yoursite-url/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWireshark%E5%AE%9E%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机自顶向下Wireshark实验IP部分</title>
+    <link href="http://yoursite-url/ip/ip/"/>
+    <id>http://yoursite-url/ip/ip/</id>
+    <published>2022-05-06T04:00:01.000Z</published>
+    <updated>2022-05-06T04:00:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>该实验以官方提供的Wireshark捕获文件为基础分析。</p><p>请访问官网获取文件：[课件地址]( <a href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-">http://gaia.cs.umass.edu/wireshark-labs/wireshark-</a><br>traces.zip)</p><p><img src="lab.png" alt="image-20221120204332069"></p><blockquote><p><strong>1.选择计算器发送的第一个ICMP Echo Request消息，然后在packet details window中展开数据包的Internet协议部分。您的计算机的IP地址是多少?</strong></p></blockquote><p>本地IP：192.168.1.102</p><blockquote><p><strong>2.在ip header中，上层协议字段的值是多少？</strong></p></blockquote><p>协议字段：1</p><p><img src="lab_QA_1.png" alt="image-20221120204701255"></p><blockquote><p><strong>3.IP header有多少bytes ? IP datagram的有效负载中有多少bytes ?说明如何确定payload bytes的数。</strong></p></blockquote><p>IP Header: 20 字节</p><p>Payload：64字节 = 总长度84字节 - 首部20字节</p><p><img src="lab_QA_3.png" alt="QA3"></p><blockquote><p><strong>4.此IP数据报是否已被分段(fragmented)?解释您如何确定数据报是否已被分段(fragmented)。</strong></p></blockquote><p>没有被分段，有哪位MF标志位为0 。</p><blockquote><p><strong>5.在您的计算机发送的这一系列ICMP消息中，IP数据报中的哪些字段一直改变?</strong></p></blockquote><p>TTL字段，从1 慢慢增加；</p><p>首部检验和字段，因为首部有变化；</p><p>Identification字段也有变化。</p><p>ICMP报文的序号和校验码checksum也会变化。</p><blockquote><p><strong>6.哪些字段保持不变?哪个字段必须保持不变﹖哪些字段必须更改?为什么?</strong></p></blockquote><p><em><strong>保持不变：</strong></em></p><p>源和目的ip地址保持不变；</p><p>协议和版本字段，首部长度保持不变；</p><p><strong>必须保持不变：</strong></p><p>源和目的ip地址；</p><p>协议和版本字段；</p><p><em><strong>必须改变：</strong></em></p><p>TTL字段必须更改，否则返回的都是同一个路由器的ICMP报文；</p><p>Identification必须改变；</p><p>首部检验和也随之改变；</p><p>ICMP报文的序号和校验码checksum也会变化。</p><blockquote><p><strong>7.描述你在IP datagram的Identification field中的值所看到的。</strong></p></blockquote><p>Identification随着数据报的发送慢慢增长。</p><blockquote><p><strong>8.Identification字段和TTL字段的值？</strong></p></blockquote><p>Identification：0x9d7c(40316)</p><p>TTL:255</p><p><img src="lab_QA_8.png" alt="image-20221120212411743"></p><blockquote><p><strong>9.对于最近（第一跳）路由器发送到你电脑的所有ICMP TTL超出的回复，这些值是否保持不变？ 为什么？</strong></p></blockquote><p>值发生了变化；</p><p>identification由于不同的路由器发送故而不同；</p><p>TTL变化是因为ICMP经由不同数量的路由器发送给主机，每经过1个路由器，值就减1.</p><blockquote><p><strong>10.在将pingplotter 中的数据包大小更改为2000后﹐查找计算机发送的第一个ICMP Echo Request消息。该消息是否已碎片化为多个IP数据报﹖【注意:如果你发现你的数据包没有被分割﹐你应该下载zip文件http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip并提取ip-ethereal-trace-1packet跟踪。如果您的计算机具有以太网接口﹐则数据包大小为2000会导致碎片。】</strong></p></blockquote><p>已碎片化成2个数据报：</p><p><img src="lab_QA_10.png" alt="image-20221120213743265"></p><blockquote><p><strong>11.打印出碎片IP数据报的第一个片段。IP头中的哪些信息表明数据报已碎片化?IP头中的哪些信息表明这是第一个片段还是后一个片段?这个IP数据报有多长?</strong></p></blockquote><p>MF标志位为：1，且偏移量为0，表明后面还有分片；</p><p>MF标志位为0，且偏移量不为0，表明是最后一个分片。</p><p>第一个数据报长度为：1500 = 20+1480</p><p>最后一个数据报长度：548 = 20+528</p><p>下图为最后一个分片。</p><p><img src="lab_QA_11.png" alt="image-20221120214132431"></p><p>两个分片数据报的标识符是一样的，都是0x32f9（13049）</p><p>见上图。</p><blockquote><p><strong>12.打印出碎片IP数据报的第二个片段。IP标头中的哪些信息表明这不是第一个数据报片段?是否还有更多的片段?你是如何知道的?</strong></p></blockquote><p>11题中已答。</p><blockquote><p><strong>13.在第一个和第二个片段中﹐IP标头中哪些字段发生了变化?</strong></p></blockquote><p>数据报长度；</p><p>MF标志；</p><p>偏移量；</p><p>首部检验和；</p><p><strong>Now find the first ICMP Echo Request message that was sent by your computer after you</strong><br><strong>changed the Packet Size in pingplotter to be 3500</strong></p><blockquote><p><strong>14.从原始数据包创建了多少个分片？</strong></p></blockquote><p>3个分片。</p><p><img src="lab_QA_14.png" alt="image-20221120220858507"></p><blockquote><p><strong>15.片段中IP首部中的哪些字段发生了变化？</strong></p></blockquote><p>数据包长度；</p><p>MF标志位；</p><p>偏移量；</p><p>首部检验和；</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;该实验以官方提供的Wireshark捕获文件为基础分析。&lt;/p&gt;
+&lt;p&gt;请访问官网获取文件：[课件地址]( &lt;a href=&quot;http://gaia.cs.umass.edu/wireshark-labs/wireshark-&quot;&gt;http://gaia.cs.umass.e</summary>
+      
+    
+    
+    
+    <category term="计算机网络" scheme="http://yoursite-url/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计算机自顶向下Wireshark实验" scheme="http://yoursite-url/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWireshark%E5%AE%9E%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机自顶向下Wireshark实验TCP部分</title>
+    <link href="http://yoursite-url/tcp/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWIreshark%E5%AE%9E%E9%AA%8CTCP%E9%83%A8%E5%88%86/"/>
+    <id>http://yoursite-url/tcp/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWIreshark%E5%AE%9E%E9%AA%8CTCP%E9%83%A8%E5%88%86/</id>
+    <published>2022-05-05T03:10:43.000Z</published>
+    <updated>2022-05-05T03:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>该实验以官方提供的Wireshark捕获文件为基础分析。</p><p>请访问官网获取文件：[课件地址]( <a href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-">http://gaia.cs.umass.edu/wireshark-labs/wireshark-</a><br>traces.zip)</p><h3 id="实验1">实验1</h3><p>操作部分</p><h3 id="实验2">实验2</h3><p><img src="lab2.png" alt="实验2"></p><p><strong>1.将文件传输到gaia.cs.umass.edu的客户端计算机使用的ip地址和tcp端口号是什么？</strong></p><p>源ip：192.168.1.102；</p><p>tcp端口号：1161</p><p><strong>2.gaia.cs.umass.edu的ip地址是什么？在那个端口号上发送和接受此链接的tcp却段？</strong></p><p>ip：128.119.245.12；</p><p>在端口号：80</p><p><strong>3.客户端计算机将文件传输到gaia.cs.umass.edu所使用的ip地址和tcp端口号是多少？</strong></p><p>ip：192.168.1.102；</p><p>端口号：1161</p><h3 id="实验3">实验3</h3><p><strong>4.用于在客户端计算机和gaia.cs.umass.edu之间启动TCP链接和TCP SYN区段的序列号是什么？将区段表示为SYN区段的区段有什么功能？</strong></p><p><img src="lab3-1.png" alt="实验3-1"></p><p>序列号：232129012；</p><p>SYN区段表明客户端发起连接，是三次握手中的第一次握手。</p><p><strong><a href="http://5.gaia.cs.umass.edu">5.gaia.cs.umass.edu</a> 发送给客户端计算机以回复SYN的SYNACK区段的序列号是多少？SYNACK区段中的Acknowledgement栏位的值是多少？gaia.cs.umass.edu是如何确定此Acknowledgement的数值的？在将区段标识为SYNACK区段的区段在连线中有什么功能？</strong></p><p>发给客户端计算机以回复SYN的SYNACK序列号：883061785，见题4图；</p><p>flag中看到ack栏位值为：1；</p><p><img src="lab3-2.png" alt="image-20221111161635664"></p><p>SYNACK区段在连线中表示服务器接受客户端发起的TCP连接，并为之设置接手缓存及变量；</p><p>服务器根据客户端发送的SYN区段的序列号确定acknowledgement的值，为客户sequence+1；</p><p>SYNACK区段是TCP三次握手中的第二次握手，表明服务器接受连接。</p><p><strong>6.包含HTTP POST命令的TCP区段的序列号是多少？</strong></p><p><strong>请注意，为了找到POST命令，您需要深入了解Wireshark窗口底部的数据包内容子段，在其DATA栏位中查找带有“POST”的区段。</strong></p><p>序列号：232129013。</p><p><img src="lab3-3.png" alt="image-20221111164014907"></p><p><strong>7.将包含HTTP POST的TCP区段视为TCP连接中的第一个区段。</strong></p><p><strong>在这个TCP连线中前六个TCP区段的序列号是什么(包括包含HTTP POST 的段)？</strong></p><p><strong>每区段发送的时间是什么时候?</strong></p><p><strong>收到的每个区段的ACK是什么时候?鉴于发送每个TCP区段的时间与收到确认的时间之间的差异，六个区段中每个区段的RTT值是多少?</strong></p><p><strong>收到每个ACK后，EstimatedRTT值（参见本节中的第3.5.3节，第242页）是什么？</strong></p><p><strong>假设第一个EstimatedRTT 的值等于第一个区段的测量RTT，然后使用课本第242页的EstimatedRTT公式计算所有后续区段。(译注:中译本的页数可能不同)。</strong></p><p><img src="lab3-4.png" alt="image-20221111165035919"></p><p>(SEQ:序列号SendTime：发出时间LEN：长度)</p><p>以第一个为例计算：</p><p>(1)SEQ：232129013SendTime：0.026477LEN：565</p><p>ACK-SEQ：883061786ACK-Time：0.053937RTT：0.053937-0.026477= 0.0274600</p><p>RTT可通过查看ack包，也可以自己手动计算</p><p><img src="lab3-5.png" alt="image-20221111173241699"></p><p><strong>结果：</strong></p><p><img src="lab3-6.png" alt="image-20221111175801218"></p><p>第一个E-RTT取RTT值，后面TCP段的E-RTT如上计算</p><table><thead><tr><th>No</th><th>SEQ</th><th>SendTime</th><th>ACK-Time</th><th>RTT</th><th>Estimated RTT</th><th>LEN</th></tr></thead><tbody><tr><td>1</td><td>232129013</td><td>0.026477</td><td>0.053937</td><td>0.02746</td><td>0.02764</td><td>565</td></tr><tr><td>2</td><td>232129578</td><td>0.041737</td><td>0.077294</td><td>0.035557</td><td>0.028472125</td><td>1460</td></tr><tr><td>3</td><td>232131038</td><td>0.054026</td><td>0.124085</td><td>0.070059</td><td>0.033670484375</td><td>1460</td></tr><tr><td>4</td><td>232132498</td><td>0.054690</td><td>0.169118</td><td>0.114428</td><td>0.043765173828125</td><td>1460</td></tr><tr><td>5</td><td>232133958</td><td>0.077405</td><td>0.217299</td><td>0.139894</td><td>0.05578127709960937</td><td>1460</td></tr><tr><td>6</td><td>232135418</td><td>0.078157</td><td>0.267802</td><td>0.189645</td><td>0.07251424246215821</td><td>1460</td></tr></tbody></table><p><strong>8.前六个TCP区段的长度是多少</strong></p><p>上题回答给出</p><p><strong>9.对于整个跟踪包，收到的最小可用缓冲区空间量是多少？缺少接收器缓冲区空间是否会限制发送方传送TCP区段？</strong></p><p>接收窗口最小为5840，缺少接收器缓冲会限制发送方传送TCP区段，发送方的发送收拥塞控制中的拥塞窗口以及接收方的缓冲接收窗口的影响；但包中实际的接收窗口远大于发送的报文数量，故而不会影响。</p><p><img src="lab3-8.png" alt="image-20221111181011840"></p><p><strong>10.在跟踪文件中是否有重传的区段？为了回答这个问题，您检查了什么（在跟踪包中）？</strong></p><p>使用ip.src==192.168.1.102查看客户端发出的所有保温，发现序号一直在增加，因此没有重传报文。</p><p><img src="lab3-7.png" alt="image-20221111180804291"></p><p><img src="lab3-9.png" alt="image-20221111181508135"></p><p><strong>11.接收器通常在ACK中确认多少数据？您是否可以识别接收方每隔一个接收到的区段才发送确认的情况？</strong></p><p>经对比接收方ACK与发送方的SEQ，接收方接收一个报文即发送一个ACK，没有累计确认。</p><p><img src="lab3-10.png" alt="image-20221111181814665"></p><p><strong>12.TCP连接的吞吐量（每单位时间传输的字节数）是多少？解释你如何计算这个值。</strong></p><p>![image-20221111182317428](tcp_imgs\</p><p>吞吐量=实际收到的字节数 = 传输数据大小/所用时间</p><p>看Wireshark抓包的http-post发送时间与第一个TCP发送时间可得所用时间，然后将所有TCP包大小统计，可得吞吐量。</p><p><img src="lab3-12.png" alt="image-20221111183017348"></p><p>数据大小 = 164090Bite</p><p>第一个包发送时间：0.026477</p><p>HTTP-POST时间：5.297341</p><p>吞吐量 = 164090B/(5.297341 - 0.026477)  约等于31.13151847590831KB/s</p><p>13.使用时序图（Stevens）绘图工具查看从客户端发送到服务器的区段的序列号与时间关系图。您能确定TCP慢启动阶段的开始和结束位置，以及拥塞避免开始的位置？评论测量数据与我们在文本中研究的TCP的理想化行为的不同之处。</p><p><img src="lab3-13.png" alt="image-20221111185558033"></p><p>感觉0-0.1秒区间是慢启动，0.1后是拥塞避免开始的位置，但是拥塞避免的窗口没有增大。</p><p>我们在文本中研究的TCP的理想化行为中拥塞避免的窗口是有增大的</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;该实验以官方提供的Wireshark捕获文件为基础分析。&lt;/p&gt;
+&lt;p&gt;请访问官网获取文件：[课件地址]( &lt;a href=&quot;http://gaia.cs.umass.edu/wireshark-labs/wireshark-&quot;&gt;http://gaia.cs.umass.e</summary>
+      
+    
+    
+    
+    <category term="计算机网络" scheme="http://yoursite-url/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计算机自顶向下Wireshark实验" scheme="http://yoursite-url/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWireshark%E5%AE%9E%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机自顶向下Wireshark实验UDP部分</title>
+    <link href="http://yoursite-url/udp/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWIreshark%E5%AE%9E%E9%AA%8CUDP%E9%83%A8%E5%88%86/"/>
+    <id>http://yoursite-url/udp/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWIreshark%E5%AE%9E%E9%AA%8CUDP%E9%83%A8%E5%88%86/</id>
+    <published>2022-05-05T03:10:43.000Z</published>
+    <updated>2022-05-05T03:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="实验">实验</h3><p><img src="lab.png" alt="image-20221111193308530"></p><p><strong>1.从跟踪中选择一个UDP数据包。从此数据包中，确定UDP头部中有多少字段。(建议不要查看课本，直接根据您的数据包跟踪结果回答)，并为这些字段命名。</strong></p><p>选择第一个DNS的报文，在传输层采用UDP协议。</p><p>UDP头部有4个字段：</p><p>源端口、目的端口、UDP长度、检验和</p><p><strong>2.通过查询Wircshark的数据包内容字段中显示的信息，确定每个UDP报头字段的长度(以字节为单位)。</strong></p><p>每个字段的长度为2B，共4个字段，故首部长度为8B。</p><p><strong>3.长度字段中的值是指的是什么?(此问题您可以参考课本）。使用捕获的UDP数据包验证您的声明。</strong></p><p>指的是用户数据报的长度，即首部加上数据部分。</p><p>取第一个UDP段：</p><p><img src="lab-1.png" alt="image-20221111193950006"></p><p>UDP长度为51B = 8B首部+43B数据部分</p><p><strong>4.UDP有效负载中可包含的最大字节数是多少?(提示:这个问题的答案可以通过你对上述2的回答来确定)</strong></p><p>最大字节数为：最大长度-首部长度 = 2^16-1B-8B = 65535B - 8B = 65527B</p><p><strong>5.最大可能的源端口号是多少？（提示：见4中的提示）</strong></p><p>最大源端口后为：2^16-1 = 65535</p><p><strong>6.UDP的协议号是什么？以十六进制和十进制表示法给出答案。要回答这个问题，您需要查看包含此UDP段的IP数据包的Protocol字段。（参见书中的图4.13和IP头字段的讨论）</strong></p><p>UDP的协议号：17，16进制为0x11.</p><p><img src="lab-2.png" alt="image-20221111194843642"></p><p><strong>7.观察发送UDP数据包后接收响应的UDP数据包，这是对发送的UDP数据包的回复，请描述两个数据包中端口号之间的关系。(提示:对于响应UDP目的地应该为发送UDP包的地址)</strong></p><p>发送UDP目的端口号=响应UDP源端口号</p><p>响应UDP目的端口好 = 发送UDP源端口号</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;实验&quot;&gt;实验&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;lab.png&quot; alt=&quot;image-20221111193308530&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.从跟踪中选择一个UDP数据包。从此数据包中，确定UDP头部中有多少字段。(建议不要查看课本，直接根据</summary>
+      
+    
+    
+    
+    <category term="计算机网络" scheme="http://yoursite-url/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="计算机自顶向下Wireshark实验" scheme="http://yoursite-url/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8BWireshark%E5%AE%9E%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>虚拟内存寻址</title>
+    <link href="http://yoursite-url/virtual_memory_addressing/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%AF%BB%E5%9D%80/"/>
+    <id>http://yoursite-url/virtual_memory_addressing/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%AF%BB%E5%9D%80/</id>
+    <published>2022-05-01T02:10:03.000Z</published>
+    <updated>2022-05-01T02:10:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>​在计算机早期阶段时候（比如使用DOS系统甚至更早），内存很小一般以KB为单位。那时候程序并不大，内存可以容纳。工程师对内存直接进行物理寻址，即程序中所用的地址是可以直接送进地址总线进行内存寻址的，地址与内存单元对应。</p><p>​后来程序的规模不断增加，程序对内存的需求超过了内存的实际容量，例如4KB的内存，但是程序的大小为8KB。工程师将程序分段，先将需要运行的一段载入内存，等到需要另一段的时候，再将另一段换入。早期采取覆盖的方式，需要工程师手动分割程序。后来，操作系统完成这一任务，将程序分段，并在需要的时候，将内存中的段换出，再将新的段换入内存。后来，这种超过内存实际寻址空间的虚拟地址空间得以广泛使用。<strong>工程师抽象出虚拟内存，每个程序都有其独有的虚拟地址空间。</strong></p><blockquote><p>例子：在一个CPU位数为32位、内存为256MB的机器上,采用按字节寻址，可寻址地址范围为：0x00000000~0xFFFFFFFF(<em><strong>4GB</strong></em>)，但其实际内存却只有<em><strong>256MB</strong></em>。因此需要将可寻址的地址（虚拟地址）转换为内存中实际的地址（物理地址），这一任务由<strong>MMU</strong>（内存管理单元）完成，内存管理单元接收虚拟地址，并转换成物理地址，送入地址总线，以待读写内存数据。</p></blockquote><h3 id="物理地址">物理地址</h3><p>​CPU地址总线传来的地址，可对内存寻址。物理地址空间中绝大部分是映射到内存条中的内存的，但也常被映射到其他存储器上（如显存、BIOS、设备控制器的端口）。在没有使用虚拟存储器的机器上，虚拟地址被直接送到内存总线上，使具有相同地址的物理存储器被读写；而在使用了虚拟存储器的情况下，虚拟地址不是被直接送到内存地址总线上，而是送到存储器管理单元MMU，把虚拟地址映射为物理地址。</p><h3 id="虚拟地址">虚拟地址</h3><p>​操作系统加载可执行文件后，创建了一个进程，这个进程就有了自己的虚拟地址空间，每个进程的虚拟地址空间都一样，如下图所示：</p><p><img src="%E8%BF%9B%E7%A8%8B%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4.png" alt="image-20221204194130578"></p><p>​在采用段页机制的系统中，由逻辑地址转换得到的线性地址不是物理地址，而是虚拟地址，需要进一步的查找页表，最终生成物理地址。</p><h3 id="逻辑地址">逻辑地址</h3><p>​逻辑是在指有地址变换功能的计算机中,访内指令给出的地址 (操作数) ,也叫相对地址。要经过寻址方式的计算或变换才得到映射内存中的物理地址。</p><p>​一个逻辑地址由两部份组成，<strong>段标识符: 段内偏移量</strong>（段内偏移量在采取段页机制的机器中，由<strong>页号：页内偏移量</strong>组成）。段标识符是由一个16位长的字段组成，称为段选择符。其中前13位是个索引号，后面3位包含一些硬件细节 。<br><img src="%E5%AF%BB%E5%9D%801.png" alt="image-20221204192726380"></p><h3 id="线性地址">线性地址</h3><p>​线性地址，是逻辑地址到物理地址变换之间的中间层。**在分段部件中逻辑地址包含段中的偏移地址，然后加上基地址就是线性地址（若采用段页机制，则该线性地址为虚拟地址，需进一步转换）。**线性地址通常用十六进制数字表示，程序代码会产生逻辑地址，通过逻辑地址变换就可以生成一个线性地址。如果启用了分页机制（见上图），那么线性地址可以再经过变换以产生一个物理地址。如果没有启用分页机制，那么线性地址直接就是物理地址。<br><img src="%E6%AE%B51.png" alt="image-20221204192410070"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;​		在计算机早期阶段时候（比如使用DOS系统甚至更早），内存很小一般以KB为单位。那时候程序并不大，内存可以容纳。工程师对内存直接进行物理寻址，即程序中所用的地址是可以直接送进地址总线进行内存寻址的，地址与内存单元对应。&lt;/p&gt;
+&lt;p&gt;​		后来程序的规模不断增加，程序对</summary>
+      
+    
+    
+    
+    <category term="操作系统" scheme="http://yoursite-url/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="操作系统" scheme="http://yoursite-url/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VSCode-Installation</title>
+    <link href="http://yoursite-url/VSCode/VSCode-Installation/"/>
+    <id>http://yoursite-url/VSCode/VSCode-Installation/</id>
+    <published>2022-03-04T17:10:43.000Z</published>
+    <updated>2022-03-04T17:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>VS Code（全称：Visual Studio Code）是一款由微软开发且跨平台的免费源代码编辑器。<br>该软件支持语法高亮、代码自动补全（又称 IntelliSense）、代码重构、查看定义功能，并且内置了命令行工具和 Git 版本控制系统。</p></blockquote><h2 id="下载">下载</h2><p>VScode 官网地址：<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p><p>VScode 官方文档地址：<a href="https://code.visualstudio.com/docs">https://code.visualstudio.com/docs</a></p><p>找到自己的系统，并安装相应版本</p><p><img src="1-VCSWeb.png" alt="VSCode-Installation"></p><p><img src="2-VSCDownload.png" alt="VSCode-Installation"></p><h2 id="安装">安装</h2><blockquote><p>zip压缩包直接解压可以使用,本次安装是演示exe安装</p></blockquote><h3 id="1-开始同意协议，默认next">1.开始同意协议，默认next</h3><p><img src="3-AcceptRules.png" alt="VSCode-Installation"></p><h3 id="2-选择安装目录，并next">2.选择安装目录，并next</h3><p><img src="4-chooseMenu.png" alt="VSCode-Installation"></p><p><img src="5-next.png" alt="VSCode-Installation"></p><h3 id="3-注意安装路径设置、环境变量默认自动添加到系统中">3.注意安装路径设置、环境变量默认自动添加到系统中</h3><p><img src="6-SelectAT.png" alt="VSCode-Installation"></p><h3 id="4-点击install安装完成并finish">4.点击install安装完成并finish</h3><p><img src="7-install.png" alt="VSCode-Installation"></p><p><img src="8-finish.png" alt="VSCode-Installation"></p><h2 id="界面介绍">界面介绍</h2><p><img src="10-someFunction.png" alt="VSCode-Installation"></p><h2 id="安装中文">安装中文</h2><p>首次打开VS Code可以在左下角安装中文包</p><p><img src="9-chineseInstall.png" alt="VSCode-Installation"></p><p>也可以在扩展中搜索中文安装包</p><p><img src="10-chineseInstall2.png" alt="VSCode-Installation"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;VS Code（全称：Visual Studio Code）是一款由微软开发且跨平台的免费源代码编辑器。&lt;br&gt;
+该软件支持语法高亮、代码自动补全（又称 IntelliSense）、代码重构、查看定义功能，并且内置了命令行工具和 Git 版本控制系</summary>
+      
+    
+    
+    
+    <category term="VSCode" scheme="http://yoursite-url/categories/VSCode/"/>
+    
+    
+    <category term="VSCode" scheme="http://yoursite-url/tags/VSCode/"/>
+    
+  </entry>
+  
+</feed>
