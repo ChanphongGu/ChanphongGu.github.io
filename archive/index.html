@@ -151,7 +151,7 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light body--light">
 
 
 		<!-- ThemeColor -->
@@ -185,7 +185,7 @@
       ? b.pop()
       : '';
   }
-  let themeMode = 'dark';
+  let themeMode = 'light';
   if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
     let dbody = document.body.classList;
     themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
@@ -248,9 +248,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/about/">
               
-              ARCHIVES
+              ABOUT
               
               
             </a>
@@ -259,9 +259,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -690,6 +690,10 @@
     
     
     
+    <a href="/tags/#c++" title="c++" rel="1">c++</a>
+    
+    
+    
     <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
     
     
@@ -703,10 +707,6 @@
     
     
     <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
-    
-    
-    
-    <a href="/tags/#c++" title="c++" rel="1">c++</a>
     
     
   </div>
@@ -842,6 +842,10 @@
       <li>pcb</li>
     </a>
     
+    <a href="/categories/#c++">
+      <li>c++</li>
+    </a>
+    
     <a href="/categories/#VSCode">
       <li>VSCode</li>
     </a>
@@ -856,10 +860,6 @@
     
     <a href="/categories/#操作系统">
       <li>操作系统</li>
-    </a>
-    
-    <a href="/categories/#c++">
-      <li>c++</li>
     </a>
     
   </ul>

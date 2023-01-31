@@ -151,7 +151,7 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light body--light">
 
 
 		<!-- ThemeColor -->
@@ -185,7 +185,7 @@
       ? b.pop()
       : '';
   }
-  let themeMode = 'dark';
+  let themeMode = 'light';
   if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
     let dbody = document.body.classList;
     themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
@@ -248,9 +248,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/about/">
               
-              ARCHIVES
+              ABOUT
               
               
             </a>
@@ -259,9 +259,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -462,6 +462,8 @@
         
         <a href="#pcb" title="pcb" rel="1">pcb</a>
         
+        <a href="#c++" title="c++" rel="1">c++</a>
+        
         <a href="#VSCode" title="VSCode" rel="1">VSCode</a>
         
         <a href="#计算机网络" title="计算机网络" rel="5">计算机网络</a>
@@ -469,8 +471,6 @@
         <a href="#LeetCode" title="LeetCode" rel="3">LeetCode</a>
         
         <a href="#操作系统" title="操作系统" rel="1">操作系统</a>
-        
-        <a href="#c++" title="c++" rel="1">c++</a>
         
       </div>
 
@@ -496,6 +496,35 @@
             
             <h3 class="post-subtitle">
               pcb route
+            </h3>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="c++">
+          <span class="tag-text">c++</span>
+        </span>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/c++解除流同步与绑定/c++解除流同步与绑定/">
+            <h2 class="post-title">
+              c++解除流同步与绑定
+              
+              -- c++解除流同步与绑定
+              
+            </h2>
+            
+            <h3 class="post-subtitle">
+              c++
             </h3>
             
           </a>
@@ -544,16 +573,16 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/ethernet/ethernet/">
+          <a href="/icmp/icmp/">
             <h2 class="post-title">
-              计算机自顶向下Wireshark实验ARP部分
+              计算机自顶向下Wireshark实验ICMP部分
               
-              -- ethernet
+              -- icmp
               
             </h2>
             
             <h3 class="post-subtitle">
-              ARP部分
+              ICMP部分
             </h3>
             
           </a>
@@ -566,16 +595,16 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/icmp/icmp/">
+          <a href="/ethernet/ethernet/">
             <h2 class="post-title">
-              计算机自顶向下Wireshark实验ICMP部分
+              计算机自顶向下Wireshark实验ARP部分
               
-              -- icmp
+              -- ethernet
               
             </h2>
             
             <h3 class="post-subtitle">
-              ICMP部分
+              ARP部分
             </h3>
             
           </a>
@@ -744,35 +773,6 @@
             
             <h3 class="post-subtitle">
               virtual memory addressing
-            </h3>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="c++">
-          <span class="tag-text">c++</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/c++解除流同步与绑定/c++解除流同步与绑定/">
-            <h2 class="post-title">
-              c++解除流同步与绑定
-              
-              -- c++解除流同步与绑定
-              
-            </h2>
-            
-            <h3 class="post-subtitle">
-              c++
             </h3>
             
           </a>

@@ -151,7 +151,7 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light body--light">
 
 
 		<!-- ThemeColor -->
@@ -185,7 +185,7 @@
       ? b.pop()
       : '';
   }
-  let themeMode = 'dark';
+  let themeMode = 'light';
   if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
     let dbody = document.body.classList;
     themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
@@ -248,9 +248,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/about/">
               
-              ARCHIVES
+              ABOUT
               
               
             </a>
@@ -259,9 +259,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -409,7 +409,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.1k</span> In Total
+              Words <span class="post-count">1k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -471,135 +471,95 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h3 id="实验1">实验1</h3>
-<p><img src="lab1.png" alt="image-20221121170604169"></p>
+        <h3 id="实验1"><a href="#实验1" class="headerlink" title="实验1"></a>实验1</h3><p><img src="lab1.png" alt="image-20221121170604169"></p>
 <p><strong>第一个http get报文</strong></p>
 <blockquote>
-<p><strong>1.What is the 48-bit Ethernet address of your computer?</strong></p>
+<p><strong>1.What is the 48-bit Ethernet address of your computer?</strong> </p>
 </blockquote>
 <p>本机MAC: b4 : 0e : de : 6b : 1a : b1</p>
 <p><img src="lab1-QA-1.png" alt="image-20221121170747646"></p>
 <blockquote>
-<p><strong>2.What is the 48-bit destination address in the Ethernet frame? Is this the Ethernet</strong><br>
-<strong>address of <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu">gaia.cs.umass.edu</a>? (Hint: the answer is no). What device has this as its</strong><br>
-<strong>Ethernet address? [Note: this is an important question, and one that students</strong><br>
-<strong>sometimes get wrong. Re-read pages 468-469 in the text and make sure you</strong><br>
-<strong>understand the answer here.]</strong></p>
+<p><strong>2.What is the 48-bit destination address in the Ethernet frame? Is this the Ethernet</strong><br><strong>address of gaia.cs.umass.edu? (Hint: the answer is no). What device has this as its</strong><br><strong>Ethernet address? [Note: this is an important question, and one that students</strong><br><strong>sometimes get wrong. Re-read pages 468-469 in the text and make sure you</strong><br><strong>understand the answer here.]</strong></p>
 </blockquote>
 <p>见题1上图</p>
 <p>目的MAC: 4c : 77 : 66 : ab : 85 : bc；</p>
 <p>这是路由器MAC地址。</p>
 <blockquote>
-<p><strong>3.Give the hexadecimal value for the two-byte Frame type field. What upper layer</strong><br>
-<strong>protocol does this correspond to?</strong></p>
+<p><strong>3.Give the hexadecimal value for the two-byte Frame type field. What upper layer</strong><br><strong>protocol does this correspond to?</strong></p>
 </blockquote>
 <p>ipv4 （0x0800)</p>
 <blockquote>
-<p><strong>4.How many bytes from the very start of the Ethernet frame does the ASCII “G” in</strong><br>
-<strong>“GET” appear in the Ethernet frame?</strong></p>
+<p><strong>4.How many bytes from the very start of the Ethernet frame does the ASCII “G” in</strong><br><strong>“GET” appear in the Ethernet frame?</strong></p>
 </blockquote>
 <p>前面的字节数 = ethernet首部14字节+ipv4首部20字节+TCP首部32字节 = 66字节</p>
 <p><img src="lab1-QA-4.png" alt="image-20221121171717711"></p>
 <p><strong>第一个http response报文</strong></p>
 <p><img src="lab1-1.png" alt="image-20221121171811862"></p>
 <blockquote>
-<p><strong>5.What is the value of the Ethernet source address? Is this the address of your</strong><br>
-<strong>computer, or of <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu">gaia.cs.umass.edu</a> (Hint: the answer is no). What device has this</strong><br>
-<strong>as its Ethernet address?</strong></p>
+<p><strong>5.What is the value of the Ethernet source address? Is this the address of your</strong><br><strong>computer, or of gaia.cs.umass.edu (Hint: the answer is no). What device has this</strong><br><strong>as its Ethernet address?</strong></p>
 </blockquote>
 <p>源MAC:4c : 77 : 66 : ab : 85 : bc</p>
 <p>该MAC地址是第一跳路由器的MAC地址</p>
 <p><img src="lab1-QA-5.png" alt="image-20221121172114465"></p>
 <blockquote>
-<p><strong>6.What is the destination address in the Ethernet frame? Is this the Ethernet address</strong><br>
-<strong>of your computer?</strong></p>
+<p><strong>6.What is the destination address in the Ethernet frame? Is this the Ethernet address</strong><br><strong>of your computer?</strong></p>
 </blockquote>
 <p>见上题图</p>
 <p>目的MAC：b4 : 0e : de : 6b : 1a : b1，是本机MAC地址。</p>
 <blockquote>
-<p><strong>7.Give the hexadecimal value for the two-byte Frame type field. What upper layer</strong><br>
-<strong>protocol does this correspond to?</strong></p>
+<p><strong>7.Give the hexadecimal value for the two-byte Frame type field. What upper layer</strong><br><strong>protocol does this correspond to?</strong></p>
 </blockquote>
 <p>IPv4（0x0800)</p>
 <blockquote>
-<p><strong>8.How many bytes from the very start of the Ethernet frame does the ASCII “O” in</strong><br>
-<strong>“OK” (i.e., the HTTP response code) appear in the Ethernet frame?</strong></p>
+<p><strong>8.How many bytes from the very start of the Ethernet frame does the ASCII “O” in</strong><br><strong>“OK” (i.e., the HTTP response code) appear in the Ethernet frame?</strong></p>
 </blockquote>
 <p>由于http报文太大，被分为多个报文段传送，下图是第一个报文段，携带含有http首部的一些信息，</p>
-<p>O前面字节数 = ethernet首部14字节+ipv4首部20字节+TCP首部32字节 + http报文偏移量13字节 = 79字节</p>
+<p>O前面字节数 = ethernet首部14字节+ipv4首部20字节+TCP首部32字节 + http报文偏移量13字节 = 79字节 </p>
 <p><img src="lab1-QA-8.png" alt="image-20221121172803825"></p>
-<h3 id="实验2">实验2</h3>
-<p><img src="lab2.png" alt="lab2"></p>
+<h3 id="实验2"><a href="#实验2" class="headerlink" title="实验2"></a>实验2</h3><p><img src="lab2.png" alt="lab2"></p>
 <blockquote>
-<p><strong>9.Write down the contents of your computer’s ARP cache. What is the meaning of</strong><br>
-<strong>each column value?</strong></p>
+<p><strong>9.Write down the contents of your computer’s ARP cache. What is the meaning of</strong><br><strong>each column value?</strong></p>
 </blockquote>
 <p>接口代表不同的网卡；</p>
-<p>ip地址	MAC地址	类型</p>
+<p>ip地址    MAC地址    类型</p>
 <p>ff-ff-ff-ff-ff-ff 为广播地址</p>
 <p><strong>由于电脑上其他应用一直在发送数据报，导致本机发出的arp数据报经常捕捉不到，故采用官方数据进行分析。</strong></p>
 <p><strong>该实验以官方提供的Wireshark捕获文件为基础分析。</strong></p>
-<p><strong>请访问官网获取文件：[课件地址]( <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-">http://gaia.cs.umass.edu/wireshark-labs/wireshark-</a><br>
-traces.zip)</strong></p>
+<p><strong>请访问官网获取文件：<a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-
+traces.zip">课件地址</a></strong></p>
 <p><img src="lab2-1.png" alt="image-20221121182243732"></p>
 <blockquote>
-<p><strong>10.What are the hexadecimal values for the source and destination addresses in the</strong><br>
-<strong>Ethernet frame containing the ARP request message?</strong></p>
+<p><strong>10.What are the hexadecimal values for the source and destination addresses in the</strong><br><strong>Ethernet frame containing the ARP request message?</strong></p>
 </blockquote>
 <p>源MAC: 00-d0-59-a9-3d-68</p>
 <p>目的MAC: ff-ff-ff-ff-ff-ff</p>
 <blockquote>
-<p><strong>11.Give the hexadecimal value for the two-byte Ethernet Frame type field. What</strong><br>
-<strong>upper layer protocol does this correspond to?</strong></p>
+<p><strong>11.Give the hexadecimal value for the two-byte Ethernet Frame type field. What</strong><br><strong>upper layer protocol does this correspond to?</strong></p>
 </blockquote>
 <p>类型： ARP（0x0806)</p>
 <blockquote>
-<p><strong>12.Download the ARP specification from</strong><br>
-<strong><a href="ftp://ftp.rfc-editor.org/in-notes/std/std37.txt">ftp://ftp.rfc-editor.org/in-notes/std/std37.txt</a>. A readable, detailed discussion of</strong><br>
-<strong>ARP is also at <a target="_blank" rel="noopener" href="http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html">http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html</a>.</strong><br>
-<strong>a) How many bytes from the very beginning of the Ethernet frame does the</strong><br>
-<strong>ARP opcode field begin?</strong><br>
-<strong>b) What is the value of the opcode field within the ARP-payload part of the</strong><br>
-<strong>Ethernet frame in which an ARP request is made?</strong><br>
-<strong>c) Does the ARP message contain the IP address of the sender?</strong><br>
-<strong>d) Where in the ARP request does the “question” appear – the Ethernet</strong><br>
-<strong>address of the machine whose corresponding IP address is being queried?</strong></p>
+<p><strong>12.Download the ARP specification from</strong><br><strong>ftp://ftp.rfc-editor.org/in-notes/std/std37.txt. A readable, detailed discussion of</strong><br><strong>ARP is also at <a target="_blank" rel="noopener" href="http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html">http://www.erg.abdn.ac.uk/users/gorry/course/inet-pages/arp.html</a>.</strong><br><strong>a) How many bytes from the very beginning of the Ethernet frame does the</strong><br><strong>ARP opcode field begin?</strong><br><strong>b) What is the value of the opcode field within the ARP-payload part of the</strong><br><strong>Ethernet frame in which an ARP request is made?</strong><br><strong>c) Does the ARP message contain the IP address of the sender?</strong><br><strong>d) Where in the ARP request does the “question” appear – the Ethernet</strong><br><strong>address of the machine whose corresponding IP address is being queried?</strong></p>
 </blockquote>
 <p><img src="lab2-QA-12-1.png" alt="image-20221121183935405"></p>
-<p><img src="lab2-QA-12.png" alt="image-20221121183550507"></p>
+<p> <img src="lab2-QA-12.png" alt="image-20221121183550507"></p>
 <p>a) 20 字节 = ethernet首部14字节+硬件类型2字节+协议类型2字节+硬件地址大小1字节+协议地址大小1字节</p>
 <p>b) opcode val: 1(request)</p>
 <p>c) 包含发送方ip地址</p>
 <p>d) 在target字段。</p>
 <blockquote>
-<p><strong>13.Now find the ARP reply that was sent in response to the ARP request.</strong><br>
-<strong>a) How many bytes from the very beginning of the Ethernet frame does the</strong><br>
-<strong>ARP opcode field begin?</strong><br>
-<strong>b) What is the value of the opcode field within the ARP-payload part of the</strong><br>
-<strong>Ethernet frame in which an ARP response is made?</strong><br>
-<strong>c) Where in the ARP message does the “answer” to the earlier ARP request</strong><br>
-<strong>appear – the IP address of the machine having the Ethernet address whose</strong><br>
-<strong>corresponding IP address is being queried?</strong></p>
+<p><strong>13.Now find the ARP reply that was sent in response to the ARP request.</strong><br><strong>a) How many bytes from the very beginning of the Ethernet frame does the</strong><br><strong>ARP opcode field begin?</strong><br><strong>b) What is the value of the opcode field within the ARP-payload part of the</strong><br><strong>Ethernet frame in which an ARP response is made?</strong><br><strong>c) Where in the ARP message does the “answer” to the earlier ARP request</strong><br><strong>appear – the IP address of the machine having the Ethernet address whose</strong><br><strong>corresponding IP address is being queried?</strong></p>
 </blockquote>
 <p><img src="lab2-QA-13.png" alt="image-20221121185746473"></p>
 <p>a)  20 字节 = ethernet首部14字节+硬件类型2字节+协议类型2字节+硬件地址大小1字节+协议地址大小1字节</p>
 <p>b) opcode val: 2(reply)</p>
 <p>c) sender的MAC 与IP地址字段</p>
 <blockquote>
-<p><strong>14.What are the hexadecimal values for the source and destination addresses in the</strong><br>
-<strong>Ethernet frame containing the ARP reply message?</strong></p>
+<p><strong>14.What are the hexadecimal values for the source and destination addresses in the</strong><br><strong>Ethernet frame containing the ARP reply message?</strong></p>
 </blockquote>
 <p>源MAC: 00-06-25-da-af-73</p>
 <p>目的MAC: 00-d0-59-a9-68</p>
 <blockquote>
-<p><strong>15.Open the ethernet-ethereal-trace-1 trace file in</strong><br>
-<strong><a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip">http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip</a>. The first and second</strong><br>
-<strong>ARP packets in this trace correspond to an ARP request sent by the computer</strong><br>
-<strong>running Wireshark, and the ARP reply sent to the computer running Wireshark by</strong><br>
-<strong>the computer with the ARP-requested Ethernet address. But there is yet another</strong><br>
-<strong>computer on this network, as indicated by packet 6 – another ARP request. Why</strong><br>
-<strong>is there no ARP reply (sent in response to the ARP request in packet 6) in the</strong><br>
-<strong>packet trace?</strong></p>
+<p><strong>15.Open the ethernet-ethereal-trace-1 trace file in</strong><br><strong><a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip">http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip</a>. The first and second</strong><br><strong>ARP packets in this trace correspond to an ARP request sent by the computer</strong><br><strong>running Wireshark, and the ARP reply sent to the computer running Wireshark by</strong><br><strong>the computer with the ARP-requested Ethernet address. But there is yet another</strong><br><strong>computer on this network, as indicated by packet 6 – another ARP request. Why</strong><br><strong>is there no ARP reply (sent in response to the ARP request in packet 6) in the</strong><br><strong>packet trace?</strong></p>
 </blockquote>
 <p>arp reply数据报是单播，故本机没有收到。</p>
 

@@ -151,7 +151,7 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light body--light">
 
 
 		<!-- ThemeColor -->
@@ -185,7 +185,7 @@
       ? b.pop()
       : '';
   }
-  let themeMode = 'dark';
+  let themeMode = 'light';
   if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
     let dbody = document.body.classList;
     themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
@@ -248,9 +248,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/about/">
               
-              ARCHIVES
+              ABOUT
               
               
             </a>
@@ -259,9 +259,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -483,8 +483,8 @@
       virtual memory addressing
     </h3>
     <div class="post-content-preview">
-      ​		在计算机早期阶段时候（比如使用DOS系统甚至更早），内存很小一般以KB为单位。那时候程序并不大，内存可以容纳。工程师对内存直接进行物理寻址，即程序中所用的地址是可以直接送进地址总线进行内存寻址的，地址与内存单元对应。
-​		后来程序的规模不断增加，程序对内存的需求超过了内存的实际容量，例如4KB的内存，但是程序的大小为8KB。工程师将程序分段，先将需要运行的一段载入内存，等到需要另一段......
+      ​        在计算机早期阶段时候（比如使用DOS系统甚至更早），内存很小一般以KB为单位。那时候程序并不大，内存可以容纳。工程师对内存直接进行物理寻址，即程序中所用的地址是可以直接送进地址总线进行内存寻址的，地址与内存单元对应。
+ ​        后来程序的规模不断增加，程序对内存的需求超过了内存的实际容量，例如4KB的内存，但是程序的大小为8KB。工程师将程序分段，先将需要运行的一......
     </div>
   </a>
   
@@ -518,12 +518,10 @@
     </h3>
     <div class="post-content-preview">
       
-VS Code（全称：Visual Studio Code）是一款由微软开发且跨平台的免费源代码编辑器。
-该软件支持语法高亮、代码自动补全（又称 IntelliSense）、代码重构、查看定义功能，并且内置了命令行工具和 Git 版本控制系统。
+VS Code（全称：Visual Studio Code）是一款由微软开发且跨平台的免费源代码编辑器。该软件支持语法高亮、代码自动补全（又称 IntelliSense）、代码重构、查看定义功能，并且内置了命令行工具和 Git 版本控制系统。
 
-下载
-VScode 官网地址：https://code.visualstudio.com/
-VScode 官方文档地址：https://code......
+下载VScode 官网地址：https://code.visualstudio.com/
+VScode 官方文档地址：https://code.v......
     </div>
   </a>
   
@@ -593,6 +591,10 @@ VScode 官方文档地址：https://code......
     
     
     
+    <a href="/tags/#c++" title="c++" rel="1">c++</a>
+    
+    
+    
     <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
     
     
@@ -606,10 +608,6 @@ VScode 官方文档地址：https://code......
     
     
     <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
-    
-    
-    
-    <a href="/tags/#c++" title="c++" rel="1">c++</a>
     
     
   </div>
@@ -745,6 +743,10 @@ VScode 官方文档地址：https://code......
       <li>pcb</li>
     </a>
     
+    <a href="/categories/#c++">
+      <li>c++</li>
+    </a>
+    
     <a href="/categories/#VSCode">
       <li>VSCode</li>
     </a>
@@ -759,10 +761,6 @@ VScode 官方文档地址：https://code......
     
     <a href="/categories/#操作系统">
       <li>操作系统</li>
-    </a>
-    
-    <a href="/categories/#c++">
-      <li>c++</li>
     </a>
     
   </ul>
