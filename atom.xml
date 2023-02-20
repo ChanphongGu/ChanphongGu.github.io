@@ -23,15 +23,15 @@
     <published>2022-06-04T02:01:00.000Z</published>
     <updated>2022-06-04T02:01:00.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Lowbit运算">Lowbit运算</h3><p>**用途：**用于取非负整数$N$最低位的$1$以及后面所有的$0$构成的数值。</p><p><strong>例子：</strong></p><p>$N = 1011000$, $lowbit(N) = 1000$。</p><p><strong>实现方式：</strong></p><p>$lowbit(N) = N \ &amp; \ (-N)$</p><p>主要操作是将$N$取反再加一，然后和$N$做与位运算。</p><p>在补码中，$-N$ = ~$N + 1$,故而得到上述方式。</p><h3 id="Attention">Attention</h3><p>1、$lowbit$可用于求一个数字二进制中所有$1$的个数，只需要将$N$的值不断更新为: $N - lowbit(N)$。</p><p>2、$lowbit$可用于求一个数字是否是$2$的幂。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="Lowbit运算">Lowbit运算</h3><p><strong>用途：</strong><br>用于取非负整数<code>N</code>最低位的<code>1</code>以及后面所有的<code>0</code>构成的数值。</p><p><strong>例子：</strong></p><p><code>N = 1011000</code>, <code>lowbit(N) = 1000</code>。</p><p><strong>实现方式：</strong></p><p><code>lowbit(N) = N &amp; -N</code></p><p>主要操作是将<code>N</code>取反再加一，然后和<code>N</code>做与位运算。</p><p>在补码中，<code>-N</code> = ~<code>N + 1</code>,故而得到上述方式。</p><h3 id="Attention">Attention</h3><p>1、<code>lowbit</code>可用于求一个数字二进制中所有<code>1</code>的个数，只需要将<code>N</code>的值不断更新为: <code>N - lowbit(N)</code>。</p><p>2、<code>lowbit</code>可用于求一个数字是否是<code>2</code>的幂。</p>]]></content>
     
     
       
       
     <summary type="html">&lt;h3 id=&quot;Lowbit运算&quot;&gt;Lowbit运算&lt;/h3&gt;
-&lt;p&gt;**用途：**用于取非负整数$N$最低位的$1$以及后面所有的$0$构成的数值。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;例子：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;$N = 1011000$, $lowbit(N) = 1</summary>
+&lt;p&gt;&lt;strong&gt;用途：&lt;/strong&gt;&lt;br&gt;
+用于取非负整数&lt;code&gt;N&lt;/code&gt;最低位的&lt;code&gt;1&lt;/code&gt;以及后面所有的&lt;code&gt;0&lt;/code&gt;构成的数值。&lt;/p&gt;
+&lt;p&gt;&lt;stron</summary>
       
     
     
@@ -125,6 +125,33 @@ B是A的子结构</summary>
   </entry>
   
   <entry>
+    <title>LeetCode 剑指offer32-3</title>
+    <link href="http://yoursite-url/lc_offer_32-3/lc_offer_32-3/"/>
+    <id>http://yoursite-url/lc_offer_32-3/lc_offer_32-3/</id>
+    <published>2022-05-28T18:10:43.000Z</published>
+    <updated>2022-05-28T18:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="LeetCode-剑指offer32-3">LeetCode 剑指offer32-3</h2><h3 id="题目">题目</h3><blockquote><p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p><blockquote><p>例如:<br>给定二叉树: [3,9,20,null,null,15,7],<br><img src="question1.png" alt="树结构"><br>返回：<br><img src="question2.png" alt="结果"></p></blockquote></blockquote><h3 id="算法思想">算法思想</h3><p>层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节点的子节点插入队列中。设置参数direction表示当前层的奇偶性，每取一层，根据当前层奇偶性输入到结果数组，循环直至队列为空，输出结果。</p><h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">levelOrder</span>(TreeNode* root) &#123;</span><br><span class="line">        <span class="comment">//变量声明</span></span><br><span class="line">        queue&lt;TreeNode*&gt; qNode;</span><br><span class="line">        <span class="keyword">bool</span> direction = <span class="literal">true</span>;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="comment">//判空条件</span></span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> ret;</span><br><span class="line">        <span class="comment">//算法步骤</span></span><br><span class="line">        qNode.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">while</span>(!qNode.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="keyword">int</span> current_layer_size = qNode.<span class="built_in">size</span>();</span><br><span class="line">            vector&lt;<span class="keyword">int</span>&gt; layer_ret;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;current_layer_size;i++)&#123;</span><br><span class="line">                TreeNode* node = qNode.<span class="built_in">front</span>();</span><br><span class="line">                <span class="keyword">if</span>(direction) layer_ret.<span class="built_in">push_back</span>(node-&gt;val);</span><br><span class="line">                <span class="keyword">else</span> layer_ret.<span class="built_in">emplace</span>(layer_ret.<span class="built_in">begin</span>(),node-&gt;val);</span><br><span class="line">                <span class="keyword">if</span>(node-&gt;left) qNode.<span class="built_in">push</span>(node-&gt;left);</span><br><span class="line">                <span class="keyword">if</span>(node-&gt;right) qNode.<span class="built_in">push</span>(node-&gt;right);</span><br><span class="line">                qNode.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            direction = !direction;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(layer_ret);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//处理结果</span></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="复杂度分析">复杂度分析</h3><p>时间复杂度：对每个节点只访问一次，复杂度为O(n)。</p><p>空间复杂度：O(1)。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;LeetCode-剑指offer32-3&quot;&gt;LeetCode 剑指offer32-3&lt;/h2&gt;
+&lt;h3 id=&quot;题目&quot;&gt;题目&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序</summary>
+      
+    
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/categories/LeetCode/"/>
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeetCode 剑指offer32-1</title>
     <link href="http://yoursite-url/lc_offer_32-1/lc_offer_32-1/"/>
     <id>http://yoursite-url/lc_offer_32-1/lc_offer_32-1/</id>
@@ -141,33 +168,6 @@ B是A的子结构</summary>
 &lt;blockquote&gt;
 &lt;p&gt;从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。&lt;/p&gt;
 &lt;blockquo</summary>
-      
-    
-    
-    
-    <category term="LeetCode" scheme="http://yoursite-url/categories/LeetCode/"/>
-    
-    
-    <category term="LeetCode" scheme="http://yoursite-url/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 剑指offer32-3</title>
-    <link href="http://yoursite-url/lc_offer_32-3/lc_offer_32-3/"/>
-    <id>http://yoursite-url/lc_offer_32-3/lc_offer_32-3/</id>
-    <published>2022-05-28T18:10:43.000Z</published>
-    <updated>2022-05-28T18:10:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="LeetCode-剑指offer32-3">LeetCode 剑指offer32-3</h2><h3 id="题目">题目</h3><blockquote><p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p><blockquote><p>例如:<br>给定二叉树: [3,9,20,null,null,15,7],<br><img src="question1.png" alt="树结构"><br>返回：<br><img src="question2.png" alt="结果"></p></blockquote></blockquote><h3 id="算法思想">算法思想</h3><p>层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节点的子节点插入队列中。设置参数direction表示当前层的奇偶性，每取一层，根据当前层奇偶性输入到结果数组，循环直至队列为空，输出结果。</p><h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; <span class="built_in">levelOrder</span>(TreeNode* root) &#123;</span><br><span class="line">        <span class="comment">//变量声明</span></span><br><span class="line">        queue&lt;TreeNode*&gt; qNode;</span><br><span class="line">        <span class="keyword">bool</span> direction = <span class="literal">true</span>;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; ret;</span><br><span class="line">        <span class="comment">//判空条件</span></span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> ret;</span><br><span class="line">        <span class="comment">//算法步骤</span></span><br><span class="line">        qNode.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">while</span>(!qNode.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="keyword">int</span> current_layer_size = qNode.<span class="built_in">size</span>();</span><br><span class="line">            vector&lt;<span class="keyword">int</span>&gt; layer_ret;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;current_layer_size;i++)&#123;</span><br><span class="line">                TreeNode* node = qNode.<span class="built_in">front</span>();</span><br><span class="line">                <span class="keyword">if</span>(direction) layer_ret.<span class="built_in">push_back</span>(node-&gt;val);</span><br><span class="line">                <span class="keyword">else</span> layer_ret.<span class="built_in">emplace</span>(layer_ret.<span class="built_in">begin</span>(),node-&gt;val);</span><br><span class="line">                <span class="keyword">if</span>(node-&gt;left) qNode.<span class="built_in">push</span>(node-&gt;left);</span><br><span class="line">                <span class="keyword">if</span>(node-&gt;right) qNode.<span class="built_in">push</span>(node-&gt;right);</span><br><span class="line">                qNode.<span class="built_in">pop</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            direction = !direction;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(layer_ret);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//处理结果</span></span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="复杂度分析">复杂度分析</h3><p>时间复杂度：对每个节点只访问一次，复杂度为O(n)。</p><p>空间复杂度：O(1)。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;LeetCode-剑指offer32-3&quot;&gt;LeetCode 剑指offer32-3&lt;/h2&gt;
-&lt;h3 id=&quot;题目&quot;&gt;题目&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序</summary>
       
     
     

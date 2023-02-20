@@ -142,7 +142,7 @@
   <link rel="canonical" href="http://yoursite-url/">
   <title>
     
-      live a poetic life
+      GCFBLOG:live a poetic life
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="atom.xml" title="GCFBlog" type="application/atom+xml">
@@ -248,9 +248,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/about/">
               
-              CATEGORIES
+              ABOUT
               
               
             </a>
@@ -259,9 +259,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/categories/">
               
-              ABOUT
+              CATEGORIES
               
               
             </a>
@@ -484,15 +484,16 @@
     </h3>
     <div class="post-content-preview">
       Lowbit运算
-**用途：**用于取非负整数$N$最低位的$1$以及后面所有的$0$构成的数值。
+用途：
+用于取非负整数N最低位的1以及后面所有的0构成的数值。
 例子：
-$N = 1011000$, $lowbit(N) = 1000$。
+N = 1011000, lowbit(N) = 1000。
 实现方式：
-$lowbit(N) = N \ &amp; \ (-N)$
-主要操作是将$N$取反再加一，然后和$N$做与位运算。
-在补码中，$-N$ = ~$N + 1$,故而得到上述方式。
+lowbit(N) = N &amp; -N
+主要操作是将N取反再加一，然后和N做与位运算。
+在补码中，-N = ~N + 1,故而得到上述方式。
 Attention
-1、......
+1、lowbit可用于求一个数字二进制中所有1的个数，只需要将......
     </div>
   </a>
   
@@ -645,6 +646,52 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
   <!-- top end -->
   
 
+  <a href="/lc_offer_32-3/lc_offer_32-3/">
+    <h2 class="post-title">
+      LeetCode 剑指offer32-3
+    </h2>
+    <h3 class="post-subtitle">
+      剑指offer
+    </h3>
+    <div class="post-content-preview">
+      LeetCode 剑指offer32-3
+题目
+
+请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
+
+例如:
+给定二叉树: [3,9,20,null,null,15,7],
+
+返回：
+
+
+
+算法思想
+层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-05-29
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/lc_offer_32-1/lc_offer_32-1/">
     <h2 class="post-title">
       LeetCode 剑指offer32-1
@@ -670,52 +717,6 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
 循环操作，直到队内没有节点，即结束。
 代码
 123456789101......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Gu on
-    2022-05-29
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/lc_offer_32-3/lc_offer_32-3/">
-    <h2 class="post-title">
-      LeetCode 剑指offer32-3
-    </h2>
-    <h3 class="post-subtitle">
-      剑指offer
-    </h3>
-    <div class="post-content-preview">
-      LeetCode 剑指offer32-3
-题目
-
-请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
-
-例如:
-给定二叉树: [3,9,20,null,null,15,7],
-
-返回：
-
-
-
-算法思想
-层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节......
     </div>
   </a>
   
@@ -926,16 +927,6 @@ tcp......
         <!-- Visitors -->
 <h5><a href="/">VISITORS</a></h5>
 
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
 
         <hr>
     
@@ -1054,8 +1045,8 @@ tcp......
       <li>LeetCode 剑指offer26</li>
     </a>
     
-    <a href="lc_offer_32-1/lc_offer_32-1/">
-      <li>LeetCode 剑指offer32-1</li>
+    <a href="lc_offer_32-3/lc_offer_32-3/">
+      <li>LeetCode 剑指offer32-3</li>
     </a>
     
   </ul>
@@ -1213,9 +1204,6 @@ tcp......
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   
