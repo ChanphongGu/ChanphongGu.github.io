@@ -248,6 +248,17 @@
           
           
           <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/about/">
               
               ABOUT
@@ -262,17 +273,6 @@
             <a href="/archive/">
               
               ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/categories/">
-              
-              CATEGORIES
               
               
             </a>
@@ -475,6 +475,48 @@
   <!-- top end -->
   
 
+  <a href="/c++位运算-lowbit/c++位运算-lowbit/">
+    <h2 class="post-title">
+      c++位运算-lowbit
+    </h2>
+    <h3 class="post-subtitle">
+      c++
+    </h3>
+    <div class="post-content-preview">
+      Lowbit运算
+**用途：**用于取非负整数$N$最低位的$1$以及后面所有的$0$构成的数值。
+例子：
+$N = 1011000$, $lowbit(N) = 1000$。
+实现方式：
+$lowbit(N) = N \ &amp; \ (-N)$
+主要操作是将$N$取反再加一，然后和$N$做与位运算。
+在补码中，$-N$ = ~$N + 1$,故而得到上述方式。
+Attention
+1、......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-06-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#c++" title="c++">c++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/c++解除流同步与绑定/c++解除流同步与绑定/">
     <h2 class="post-title">
       c++解除流同步与绑定
@@ -483,8 +525,10 @@
       c++
     </h3>
     <div class="post-content-preview">
-      c++解除流同步与绑定关闭同步
-If the streams are synchronized, a program can mix iostream operations with stdio operations, and their observable effects are guaranteed to follow the same order as used in the thr......
+      c++解除流同步与绑定
+关闭同步
+
+If the streams are synchronized, a program can mix iostream operations with stdio operations, and their observable effects are guaranteed to follow the same order as used in the t......
     </div>
   </a>
   
@@ -517,8 +561,14 @@ If the streams are synchronized, a program can mix iostream operations with stdi
       pcb route
     </h3>
     <div class="post-content-preview">
-      MARCH: MAze Routing Under a Concurrent and Hierarchical Scheme for Buses前言：该篇文献与pcb上的总线布线有关，是基于总线并行与分层方案下的迷宫布线。
-开篇几问：1.该文主要讲述了什么？2.提出了何种解决方案?参考链接：MARCH:MAze Routing Under a Concurrent and Hierarchi......
+      MARCH: MAze Routing Under a Concurrent and Hierarchical Scheme for Buses
+前言：
+该篇文献与pcb上的总线布线有关，是基于总线并行与分层方案下的迷宫布线。
+开篇几问：
+1.该文主要讲述了什么？
+2.提出了何种解决方案?
+参考链接：
+MARCH:MAze Routing Under a Concurrent and Hie......
     </div>
   </a>
   
@@ -551,17 +601,26 @@ If the streams are synchronized, a program can mix iostream operations with stdi
       剑指offer
     </h3>
     <div class="post-content-preview">
-      LeetCode 剑指offer26题目
-输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)B是A的子结构， 即 A中有出现和B相同的结构和节点值。
+      LeetCode 剑指offer26
+题目
 
-例如:给定的树 A:  
+输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)
+B是A的子结构， 即 A中有出现和B相同的结构和节点值。
+
+例如:
+给定的树 A:
 
 
-例如:给定二叉树: [3,9,20,null,null,15,7],给定的树B：结果：返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。
+例如:
+给定二叉树: [3,9,20,null,null,15,7],
+
+给定的树B：
+
+结果：返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。
 
 
 示例：
-算法思想1.先......
+......
     </div>
   </a>
   
@@ -594,14 +653,23 @@ If the streams are synchronized, a program can mix iostream operations with stdi
       剑指offer
     </h3>
     <div class="post-content-preview">
-      LeetCode 剑指offer32-1题目
-从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。  
+      LeetCode 剑指offer32-1
+题目
 
-例如:给定二叉树: [3,9,20,null,null,15,7],返回： 
+从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
+
+例如:
+给定二叉树: [3,9,20,null,null,15,7],
+
+返回：
 
 
-算法思想经典的层序遍历，可使用队列实现。从根节点开始，队首每弹出一个节点，就访问这个节点的值，并将其子节点入队。循环操作，直到队内没有节点，即结束。
-代码123456789101112131......
+
+算法思想
+经典的层序遍历，可使用队列实现。从根节点开始，队首每弹出一个节点，就访问这个节点的值，并将其子节点入队。
+循环操作，直到队内没有节点，即结束。
+代码
+123456789101......
     </div>
   </a>
   
@@ -634,13 +702,20 @@ If the streams are synchronized, a program can mix iostream operations with stdi
       剑指offer
     </h3>
     <div class="post-content-preview">
-      LeetCode 剑指offer32-3题目
-请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。  
+      LeetCode 剑指offer32-3
+题目
 
-例如:给定二叉树: [3,9,20,null,null,15,7],返回： 
+请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
+
+例如:
+给定二叉树: [3,9,20,null,null,15,7],
+
+返回：
 
 
-算法思想层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节点的子节......
+
+算法思想
+层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节......
     </div>
   </a>
   
@@ -674,9 +749,10 @@ If the streams are synchronized, a program can mix iostream operations with stdi
     </h3>
     <div class="post-content-preview">
       实验1
+
 第一个http get报文
 
-1.What is the 48-bit Ethernet address of your computer? 
+1.What is the 48-bit Ethernet address of your computer?
 
 本机MAC: b4 : 0e : de : 6b : 1a : b1
 
@@ -717,12 +793,14 @@ If the streams are synchronized, a program can mix iostream operations with stdi
       实验1 PING
 
 
-1.What is the IP address of your host? What is the IP address of the destinationhost?
+
+1.What is the IP address of your host? What is the IP address of the destination
+host?
 
 本地ip：192.168.1.103
 目的ip：143.89.12.134
 
-2.Why is it that an ICMP packet does not have source and des......
+2.Why is it that an ICMP packet does not have source and d......
     </div>
   </a>
   
@@ -756,19 +834,11 @@ If the streams are synchronized, a program can mix iostream operations with stdi
     </h3>
     <div class="post-content-preview">
       该实验以官方提供的Wireshark捕获文件为基础分析。
-请访问官网获取文件：课件地址
+请访问官网获取文件：[课件地址]( http://gaia.cs.umass.edu/wireshark-labs/wireshark-
+traces.zip)
 
 
-1.选择计算器发送的第一个ICMP Echo Request消息，然后在packet details window中展开数据包的Internet协议部分。您的计算机的IP地址是多少?
-
-本地IP：192.168.1.102
-
-2.在ip header中，上层协议字段的值是多少？
-
-协议字段：1
-
-
-3......
+1.选择计算器发送的第一个ICMP Echo Request消息，然后在packet details window中展开数据包的Internet协议部分。您的计算机的IP......
     </div>
   </a>
   
@@ -802,53 +872,15 @@ If the streams are synchronized, a program can mix iostream operations with stdi
     </h3>
     <div class="post-content-preview">
       该实验以官方提供的Wireshark捕获文件为基础分析。
-请访问官网获取文件：课件地址
-实验1操作部分
+请访问官网获取文件：[课件地址]( http://gaia.cs.umass.edu/wireshark-labs/wireshark-
+traces.zip)
+实验1
+操作部分
 实验2
+
 1.将文件传输到gaia.cs.umass.edu的客户端计算机使用的ip地址和tcp端口号是什么？
 源ip：192.168.1.102；
-tcp端口号：1161
-2.gaia.cs.umass.edu的ip地址是什么？在那个端口号上发送和接受此链接的tcp却段？
-ip：128.1......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Gu on
-    2022-05-05
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#计算机自顶向下Wireshark实验" title="计算机自顶向下Wireshark实验">计算机自顶向下Wireshark实验</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/udp/计算机自顶向下WIreshark实验UDP部分/">
-    <h2 class="post-title">
-      计算机自顶向下Wireshark实验UDP部分
-    </h2>
-    <h3 class="post-subtitle">
-      UDP部分
-    </h3>
-    <div class="post-content-preview">
-      实验
-1.从跟踪中选择一个UDP数据包。从此数据包中，确定UDP头部中有多少字段。(建议不要查看课本，直接根据您的数据包跟踪结果回答)，并为这些字段命名。
-选择第一个DNS的报文，在传输层采用UDP协议。
-UDP头部有4个字段：
-源端口、目的端口、UDP长度、检验和
-2.通过查询Wircshark的数据包内容字段中显示的信息，确定每个UDP报头字段的长度(以字节为单位)。
-每个字段的长度为2......
+tcp......
     </div>
   </a>
   
@@ -918,11 +950,11 @@ UDP头部有4个字段：
     
     
     
-    <a href="/tags/#c++" title="c++" rel="1">c++</a>
-    
-    
-    
     <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
+    
+    
+    
+    <a href="/tags/#c++" title="c++" rel="2">c++</a>
     
     
     
@@ -1006,6 +1038,10 @@ UDP头部有4个字段：
 <div class="widget">
   <ul>
     
+    <a href="c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/">
+      <li>c++位运算-lowbit</li>
+    </a>
+    
     <a href="c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/">
       <li>c++解除流同步与绑定</li>
     </a>
@@ -1020,10 +1056,6 @@ UDP头部有4个字段：
     
     <a href="lc_offer_32-1/lc_offer_32-1/">
       <li>LeetCode 剑指offer32-1</li>
-    </a>
-    
-    <a href="lc_offer_32-3/lc_offer_32-3/">
-      <li>LeetCode 剑指offer32-3</li>
     </a>
     
   </ul>
@@ -1054,7 +1086,7 @@ UDP头部有4个字段：
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/06/">June 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
 </div>
 
 
@@ -1070,12 +1102,12 @@ UDP头部有4个字段：
       <li>pcb</li>
     </a>
     
-    <a href="/categories/#c++">
-      <li>c++</li>
-    </a>
-    
     <a href="/categories/#VSCode">
       <li>VSCode</li>
+    </a>
+    
+    <a href="/categories/#c++">
+      <li>c++</li>
     </a>
     
     <a href="/categories/#计算机网络">

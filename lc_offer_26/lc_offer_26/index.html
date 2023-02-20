@@ -248,6 +248,17 @@
           
           
           <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/about/">
               
               ABOUT
@@ -262,17 +273,6 @@
             <a href="/archive/">
               
               ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/categories/">
-              
-              CATEGORIES
               
               
             </a>
@@ -471,19 +471,35 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="LeetCode-剑指offer26"><a href="#LeetCode-剑指offer26" class="headerlink" title="LeetCode 剑指offer26"></a>LeetCode 剑指offer26</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><blockquote>
-<p>输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)<br>B是A的子结构， 即 A中有出现和B相同的结构和节点值。</p>
+        <h2 id="LeetCode-剑指offer26">LeetCode 剑指offer26</h2>
+<h3 id="题目">题目</h3>
+<blockquote>
+<p>输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)<br>
+B是A的子结构， 即 A中有出现和B相同的结构和节点值。</p>
 </blockquote>
-<p>例如:<br>给定的树 A:  </p>
+<p>例如:<br>
+给定的树 A:</p>
 <blockquote>
 <blockquote>
-<p>例如:<br>给定二叉树: [3,9,20,null,null,15,7],<br><img src="q1.png" alt="树结构"><br>给定的树B：<br><img src="q2.png" alt="结果"><br>结果：返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。</p>
+<p>例如:<br>
+给定二叉树: [3,9,20,null,null,15,7],<br>
+<img src="q1.png" alt="树结构"><br>
+给定的树B：<br>
+<img src="q2.png" alt="结果"><br>
+结果：返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。</p>
 </blockquote>
 </blockquote>
-<p>示例：<br><img src="r1.png" alt="special"></p>
-<h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>1.先利用先序遍历，遍历A树中的每一个节点。<br>2.访问到节点a时，利用层序遍历判断当前a为根节点的子树是否匹配B树的结构。若匹配返回true，反之false。<br>3.若节点a为根节点的子树无法匹配，则继续搜索a的左右子树是否能够匹配。回到2，直到A中找到匹配树B的子树，或者遍历A中每个节点，无法找到并返回false；</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSubStructure</span><span class="params">(TreeNode* A, TreeNode* B)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (A!=<span class="literal">nullptr</span> &amp;&amp; B!=<span class="literal">nullptr</span>)</span><br><span class="line">            &amp;&amp;(<span class="built_in">isMatchedSubStructure</span>(A,B)</span><br><span class="line">                ||<span class="built_in">isSubStructure</span>(A-&gt;left,B)</span><br><span class="line">                ||<span class="built_in">isSubStructure</span>(A-&gt;right,B));</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatchedSubStructure</span><span class="params">(TreeNode* A, TreeNode* B)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(A-&gt;val!=B-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        queue&lt;TreeNode*&gt; qTreeA;</span><br><span class="line">        queue&lt;TreeNode*&gt; qTreeB;</span><br><span class="line">        qTreeA.<span class="built_in">push</span>(A);</span><br><span class="line">        qTreeB.<span class="built_in">push</span>(B);</span><br><span class="line">        <span class="keyword">while</span>(!qTreeB.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            TreeNode* tnodeA = qTreeA.<span class="built_in">front</span>();</span><br><span class="line">            TreeNode* tnodeB = qTreeB.<span class="built_in">front</span>();</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;val!=tnodeB-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;left&amp;&amp; tnodeB-&gt;left)&#123;</span><br><span class="line">                qTreeA.<span class="built_in">push</span>(tnodeA-&gt;left);</span><br><span class="line">                qTreeB.<span class="built_in">push</span>(tnodeB-&gt;left);</span><br><span class="line">            </span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(tnodeB-&gt;left) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;right &amp;&amp; tnodeB-&gt;right)&#123;</span><br><span class="line">                qTreeA.<span class="built_in">push</span>(tnodeA-&gt;right);</span><br><span class="line">                qTreeB.<span class="built_in">push</span>(tnodeB-&gt;right);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(tnodeB-&gt;right) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            qTreeA.<span class="built_in">pop</span>();</span><br><span class="line">            qTreeB.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>m为A树大小，n为B树大小。<br>时间复杂度：最坏情况下对A的每个节点只访问一次，访问到根节点相同的需要进行匹配，匹配的复杂度为O(n)。故最坏情况下，时间复杂度为O(mn)。</p>
+<p>示例：<br>
+<img src="r1.png" alt="special"></p>
+<h3 id="算法思想">算法思想</h3>
+<p>1.先利用先序遍历，遍历A树中的每一个节点。<br>
+2.访问到节点a时，利用层序遍历判断当前a为根节点的子树是否匹配B树的结构。若匹配返回true，反之false。<br>
+3.若节点a为根节点的子树无法匹配，则继续搜索a的左右子树是否能够匹配。回到2，直到A中找到匹配树B的子树，或者遍历A中每个节点，无法找到并返回false；</p>
+<h3 id="代码">代码</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSubStructure</span><span class="params">(TreeNode* A, TreeNode* B)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (A!=<span class="literal">nullptr</span> &amp;&amp; B!=<span class="literal">nullptr</span>)</span><br><span class="line">            &amp;&amp;(<span class="built_in">isMatchedSubStructure</span>(A,B)</span><br><span class="line">                ||<span class="built_in">isSubStructure</span>(A-&gt;left,B)</span><br><span class="line">                ||<span class="built_in">isSubStructure</span>(A-&gt;right,B));</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatchedSubStructure</span><span class="params">(TreeNode* A, TreeNode* B)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(A-&gt;val!=B-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        queue&lt;TreeNode*&gt; qTreeA;</span><br><span class="line">        queue&lt;TreeNode*&gt; qTreeB;</span><br><span class="line">        qTreeA.<span class="built_in">push</span>(A);</span><br><span class="line">        qTreeB.<span class="built_in">push</span>(B);</span><br><span class="line">        <span class="keyword">while</span>(!qTreeB.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            TreeNode* tnodeA = qTreeA.<span class="built_in">front</span>();</span><br><span class="line">            TreeNode* tnodeB = qTreeB.<span class="built_in">front</span>();</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;val!=tnodeB-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;left&amp;&amp; tnodeB-&gt;left)&#123;</span><br><span class="line">                qTreeA.<span class="built_in">push</span>(tnodeA-&gt;left);</span><br><span class="line">                qTreeB.<span class="built_in">push</span>(tnodeB-&gt;left);</span><br><span class="line">            </span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(tnodeB-&gt;left) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(tnodeA-&gt;right &amp;&amp; tnodeB-&gt;right)&#123;</span><br><span class="line">                qTreeA.<span class="built_in">push</span>(tnodeA-&gt;right);</span><br><span class="line">                qTreeB.<span class="built_in">push</span>(tnodeB-&gt;right);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(tnodeB-&gt;right) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            qTreeA.<span class="built_in">pop</span>();</span><br><span class="line">            qTreeB.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="复杂度分析">复杂度分析</h3>
+<p>m为A树大小，n为B树大小。<br>
+时间复杂度：最坏情况下对A的每个节点只访问一次，访问到根节点相同的需要进行匹配，匹配的复杂度为O(n)。故最坏情况下，时间复杂度为O(mn)。</p>
 <p>空间复杂度：O(m)。</p>
 
 

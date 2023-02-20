@@ -248,6 +248,17 @@
           
           
           <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/about/">
               
               ABOUT
@@ -262,17 +273,6 @@
             <a href="/archive/">
               
               ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/categories/">
-              
-              CATEGORIES
               
               
             </a>
@@ -409,7 +409,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">629</span> In Total
+              Words <span class="post-count">633</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -471,15 +471,18 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h3 id="实验1-PING"><a href="#实验1-PING" class="headerlink" title="实验1 PING"></a>实验1 PING</h3><p><img src="lab1.png" alt="image-20221121004131492"></p>
+        <h3 id="实验1-PING">实验1 PING</h3>
+<p><img src="lab1.png" alt="image-20221121004131492"></p>
 <p><img src="lab1-2.png" alt="image-20221121004252897"></p>
 <blockquote>
-<p><strong>1.What is the IP address of your host? What is the IP address of the destination</strong><br><strong>host?</strong></p>
+<p><strong>1.What is the IP address of your host? What is the IP address of the destination</strong><br>
+<strong>host?</strong></p>
 </blockquote>
 <p>本地ip：192.168.1.103</p>
 <p>目的ip：143.89.12.134</p>
 <blockquote>
-<p><strong>2.Why is it that an ICMP packet does not have source and destination port</strong><br><strong>numbers?</strong></p>
+<p><strong>2.Why is it that an ICMP packet does not have source and destination port</strong><br>
+<strong>numbers?</strong></p>
 </blockquote>
 <p>ICMP报文是直接封装进ip数据报的，没有涉及到传输层，所以没有端口。</p>
 <blockquote>
@@ -491,7 +494,7 @@
 <blockquote>
 <p><strong>4.Examine the corresponding ping reply packet. What are the ICMP type and code numbers? What other fields does this ICMP packet have? How many bytes are the checksum, sequence number and identifier fields?</strong></p>
 </blockquote>
-<p>ICMP 类型：0  </p>
+<p>ICMP 类型：0</p>
 <p>code number:0</p>
 <p>checksum: 0x3wa1  2字节</p>
 <p>Identifier ： 2字节</p>
@@ -505,15 +508,18 @@
 <p>Sequence number(LE): 47638  字节</p>
 </blockquote>
 <p><img src="lab1-QA-4.png" alt="image-20221121010152845"></p>
-<h3 id="实验2-Tracert"><a href="#实验2-Tracert" class="headerlink" title="实验2 Tracert"></a>实验2 Tracert</h3><p><img src="lab2.png" alt="lab2"></p>
+<h3 id="实验2-Tracert">实验2 Tracert</h3>
+<p><img src="lab2.png" alt="lab2"></p>
 <p><img src="lab2-2.png" alt="image-20221121013650972"></p>
 <blockquote>
-<p><strong>5.What is the IP address of your host? What is the IP address of the target</strong><br><strong>destination host?</strong></p>
+<p><strong>5.What is the IP address of your host? What is the IP address of the target</strong><br>
+<strong>destination host?</strong></p>
 </blockquote>
 <p>本机ip:192.168.1.103</p>
 <p>目标ip：128.93.162.83</p>
 <blockquote>
-<p><strong>6.If ICMP sent UDP packets instead (as in Unix/Linux), would the IP protocol</strong><br><strong>number still be 01 for the probe packets? If not, what would it be?</strong></p>
+<p><strong>6.If ICMP sent UDP packets instead (as in Unix/Linux), would the IP protocol</strong><br>
+<strong>number still be 01 for the probe packets? If not, what would it be?</strong></p>
 </blockquote>
 <p>采用UDP发送的ICMP报文，协议号是17。</p>
 <blockquote>

@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/archives/2022/03/">
+  <link rel="canonical" href="http://yoursite-url/c++位运算-lowbit/c++位运算-lowbit/">
   <title>
     
-      live a poetic life
+      c++位运算-lowbit - live a poetic life
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="atom.xml" title="GCFBlog" type="application/atom+xml">
@@ -301,25 +301,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="archives/2022/03/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -371,19 +353,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/lml_bg.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/lml_bg.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/lml_bg.jpg'); */
       
     }
 
@@ -405,10 +387,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>GCFBlog</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">This is GCF&#39;s blog</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#c++" title="c++">c++</a>
+              
+            </div>
+            <h1>c++位运算-lowbit</h1>
+            <h2 class="subheading">c++</h2>
+            <span class="meta">
+              Posted by Gu on
+              2022-06-04
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">1</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">135</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -449,438 +463,276 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <h3 id="Lowbit运算">Lowbit运算</h3>
+<p>**用途：**用于取非负整数$N$最低位的$1$以及后面所有的$0$构成的数值。</p>
+<p><strong>例子：</strong></p>
+<p>$N = 1011000$, $lowbit(N) = 1000$。</p>
+<p><strong>实现方式：</strong></p>
+<p>$lowbit(N) = N \ &amp; \ (-N)$</p>
+<p>主要操作是将$N$取反再加一，然后和$N$做与位运算。</p>
+<p>在补码中，$-N$ = ~$N + 1$,故而得到上述方式。</p>
+<h3 id="Attention">Attention</h3>
+<p>1、$lowbit$可用于求一个数字二进制中所有$1$的个数，只需要将$N$的值不断更新为: $N - lowbit(N)$。</p>
+<p>2、$lowbit$可用于求一个数字是否是$2$的幂。</p>
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <li>
-            06-04
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/c++位运算-lowbit/c++位运算-lowbit/" style="color: #0085a1">
-              <span>
-                c++位运算-lowbit
-                
-                -- c++位运算-lowbit
-                
-              </span>
-            </a>
-          </li>
           
-          <li>
-            06-03
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/c++解除流同步与绑定/c++解除流同步与绑定/" style="color: #0085a1">
-              <span>
-                c++解除流同步与绑定
-                
-                -- c++解除流同步与绑定
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-30
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019_DAC_Chunk_March/2019_DAC_Chunk_March/" style="color: #0085a1">
-              <span>
-                MARCH:MAze Routing Under a Concurrent and Hierarchical Scheme for Buses
-                
-                -- 2019_DAC_Chunk_March
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/lc_offer_32-3/lc_offer_32-3/" style="color: #0085a1">
-              <span>
-                LeetCode 剑指offer32-3
-                
-                -- lc_offer_32-3
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/lc_offer_32-1/lc_offer_32-1/" style="color: #0085a1">
-              <span>
-                LeetCode 剑指offer32-1
-                
-                -- lc_offer_32-1
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/lc_offer_26/lc_offer_26/" style="color: #0085a1">
-              <span>
-                LeetCode 剑指offer26
-                
-                -- lc_offer_26
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-08
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/ethernet/ethernet/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验ARP部分
-                
-                -- ethernet
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-07
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/icmp/icmp/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验ICMP部分
-                
-                -- icmp
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-06
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/ip/ip/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验IP部分
-                
-                -- ip
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/udp/计算机自顶向下WIreshark实验UDP部分/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验UDP部分
-                
-                -- udp
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/tcp/计算机自顶向下WIreshark实验TCP部分/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验TCP部分
-                
-                -- tcp
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/virtual_memory_addressing/虚拟内存寻址/" style="color: #0085a1">
-              <span>
-                虚拟内存寻址
-                
-                -- virtual_memory_addressing
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/VSCode/VSCode-Installation/" style="color: #0085a1">
-              <span>
-                VSCode-Installation
-                
-                -- VSCode
-                
-              </span>
-            </a>
+          <li class="next">
+            <a href="/c++解除流同步与绑定/c++解除流同步与绑定/" data-toggle="tooltip" data-placement="top" title="c++解除流同步与绑定">Next Post &rarr;</a>
           </li>
           
         </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=c++位运算-lowbit&body=Hi,I found this website and thought you might like it http://yoursite-url/c++位运算-lowbit/c++位运算-lowbit/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'c2bab3efae2287dd0385',
+      clientSecret: 'e2ec8cd2a961346b8e517db4038801033162f2fb',
+      repo: 'ChanphongGu.github.io',
+      owner: 'ChanphongGu',
+      admin: 'ChanphongGu',
+      id: 'Sat Jun 04 2022 10:01:00 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
-      
-    </div>
-  </div>
-</div>
 
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
     
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Lowbit%E8%BF%90%E7%AE%97"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Lowbit运算</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Attention"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Attention</span></a></li></ol>
+        
+        </div>
+      </aside>
     
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#c++" title="c++">c++</a>
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#pcb route" title="pcb route" rel="1">pcb route</a>
-    
-    
-    
-    <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
-    
-    
-    
-    <a href="/tags/#c++" title="c++" rel="2">c++</a>
-    
-    
-    
-    <a href="/tags/#计算机自顶向下Wireshark实验" title="计算机自顶向下Wireshark实验" rel="5">计算机自顶向下Wireshark实验</a>
-    
-    
-    
-    <a href="/tags/#LeetCode" title="LeetCode" rel="3">LeetCode</a>
-    
-    
-    
-    <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/poetic_scene.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>live a poetic life</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/ChanphongGu">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/顾辰枫">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../../c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/">
-      <li>c++位运算-lowbit</li>
-    </a>
-    
-    <a href="../../../c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/">
-      <li>c++解除流同步与绑定</li>
-    </a>
-    
-    <a href="../../../2019_DAC_Chunk_March/2019_DAC_Chunk_March/">
-      <li>MARCH:MAze Routing Under a Concurrent and Hierarchical Scheme for Buses</li>
-    </a>
-    
-    <a href="../../../lc_offer_26/lc_offer_26/">
-      <li>LeetCode 剑指offer26</li>
-    </a>
-    
-    <a href="../../../lc_offer_32-1/lc_offer_32-1/">
-      <li>LeetCode 剑指offer32-1</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="https://v-vincen.life/" target="_blank">V_Vincen</a></li>
-  
-  <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
-  
-  <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
+        
         <hr>
-    
-        <!-- Archives -->
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../05/">May 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="">March 2022</a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#pcb">
-      <li>pcb</li>
-    </a>
-    
-    <a href="/categories/#VSCode">
-      <li>VSCode</li>
-    </a>
-    
-    <a href="/categories/#c++">
-      <li>c++</li>
-    </a>
-    
-    <a href="/categories/#计算机网络">
-      <li>计算机网络</li>
-    </a>
-    
-    <a href="/categories/#LeetCode">
-      <li>LeetCode</li>
-    </a>
-    
-    <a href="/categories/#操作系统">
-      <li>操作系统</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">V_Vincen</a>
+          </li>
+          
+          <li>
+            <a href="http://beantech.org" target="_blank">Bean Tech</a>
+          </li>
+          
+          <li>
+            <a href="http://huangxuan.me" target="_blank">Hux Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
