@@ -466,8 +466,8 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>该实验以官方提供的Wireshark捕获文件为基础分析。</p>
-<p>请访问官网获取文件：[课件地址]( <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-">http://gaia.cs.umass.edu/wireshark-labs/wireshark-</a><br>
-traces.zip)</p>
+<p>请访问官网获取文件：<a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-
+traces.zip">课件地址</a></p>
 <p><img src="lab.png" alt="image-20221120204332069"></p>
 <blockquote>
 <p><strong>1.选择计算器发送的第一个ICMP Echo Request消息，然后在packet details window中展开数据包的Internet协议部分。您的计算机的IP地址是多少?</strong></p>
@@ -485,7 +485,7 @@ traces.zip)</p>
 <p>Payload：64字节 = 总长度84字节 - 首部20字节</p>
 <p><img src="lab_QA_3.png" alt="QA3"></p>
 <blockquote>
-<p><strong>4.此IP数据报是否已被分段(fragmented)?解释您如何确定数据报是否已被分段(fragmented)。</strong></p>
+<p> <strong>4.此IP数据报是否已被分段(fragmented)?解释您如何确定数据报是否已被分段(fragmented)。</strong></p>
 </blockquote>
 <p>没有被分段，有哪位MF标志位为0 。</p>
 <blockquote>
@@ -498,13 +498,13 @@ traces.zip)</p>
 <blockquote>
 <p><strong>6.哪些字段保持不变?哪个字段必须保持不变﹖哪些字段必须更改?为什么?</strong></p>
 </blockquote>
-<p><em><strong>保持不变：</strong></em></p>
+<p><strong><em>保持不变：</em></strong></p>
 <p>源和目的ip地址保持不变；</p>
 <p>协议和版本字段，首部长度保持不变；</p>
 <p><strong>必须保持不变：</strong></p>
 <p>源和目的ip地址；</p>
 <p>协议和版本字段；</p>
-<p><em><strong>必须改变：</strong></em></p>
+<p><strong><em>必须改变：</em></strong></p>
 <p>TTL字段必须更改，否则返回的都是同一个路由器的ICMP报文；</p>
 <p>Identification必须改变；</p>
 <p>首部检验和也随之改变；</p>
@@ -526,7 +526,7 @@ traces.zip)</p>
 <p>identification由于不同的路由器发送故而不同；</p>
 <p>TTL变化是因为ICMP经由不同数量的路由器发送给主机，每经过1个路由器，值就减1.</p>
 <blockquote>
-<p><strong>10.在将pingplotter 中的数据包大小更改为2000后﹐查找计算机发送的第一个ICMP Echo Request消息。该消息是否已碎片化为多个IP数据报﹖【注意:如果你发现你的数据包没有被分割﹐你应该下载zip文件http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip并提取ip-ethereal-trace-1packet跟踪。如果您的计算机具有以太网接口﹐则数据包大小为2000会导致碎片。】</strong></p>
+<p><strong>10.在将pingplotter 中的数据包大小更改为2000后﹐查找计算机发送的第一个ICMP Echo Request消息。该消息是否已碎片化为多个IP数据报﹖【注意:如果你发现你的数据包没有被分割﹐你应该下载zip文件<a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip并提取ip-ethereal-trace-1packet跟踪。如果您的计算机具有以太网接口﹐则数据包大小为2000会导致碎片。】">http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip并提取ip-ethereal-trace-1packet跟踪。如果您的计算机具有以太网接口﹐则数据包大小为2000会导致碎片。】</a></strong></p>
 </blockquote>
 <p>已碎片化成2个数据报：</p>
 <p><img src="lab_QA_10.png" alt="image-20221120213743265"></p>
@@ -552,8 +552,7 @@ traces.zip)</p>
 <p>MF标志；</p>
 <p>偏移量；</p>
 <p>首部检验和；</p>
-<p><strong>Now find the first ICMP Echo Request message that was sent by your computer after you</strong><br>
-<strong>changed the Packet Size in pingplotter to be 3500</strong></p>
+<p><strong>Now find the first ICMP Echo Request message that was sent by your computer after you</strong><br><strong>changed the Packet Size in pingplotter to be 3500</strong></p>
 <blockquote>
 <p><strong>14.从原始数据包创建了多少个分片？</strong></p>
 </blockquote>
