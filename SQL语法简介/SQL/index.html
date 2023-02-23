@@ -248,9 +248,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/about/">
               
-              ARCHIVES
+              ABOUT
               
               
             </a>
@@ -259,9 +259,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -514,16 +514,16 @@
 <strong>查看表结构：</strong><code>DESC 表名;</code><br>
 <strong>查看建表语句：</strong><code>SHOW CREATE TABLE 表名;</code></p>
 <h4 id="数据类型：">数据类型：</h4>
-<p>**INt：**整型;（除了INT之外整型还有TINYINT、SMALLINT、MEDIUMINT）<br>
-**double：**浮点型，例如 double(5,2)表示最多 5 位，其中必须有 2 位小数，即最大值为 999.99；<br>
-**decimal：**泛型型，在表单线方面使用该类型，因为不会出现精度缺失问题；<br>
-**char：**固定长度字符串类型；(当输入的字符不够长度时会补空格)<br>
-**varchar：**固定长度字符串类型；<br>
-**text：**字符串类型；<br>
-**blob：**字节类型；<br>
-**date：**日期类型，格式为：yyyy-MM-dd；<br>
-**time：**时间类型，格式为：hh:mm:ss<br>
-**timestamp：**时间戳类型；</p>
+<p><strong>INT:</strong> 整型;（除了INT之外整型还有TINYINT、SMALLINT、MEDIUMINT）<br>
+<strong>double：</strong> 浮点型，例如 double(5,2)表示最多 5 位，其中必须有 2 位小数，即最大值为 999.99；<br>
+<strong>decimal：</strong> 泛型型，在表单线方面使用该类型，因为不会出现精度缺失问题；<br>
+<strong>char：</strong> 固定长度字符串类型；(当输入的字符不够长度时会补空格)<br>
+<strong>varchar：</strong> 固定长度字符串类型；<br>
+<strong>text：</strong> 字符串类型；<br>
+<strong>blob：</strong>  字节类型；<br>
+<strong>date：</strong> 日期类型，格式为：yyyy-MM-dd；<br>
+<strong>time：</strong> 时间类型，格式为：hh:mm:ss<br>
+<strong>timestamp：</strong> 时间戳类型；</p>
 <h4 id="创建表">创建表</h4>
 <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> TABLE 表名&#123;</span><br><span class="line">字段<span class="number">1</span> 字段<span class="number">1</span>类型[COMMENT 字段<span class="number">1</span>注释],</span><br><span class="line">字段<span class="number">2</span> 字段<span class="number">2</span>类型[COMMENT 字段<span class="number">2</span>注释],</span><br><span class="line">... ...</span><br><span class="line">&#125;[COMMENT 表注释];</span><br><span class="line"></span><br><span class="line">## 例子</span><br><span class="line"><span class="keyword">CREATE</span> TABLE <span class="keyword">user</span> (</span><br><span class="line"><span class="symbol">`id`</span> INt(<span class="number">11</span>) COMMENT <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line"><span class="symbol">`name`</span> varchar(<span class="number">50</span>) COMMENT <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line"><span class="symbol">`age`</span> INt(<span class="number">11</span>) COMMENT <span class="string">&#x27;年龄&#x27;</span>,</span><br><span class="line"><span class="symbol">`gender`</span> varchar(<span class="number">1</span>) COMMENT <span class="string">&#x27;性别&#x27;</span></span><br><span class="line">) COMMENT=<span class="string">&#x27;用户表&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h4 id="常见约束">常见约束</h4>
