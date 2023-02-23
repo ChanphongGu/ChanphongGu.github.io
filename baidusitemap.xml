@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite-url/SQL%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B/SQL/</loc>
+    <lastmod>2022-07-05</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/</loc>
     <lastmod>2022-06-04</lastmod>
   </url>

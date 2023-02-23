@@ -248,6 +248,17 @@
           
           
           <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/about/">
               
               ABOUT
@@ -262,17 +273,6 @@
             <a href="/categories/">
               
               CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
               
               
             </a>
@@ -466,10 +466,12 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>该实验以官方提供的Wireshark捕获文件为基础分析。</p>
-<p>请访问官网获取文件：<a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-
-traces.zip">课件地址</a></p>
-<h3 id="实验1"><a href="#实验1" class="headerlink" title="实验1"></a>实验1</h3><p>操作部分</p>
-<h3 id="实验2"><a href="#实验2" class="headerlink" title="实验2"></a>实验2</h3><p><img src="lab2.png" alt="实验2"></p>
+<p>请访问官网获取文件：[课件地址]( <a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-">http://gaia.cs.umass.edu/wireshark-labs/wireshark-</a><br>
+traces.zip)</p>
+<h3 id="实验1">实验1</h3>
+<p>操作部分</p>
+<h3 id="实验2">实验2</h3>
+<p><img src="lab2.png" alt="实验2"></p>
 <p><strong>1.将文件传输到gaia.cs.umass.edu的客户端计算机使用的ip地址和tcp端口号是什么？</strong></p>
 <p>源ip：192.168.1.102；</p>
 <p>tcp端口号：1161</p>
@@ -479,11 +481,12 @@ traces.zip">课件地址</a></p>
 <p><strong>3.客户端计算机将文件传输到gaia.cs.umass.edu所使用的ip地址和tcp端口号是多少？</strong></p>
 <p>ip：192.168.1.102；</p>
 <p>端口号：1161</p>
-<h3 id="实验3"><a href="#实验3" class="headerlink" title="实验3"></a>实验3</h3><p><strong>4.用于在客户端计算机和gaia.cs.umass.edu之间启动TCP链接和TCP SYN区段的序列号是什么？将区段表示为SYN区段的区段有什么功能？</strong></p>
+<h3 id="实验3">实验3</h3>
+<p><strong>4.用于在客户端计算机和gaia.cs.umass.edu之间启动TCP链接和TCP SYN区段的序列号是什么？将区段表示为SYN区段的区段有什么功能？</strong></p>
 <p><img src="lab3-1.png" alt="实验3-1"></p>
 <p>序列号：232129012；</p>
 <p>SYN区段表明客户端发起连接，是三次握手中的第一次握手。</p>
-<p><strong>5.gaia.cs.umass.edu 发送给客户端计算机以回复SYN的SYNACK区段的序列号是多少？SYNACK区段中的Acknowledgement栏位的值是多少？gaia.cs.umass.edu是如何确定此Acknowledgement的数值的？在将区段标识为SYNACK区段的区段在连线中有什么功能？</strong></p>
+<p><strong><a target="_blank" rel="noopener" href="http://5.gaia.cs.umass.edu">5.gaia.cs.umass.edu</a> 发送给客户端计算机以回复SYN的SYNACK区段的序列号是多少？SYNACK区段中的Acknowledgement栏位的值是多少？gaia.cs.umass.edu是如何确定此Acknowledgement的数值的？在将区段标识为SYNACK区段的区段在连线中有什么功能？</strong></p>
 <p>发给客户端计算机以回复SYN的SYNACK序列号：883061785，见题4图；</p>
 <p>flag中看到ack栏位值为：1；</p>
 <p><img src="lab3-2.png" alt="image-20221111161635664"></p>
@@ -501,16 +504,15 @@ traces.zip">课件地址</a></p>
 <p><strong>收到每个ACK后，EstimatedRTT值（参见本节中的第3.5.3节，第242页）是什么？</strong></p>
 <p><strong>假设第一个EstimatedRTT 的值等于第一个区段的测量RTT，然后使用课本第242页的EstimatedRTT公式计算所有后续区段。(译注:中译本的页数可能不同)。</strong></p>
 <p><img src="lab3-4.png" alt="image-20221111165035919"></p>
-<p>(SEQ:序列号    SendTime：发出时间    LEN：长度)</p>
+<p>(SEQ:序列号	SendTime：发出时间	LEN：长度)</p>
 <p>以第一个为例计算：</p>
-<p>(1)SEQ：232129013    SendTime：0.026477    LEN：565</p>
-<p>ACK-SEQ：883061786    ACK-Time：0.053937    RTT：0.053937-0.026477= 0.0274600</p>
+<p>(1)SEQ：232129013	SendTime：0.026477	LEN：565</p>
+<p>ACK-SEQ：883061786	ACK-Time：0.053937	RTT：0.053937-0.026477= 0.0274600</p>
 <p>RTT可通过查看ack包，也可以自己手动计算</p>
 <p><img src="lab3-5.png" alt="image-20221111173241699"></p>
 <p><strong>结果：</strong></p>
 <p><img src="lab3-6.png" alt="image-20221111175801218"></p>
 <p>第一个E-RTT取RTT值，后面TCP段的E-RTT如上计算</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -580,7 +582,6 @@ traces.zip">课件地址</a></p>
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>8.前六个TCP区段的长度是多少</strong></p>
 <p>上题回答给出</p>
 <p><strong>9.对于整个跟踪包，收到的最小可用缓冲区空间量是多少？缺少接收器缓冲区空间是否会限制发送方传送TCP区段？</strong></p>

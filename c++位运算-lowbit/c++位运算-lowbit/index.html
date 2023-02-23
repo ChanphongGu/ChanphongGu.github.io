@@ -248,6 +248,17 @@
           
           
           <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/about/">
               
               ABOUT
@@ -262,17 +273,6 @@
             <a href="/categories/">
               
               CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
               
               
             </a>
@@ -409,7 +409,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">130</span> In Total
+              Words <span class="post-count">131</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -465,20 +465,27 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h3 id="Lowbit运算"><a href="#Lowbit运算" class="headerlink" title="Lowbit运算"></a>Lowbit运算</h3><p><strong>用途：</strong><br>用于取非负整数<code>N</code>最低位的<code>1</code>以及后面所有的<code>0</code>构成的数值。</p>
+        <h3 id="Lowbit运算">Lowbit运算</h3>
+<p><strong>用途：</strong><br>
+用于取非负整数<code>N</code>最低位的<code>1</code>以及后面所有的<code>0</code>构成的数值。</p>
 <p><strong>例子：</strong></p>
 <p><code>N = 1011000</code>, <code>lowbit(N) = 1000</code>。</p>
 <p><strong>实现方式：</strong></p>
 <p><code>lowbit(N) = N &amp; -N</code></p>
 <p>主要操作是将<code>N</code>取反再加一，然后和<code>N</code>做与位运算。</p>
 <p>在补码中，<code>-N</code> = ~<code>N + 1</code>,故而得到上述方式。</p>
-<h3 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h3><p>1、<code>lowbit</code>可用于求一个数字二进制中所有<code>1</code>的个数，只需要将<code>N</code>的值不断更新为: <code>N - lowbit(N)</code>。</p>
+<h3 id="Attention">Attention</h3>
+<p>1、<code>lowbit</code>可用于求一个数字二进制中所有<code>1</code>的个数，只需要将<code>N</code>的值不断更新为: <code>N - lowbit(N)</code>。</p>
 <p>2、<code>lowbit</code>可用于求一个数字是否是<code>2</code>的幂。</p>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a href="/SQL语法简介/SQL/" data-toggle="tooltip" data-placement="top" title="SQL语法概述">&larr; Previous Post</a>
+          </li>
           
           
           <li class="next">

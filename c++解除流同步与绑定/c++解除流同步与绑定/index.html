@@ -248,6 +248,17 @@
           
           
           <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/about/">
               
               ABOUT
@@ -262,17 +273,6 @@
             <a href="/categories/">
               
               CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
               
               
             </a>
@@ -465,15 +465,18 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="c-解除流同步与绑定"><a href="#c-解除流同步与绑定" class="headerlink" title="c++解除流同步与绑定"></a>c++解除流同步与绑定</h1><h3 id="关闭同步"><a href="#关闭同步" class="headerlink" title="关闭同步"></a>关闭同步</h3><blockquote>
+        <h1>c++解除流同步与绑定</h1>
+<h3 id="关闭同步">关闭同步</h3>
+<blockquote>
 <p>If the streams are synchronized, a program can mix iostream operations with stdio operations, and their observable effects are guaranteed to follow the same order as used in the thread.</p>
 </blockquote>
 <p><code>ios::sync_with_stdio = false;(默认true)</code></p>
 <p>默认情况下，c++为了兼容c，将iostream与stdio绑定，为了避免混用printf和cout而造成的输出顺序和代码语句不一致的问题。如果解除同步，输出的结果无法预测，但是可以提升执行效率。建议解除同步后，不要混用iostream与stdio。</p>
-<h3 id="解除cin与cout绑定"><a href="#解除cin与cout绑定" class="headerlink" title="解除cin与cout绑定"></a>解除cin与cout绑定</h3><blockquote>
+<h3 id="解除cin与cout绑定">解除cin与cout绑定</h3>
+<blockquote>
 <p>cin is tied to the standard output stream cout (see ios::tie), which indicates that cout’s buffer is flushed (see ostream::flush) before each i/o operation performed on cin.</p>
 </blockquote>
-<p><code>cin.tie(NULL)</code>、<code>cout.tie(NULL) ;</code> </p>
+<p><code>cin.tie(NULL)</code>、<code> cout.tie(NULL) ;</code></p>
 <p>默认情况下，cin与cout绑定至同一个标准流，在cin读取数据之前都需要调用<code>flush()</code>函数，将cout流的缓冲刷新至输出文件中。</p>
 <p>解除cin与cout绑定可减少flush次数，提升执行效率。</p>
 
@@ -625,7 +628,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#c-%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">c++解除流同步与绑定</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E9%97%AD%E5%90%8C%E6%AD%A5"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">关闭同步</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%A7%A3%E9%99%A4cin%E4%B8%8Ecout%E7%BB%91%E5%AE%9A"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">解除cin与cout绑定</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">c++解除流同步与绑定</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B3%E9%97%AD%E5%90%8C%E6%AD%A5"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">关闭同步</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%A7%A3%E9%99%A4cin%E4%B8%8Ecout%E7%BB%91%E5%AE%9A"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">解除cin与cout绑定</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
