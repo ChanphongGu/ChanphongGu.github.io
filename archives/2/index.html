@@ -248,9 +248,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
               
               
             </a>
@@ -259,9 +259,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/about/">
               
-              ARCHIVES
+              ABOUT
               
               
             </a>
@@ -475,24 +475,22 @@
   <!-- top end -->
   
 
-  <a href="/tcp/计算机自顶向下WIreshark实验TCP部分/">
+  <a href="/udp/计算机自顶向下WIreshark实验UDP部分/">
     <h2 class="post-title">
-      计算机自顶向下Wireshark实验TCP部分
+      计算机自顶向下Wireshark实验UDP部分
     </h2>
     <h3 class="post-subtitle">
-      TCP部分
+      UDP部分
     </h3>
     <div class="post-content-preview">
-      该实验以官方提供的Wireshark捕获文件为基础分析。
-请访问官网获取文件：[课件地址]( http://gaia.cs.umass.edu/wireshark-labs/wireshark-
-traces.zip)
-实验1
-操作部分
-实验2
+      实验
 
-1.将文件传输到gaia.cs.umass.edu的客户端计算机使用的ip地址和tcp端口号是什么？
-源ip：192.168.1.102；
-tcp......
+1.从跟踪中选择一个UDP数据包。从此数据包中，确定UDP头部中有多少字段。(建议不要查看课本，直接根据您的数据包跟踪结果回答)，并为这些字段命名。
+选择第一个DNS的报文，在传输层采用UDP协议。
+UDP头部有4个字段：
+源端口、目的端口、UDP长度、检验和
+2.通过查询Wircshark的数据包内容字段中显示的信息，确定每个UDP报头字段的长度(以字节为单位)。
+每个字段的长度为......
     </div>
   </a>
   
@@ -517,22 +515,24 @@ tcp......
   <!-- top end -->
   
 
-  <a href="/udp/计算机自顶向下WIreshark实验UDP部分/">
+  <a href="/tcp/计算机自顶向下WIreshark实验TCP部分/">
     <h2 class="post-title">
-      计算机自顶向下Wireshark实验UDP部分
+      计算机自顶向下Wireshark实验TCP部分
     </h2>
     <h3 class="post-subtitle">
-      UDP部分
+      TCP部分
     </h3>
     <div class="post-content-preview">
-      实验
+      该实验以官方提供的Wireshark捕获文件为基础分析。
+请访问官网获取文件：[课件地址]( http://gaia.cs.umass.edu/wireshark-labs/wireshark-
+traces.zip)
+实验1
+操作部分
+实验2
 
-1.从跟踪中选择一个UDP数据包。从此数据包中，确定UDP头部中有多少字段。(建议不要查看课本，直接根据您的数据包跟踪结果回答)，并为这些字段命名。
-选择第一个DNS的报文，在传输层采用UDP协议。
-UDP头部有4个字段：
-源端口、目的端口、UDP长度、检验和
-2.通过查询Wircshark的数据包内容字段中显示的信息，确定每个UDP报头字段的长度(以字节为单位)。
-每个字段的长度为......
+1.将文件传输到gaia.cs.umass.edu的客户端计算机使用的ip地址和tcp端口号是什么？
+源ip：192.168.1.102；
+tcp......
     </div>
   </a>
   
@@ -577,6 +577,55 @@ UDP头部有4个字段：
   <div class="tags">
     
     <a href="/tags/#操作系统" title="操作系统">操作系统</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/函数调用压栈过程/函数调用压栈过程/">
+    <h2 class="post-title">
+      c++函数调用压栈过程
+    </h2>
+    <h3 class="post-subtitle">
+      函数调用
+    </h3>
+    <div class="post-content-preview">
+      c++函数调用压栈过程
+函数调用的过程实际上是一个中断的过程，涉及到函数参数入栈、函数跳转、保存现场、函数执行、恢复现场（函数返回）等。
+
+ 这里介绍六个下文要用到的寄存器：
+三个重点：
+
+EIP：指令指针，指向下一条待执行的指令的地址；
+EBP：基址指针，指向栈底；
+ESP：栈顶指针；
+三个次要：
+
+EBX：基址寄存器；
+
+ESI：源变址寄存器；
+EDI：目的变址寄存器。
+
+三个汇编指令：......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-04-03
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#c++" title="c++">c++</a>
     
   </div>
   
@@ -665,19 +714,19 @@ VScode 官方文档地址：https://code......
     
     
     
-    <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
-    
-    
-    
-    <a href="/tags/#c++" title="c++" rel="2">c++</a>
-    
-    
-    
     <a href="/tags/#数据库" title="数据库" rel="1">数据库</a>
     
     
     
+    <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
+    
+    
+    
     <a href="/tags/#计算机自顶向下Wireshark实验" title="计算机自顶向下Wireshark实验" rel="5">计算机自顶向下Wireshark实验</a>
+    
+    
+    
+    <a href="/tags/#c++" title="c++" rel="3">c++</a>
     
     
     
@@ -805,7 +854,7 @@ VScode 官方文档地址：https://code......
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
 </div>
 
 
@@ -821,20 +870,20 @@ VScode 官方文档地址：https://code......
       <li>pcb</li>
     </a>
     
-    <a href="/categories/#VSCode">
-      <li>VSCode</li>
-    </a>
-    
-    <a href="/categories/#c++">
-      <li>c++</li>
-    </a>
-    
     <a href="/categories/#数据库">
       <li>数据库</li>
     </a>
     
+    <a href="/categories/#VSCode">
+      <li>VSCode</li>
+    </a>
+    
     <a href="/categories/#计算机网络">
       <li>计算机网络</li>
+    </a>
+    
+    <a href="/categories/#c++">
+      <li>c++</li>
     </a>
     
     <a href="/categories/#LeetCode">

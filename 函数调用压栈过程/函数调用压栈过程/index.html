@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/categories/操作系统/">
+  <link rel="canonical" href="http://yoursite-url/函数调用压栈过程/函数调用压栈过程/">
   <title>
     
-      GCFBLOG:live a poetic life
+      c++函数调用压栈过程 - GCFBLOG:live a poetic life
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="atom.xml" title="GCFBlog" type="application/atom+xml">
@@ -301,25 +301,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="categories/操作系统/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -371,19 +353,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/bg-11.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/bg-11.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/bg-11.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/bg-11.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/bg-11.jpg'); */
       
     }
 
@@ -405,10 +387,36 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>GCFBlog</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">This is GCF&#39;s blog</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#c++" title="c++">c++</a>
+              
+            </div>
+            <h1>c++函数调用压栈过程</h1>
+            <h2 class="subheading">函数调用</h2>
+            <span class="meta">
+              Posted by Gu on
+              2022-04-03
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">4</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.2k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
           </div>
           
         </div>
@@ -449,462 +457,348 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <h1 id="c-函数调用压栈过程"><a href="#c-函数调用压栈过程" class="headerlink" title="c++函数调用压栈过程"></a>c++函数调用压栈过程</h1><blockquote>
+<p>函数调用的过程实际上是一个中断的过程，涉及到函数参数入栈、函数跳转、保存现场、函数执行、恢复现场（函数返回）等。</p>
+</blockquote>
+<p> 这里介绍六个下文要用到的寄存器：</p>
+<p><strong>三个重点：</strong></p>
+<ul>
+<li>EIP：指令指针，指向下一条待执行的指令的地址；</li>
+<li>EBP：基址指针，指向栈底；</li>
+<li><p>ESP：栈顶指针；</p>
+<p><strong>三个次要：</strong></p>
+</li>
+<li><p>EBX：基址寄存器；</p>
+</li>
+<li>ESI：源变址寄存器；</li>
+<li>EDI：目的变址寄存器。</li>
+</ul>
+<p><strong>三个汇编指令：</strong></p>
+<ul>
+<li><p>pop指令：出栈并将该值存入指定寄存器；</p>
+</li>
+<li><p>push指令：将指定寄存器的数据入栈；</p>
+</li>
+<li>mov a, b指令：将寄存器b的值赋给a,方向是b-&gt;a。</li>
+</ul>
+<p><strong>代码例子：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g_func</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0x11111111</span>;</span><br><span class="line">    <span class="keyword">int</span> y = <span class="number">0x22222222</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">g_func</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="函数参数入栈"><a href="#函数参数入栈" class="headerlink" title="函数参数入栈"></a>函数参数入栈</h3><p>调用函数<code>g_func</code>的时候，会先将参数从右到左压入栈，即<code>c-&gt;b-&gt;a</code>的顺序入栈，此时栈顶指针ESP指向<code>a</code>。</p>
+<blockquote>
+<p>压入的参数即为函数形参，后续用通用寄存器取值进行计算。</p>
+</blockquote>
+<p>下图是<code>g_func</code>调用的汇编代码：</p>
+<p><img src="函数调用-1.jpg" alt="image-20230304003657668"></p>
+<script type="math/tex; mode=display">
+图1</script><p><img src="函数调用-2.jpg" alt="image-20230304003821798"></p>
+<script type="math/tex; mode=display">
+图2</script><p><strong>图1</strong>有三条push指令，将<code>3-&gt;2-&gt;1</code>压入栈，此时<strong>图2</strong>ESP值为<code>0012FEF0</code>(注意栈地址是由内存高地址往低地址扩张的),ESP的值正是<code>a</code>,也就是<code>1</code>的地址。</p>
+<h3 id="函数跳转"><a href="#函数跳转" class="headerlink" title="函数跳转"></a>函数跳转</h3><p>函数参数压栈之后，将会跳转至<code>g_func</code>函数的执行地址。</p>
+<p><strong>图1</strong>中执行<code>call</code>指令跳转至地址<code>00401005</code>,这个地址在下图:</p>
+<p><img src="函数调用-3.jpg" alt="image-20230304004519784"></p>
+<script type="math/tex; mode=display">
+图3</script><p>而<code>00401005</code>地址处是一条<code>jmp</code>指令，跳转至地址<code>00401030</code>，这个地址正是<code>g_func</code>函数的入口，见下图：</p>
+<p><img src="函数调用-4.jpg" alt="image-20230304082659817"></p>
+<script type="math/tex; mode=display">
+图4</script><h3 id="保存现场"><a href="#保存现场" class="headerlink" title="保存现场"></a>保存现场</h3><p>在执行<code>call</code>指令之后，<strong>系统默认往栈中压入了执行<code>call</code>指令之前的EIP</strong>,即隐含执行了一条<code>push</code>指令。</p>
+<p>下图中ESP的值(栈顶)为<code>0x0012FEEC</code>，内存中在该地址的值为<code>0x00401093</code>，这值恰好是<strong>图2</strong>中下一条待执行的<code>add</code>指令的地址，所以这里保存的就是<strong>函数的返回地址</strong>。</p>
+<p>函数调用结束后，弹出该返回地址，然后跳转到该地址继续执行。</p>
+<blockquote>
+<p>这一过程是编译器隐含完成的。 </p>
+</blockquote>
+<p><img src="函数调用-5.jpg" alt="image-20230304083054086"></p>
+<script type="math/tex; mode=display">
+图5</script><blockquote>
+<p>也有一部分保护现场在下面阐述，因为这些指令位于g_func函数起始地址下方，所以将其放在函数执行中说明。</p>
+</blockquote>
+<h3 id="函数执行"><a href="#函数执行" class="headerlink" title="函数执行"></a>函数执行</h3><p>进入函数体后，开始执行<strong>图5</strong>中的指令。</p>
+<p>1、将EBP压入栈，每个函数都有独立的栈区域，由于函数执行过程也需要用的EBP寄存器，所以需要将此前<code>main</code>的EBP保存在栈中。</p>
+<p>2、<code>mov ebp esp</code>指令将此时的栈顶地址作为函数的栈基址EBP，从而确定了<code>g_func</code>函数的栈区域（EBP为栈底/栈基址，ESP为栈顶）。</p>
+<p>3、<code>sub esp 48h</code>指令将ESP向低地址移动<code>48h</code>字节（<code>72</code>字节），移动的区域包含两个部分：<code>g_func</code>函数的局部变量区域<code>8</code>字节（<code>x</code>4字节 + <code>y</code>4字节）、安全的间隔区域<code>64</code>字节。</p>
+<p>间隔区域为了将不同函数的栈区域隔离开，防止相互影响。</p>
+<p>4、接下来几行指令是将刚才预留出的<code>48h</code>字节的内存区域赋值为<code>0CCCCCCCCh</code>。</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">00401039 </span>lea edi,[ebp-<span class="number">48</span>h]</span><br><span class="line"><span class="number">0040103</span>C mov ecx,<span class="number">12</span>h</span><br><span class="line"><span class="symbol">00401041 </span>mov eax,<span class="number">0</span>CCCCCCCCh</span><br><span class="line"><span class="symbol">00401046 </span>rep stos dword ptr [edi] </span><br></pre></td></tr></table></figure>
+<p><img src="函数调用-6.jpg" alt="image-20230304084855508"></p>
+<script type="math/tex; mode=display">
+图6</script><blockquote>
+<p>上述几个操作也可以归纳为保护现场，真正执行具体函数体内容的在下面。</p>
+</blockquote>
+<p>5、开始执行两条<code>mov</code>指令，用来对变量<code>x</code>和<code>y</code>赋值。由于栈是向低地址扩张的，所以<code>x</code>和<code>y</code>的地址分别为<code>EBP-4</code>和<code>EBP-8</code>，查看内存表可发现相应内存区域已经存入<code>0x11111111</code>和<code>0x22222222</code>。</p>
+<p><img src="函数调用-7.jpg" alt="image-20230304090226022"></p>
+<script type="math/tex; mode=display">
+图7</script><p><img src="函数调用-8.jpg" alt="image-20230304090301872"></p>
+<script type="math/tex; mode=display">
+图8</script><h3 id="恢复现场"><a href="#恢复现场" class="headerlink" title="恢复现场"></a>恢复现场</h3><p>函数体执行完以后，在返回之前，如下图需要做一些善后的工作。</p>
+<p>1、将EDI、ESI、EBX出栈，即三条<code>pop</code>指令，这样就能恢复调用前的EDI、ESI、EBX的值。<br>2、恢复ESP的值，即<code>mov</code>指令,将EBP的值赋给ESP，这样EBP就跳过了<code>64</code>字节间隔区域和<code>8</code>字节局部数据区域，因为函数已经执行完毕，两个区域无用。<br>3、将EBP出栈，即<code>pop</code>指令，这样就可以恢复调用前的EBP值。</p>
+<p><img src="函数调用-10.jpg" alt="image-20230304091451068"></p>
+<script type="math/tex; mode=display">
+图9</script><p>4、执行<code>ret</code>指令之前，隐式将ESP值减小，令其指向存储前EIP值的地址。这样程序就能跳转至中断前的地方，即<strong>恢复断点</strong>。</p>
+<p><img src="函数调用-9.jpg" alt="image-20230304090637069"></p>
+<script type="math/tex; mode=display">
+图10</script><p>5、<strong>图10</strong>最后执行函数返回地址中<code>add esp, 0Ch</code>指令，该指令ESP往栈底移动<code>12</code>字节,相当于将原先压入栈的<code>c-&gt;b-&gt;a</code>弹出栈，因为函数已经执行完，没有用了。这样所有的寄存器值都恢复到了函数调用前的值。</p>
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <li>
-            07-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/SQL语法简介/SQL/" style="color: #0085a1">
-              <span>
-                SQL语法概述
-                
-                -- SQL语法简介
-                
-              </span>
-            </a>
+          <li class="previous">
+            <a href="/virtual_memory_addressing/虚拟内存寻址/" data-toggle="tooltip" data-placement="top" title="虚拟内存寻址">&larr; Previous Post</a>
           </li>
           
-          <li>
-            06-04
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/c++位运算-lowbit/c++位运算-lowbit/" style="color: #0085a1">
-              <span>
-                c++位运算-lowbit
-                
-                -- c++位运算-lowbit
-                
-              </span>
-            </a>
-          </li>
           
-          <li>
-            06-03
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/c++解除流同步与绑定/c++解除流同步与绑定/" style="color: #0085a1">
-              <span>
-                c++解除流同步与绑定
-                
-                -- c++解除流同步与绑定
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-30
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019_DAC_Chunk_March/2019_DAC_Chunk_March/" style="color: #0085a1">
-              <span>
-                MARCH:MAze Routing Under a Concurrent and Hierarchical Scheme for Buses
-                
-                -- 2019_DAC_Chunk_March
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/lc_offer_32-3/lc_offer_32-3/" style="color: #0085a1">
-              <span>
-                LeetCode 剑指offer32-3
-                
-                -- lc_offer_32-3
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/lc_offer_26/lc_offer_26/" style="color: #0085a1">
-              <span>
-                LeetCode 剑指offer26
-                
-                -- lc_offer_26
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/lc_offer_32-1/lc_offer_32-1/" style="color: #0085a1">
-              <span>
-                LeetCode 剑指offer32-1
-                
-                -- lc_offer_32-1
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-08
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/ethernet/ethernet/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验ARP部分
-                
-                -- ethernet
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-07
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/icmp/icmp/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验ICMP部分
-                
-                -- icmp
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-06
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/ip/ip/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验IP部分
-                
-                -- ip
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/tcp/计算机自顶向下WIreshark实验TCP部分/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验TCP部分
-                
-                -- tcp
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/udp/计算机自顶向下WIreshark实验UDP部分/" style="color: #0085a1">
-              <span>
-                计算机自顶向下Wireshark实验UDP部分
-                
-                -- udp
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            05-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/virtual_memory_addressing/虚拟内存寻址/" style="color: #0085a1">
-              <span>
-                虚拟内存寻址
-                
-                -- virtual_memory_addressing
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-03
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/函数调用压栈过程/函数调用压栈过程/" style="color: #0085a1">
-              <span>
-                c++函数调用压栈过程
-                
-                -- 函数调用压栈过程
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/VSCode/VSCode-Installation/" style="color: #0085a1">
-              <span>
-                VSCode-Installation
-                
-                -- VSCode
-                
-              </span>
-            </a>
+          <li class="next">
+            <a href="/VSCode/VSCode-Installation/" data-toggle="tooltip" data-placement="top" title="VSCode-Installation">Next Post &rarr;</a>
           </li>
           
         </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=c++函数调用压栈过程&body=Hi,I found this website and thought you might like it http://yoursite-url/函数调用压栈过程/函数调用压栈过程/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: 'c2bab3efae2287dd0385',
+      clientSecret: 'e2ec8cd2a961346b8e517db4038801033162f2fb',
+      repo: 'ChanphongGu.github.io',
+      owner: 'ChanphongGu',
+      admin: 'ChanphongGu',
+      id: 'Sun Apr 03 2022 07:01:03 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
-      
-    </div>
-  </div>
-</div>
 
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
 
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
     
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-
-        <hr>
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#c-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8E%8B%E6%A0%88%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">c++函数调用压栈过程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%85%A5%E6%A0%88"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">函数参数入栈</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E8%B7%B3%E8%BD%AC"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">函数跳转</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BF%9D%E5%AD%98%E7%8E%B0%E5%9C%BA"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">保存现场</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C"><span class="toc-nav-number">1.0.4.</span> <span class="toc-nav-text">函数执行</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%81%A2%E5%A4%8D%E7%8E%B0%E5%9C%BA"><span class="toc-nav-number">1.0.5.</span> <span class="toc-nav-text">恢复现场</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
     
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#c++" title="c++">c++</a>
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#pcb route" title="pcb route" rel="1">pcb route</a>
-    
-    
-    
-    <a href="/tags/#数据库" title="数据库" rel="1">数据库</a>
-    
-    
-    
-    <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
-    
-    
-    
-    <a href="/tags/#计算机自顶向下Wireshark实验" title="计算机自顶向下Wireshark实验" rel="5">计算机自顶向下Wireshark实验</a>
-    
-    
-    
-    <a href="/tags/#c++" title="c++" rel="3">c++</a>
-    
-    
-    
-    <a href="/tags/#LeetCode" title="LeetCode" rel="3">LeetCode</a>
-    
-    
-    
-    <a href="/tags/#操作系统" title="操作系统" rel="1">操作系统</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/poetic_scene.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>live a poetic life</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/ChanphongGu">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/顾辰枫">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../SQL%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B/SQL/">
-      <li>SQL语法概述</li>
-    </a>
-    
-    <a href="../../c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/">
-      <li>c++位运算-lowbit</li>
-    </a>
-    
-    <a href="../../c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/">
-      <li>c++解除流同步与绑定</li>
-    </a>
-    
-    <a href="../../2019_DAC_Chunk_March/2019_DAC_Chunk_March/">
-      <li>MARCH:MAze Routing Under a Concurrent and Hierarchical Scheme for Buses</li>
-    </a>
-    
-    <a href="../../lc_offer_32-1/lc_offer_32-1/">
-      <li>LeetCode 剑指offer32-1</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="https://v-vincen.life/" target="_blank">V_Vincen</a></li>
-  
-  <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
-  
-  <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
+        
         <hr>
-    
-        <!-- Archives -->
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/05/">May 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#pcb">
-      <li>pcb</li>
-    </a>
-    
-    <a href="/categories/#数据库">
-      <li>数据库</li>
-    </a>
-    
-    <a href="/categories/#VSCode">
-      <li>VSCode</li>
-    </a>
-    
-    <a href="/categories/#计算机网络">
-      <li>计算机网络</li>
-    </a>
-    
-    <a href="/categories/#c++">
-      <li>c++</li>
-    </a>
-    
-    <a href="/categories/#LeetCode">
-      <li>LeetCode</li>
-    </a>
-    
-    <a href="/categories/#操作系统">
-      <li>操作系统</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">V_Vincen</a>
+          </li>
+          
+          <li>
+            <a href="http://beantech.org" target="_blank">Bean Tech</a>
+          </li>
+          
+          <li>
+            <a href="http://huangxuan.me" target="_blank">Hux Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
