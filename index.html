@@ -270,9 +270,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -281,9 +281,9 @@
           
           
           <li>
-            <a href="/tags/">
+            <a href="/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -515,6 +515,90 @@ SQL:2003......
   <!-- top end -->
   
 
+  <a href="/函数调用压栈过程/函数调用压栈过程/">
+    <h2 class="post-title">
+      c++函数调用压栈过程
+    </h2>
+    <h3 class="post-subtitle">
+      函数调用
+    </h3>
+    <div class="post-content-preview">
+      c++函数调用压栈过程
+
+函数调用的过程实际上是一个中断的过程，涉及到函数参数入栈、函数跳转、保存现场、函数执行、恢复现场（函数返回）等。
+
+这里介绍六个下文要用到的寄存器：
+三个重点：
+
+EIP：指令指针，指向下一条待执行的指令的地址；
+EBP：基址指针，指向栈底；
+ESP：栈顶指针；
+
+三个次要：
+
+EBX：基址寄存器；
+ESI：源变址寄存器；
+EDI：目的变址寄存器。
+
+三个汇编指令：......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-07-03
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#c++" title="c++">c++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/virtual_memory_addressing/虚拟内存寻址/">
+    <h2 class="post-title">
+      虚拟内存寻址
+    </h2>
+    <h3 class="post-subtitle">
+      virtual memory addressing
+    </h3>
+    <div class="post-content-preview">
+      ​		在计算机早期阶段时候（比如使用DOS系统甚至更早），内存很小一般以KB为单位。那时候程序并不大，内存可以容纳。工程师对内存直接进行物理寻址，即程序中所用的地址是可以直接送进地址总线进行内存寻址的，地址与内存单元对应。
+​		后来程序的规模不断增加，程序对内存的需求超过了内存的实际容量，例如4KB的内存，但是程序的大小为8KB。工程师将程序分段，先将需要运行的一段载入内存，等到需要另一段......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-07-01
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#操作系统" title="操作系统">操作系统</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/c++位运算-lowbit/c++位运算-lowbit/">
     <h2 class="post-title">
       c++位运算-lowbit
@@ -683,6 +767,52 @@ MARCH:MAze Routing Under a Concurrent and Hie......
   <!-- top end -->
   
 
+  <a href="/lc_offer_32-3/lc_offer_32-3/">
+    <h2 class="post-title">
+      LeetCode 剑指offer32-3
+    </h2>
+    <h3 class="post-subtitle">
+      剑指offer
+    </h3>
+    <div class="post-content-preview">
+      LeetCode 剑指offer32-3
+题目
+
+请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
+
+例如:
+给定二叉树: [3,9,20,null,null,15,7],
+
+返回：
+
+
+
+算法思想
+层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-05-29
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/lc_offer_26/lc_offer_26/">
     <h2 class="post-title">
       LeetCode 剑指offer26
@@ -711,52 +841,6 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
 
 示例：
 ......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Gu on
-    2022-05-29
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/lc_offer_32-3/lc_offer_32-3/">
-    <h2 class="post-title">
-      LeetCode 剑指offer32-3
-    </h2>
-    <h3 class="post-subtitle">
-      剑指offer
-    </h3>
-    <div class="post-content-preview">
-      LeetCode 剑指offer32-3
-题目
-
-请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
-
-例如:
-给定二叉树: [3,9,20,null,null,15,7],
-
-返回：
-
-
-
-算法思想
-层序遍历，采用队列。先输入根节点到队列中，此后每次循环都取出当前队列大小的节点数，并将取出节......
     </div>
   </a>
   
@@ -816,87 +900,6 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
 </div>
 <hr>
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/icmp/icmp/">
-    <h2 class="post-title">
-      计算机自顶向下Wireshark实验ICMP部分
-    </h2>
-    <h3 class="post-subtitle">
-      ICMP部分
-    </h3>
-    <div class="post-content-preview">
-      实验1 PING
-
-
-
-1.What is the IP address of your host? What is the IP address of the destination
-host?
-
-本地ip：192.168.1.103
-目的ip：143.89.12.134
-
-2.Why is it that an ICMP packet does not have source and d......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Gu on
-    2022-05-07
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#计算机自顶向下Wireshark实验" title="计算机自顶向下Wireshark实验">计算机自顶向下Wireshark实验</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/ip/ip/">
-    <h2 class="post-title">
-      计算机自顶向下Wireshark实验IP部分
-    </h2>
-    <h3 class="post-subtitle">
-      IP部分
-    </h3>
-    <div class="post-content-preview">
-      该实验以官方提供的Wireshark捕获文件为基础分析。
-请访问官网获取文件：[课件地址]( http://gaia.cs.umass.edu/wireshark-labs/wireshark-
-traces.zip)
-
-
-1.选择计算器发送的第一个ICMP Echo Request消息，然后在packet details window中展开数据包的Internet协议部分。您的计算机的IP......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Gu on
-    2022-05-06
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#计算机自顶向下Wireshark实验" title="计算机自顶向下Wireshark实验">计算机自顶向下Wireshark实验</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
 
   <!-- Pager -->
   <ul class="pager">
@@ -943,7 +946,7 @@ traces.zip)
     
     
     
-    <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
+    <a href="/tags/#c++" title="c++" rel="3">c++</a>
     
     
     
@@ -951,7 +954,7 @@ traces.zip)
     
     
     
-    <a href="/tags/#c++" title="c++" rel="3">c++</a>
+    <a href="/tags/#VSCode" title="VSCode" rel="1">VSCode</a>
     
     
     
@@ -1035,20 +1038,20 @@ traces.zip)
       <li>SQL语法概述</li>
     </a>
     
+    <a href="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8E%8B%E6%A0%88%E8%BF%87%E7%A8%8B/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8E%8B%E6%A0%88%E8%BF%87%E7%A8%8B/">
+      <li>c++函数调用压栈过程</li>
+    </a>
+    
+    <a href="virtual_memory_addressing/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%AF%BB%E5%9D%80/">
+      <li>虚拟内存寻址</li>
+    </a>
+    
     <a href="c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/">
       <li>c++位运算-lowbit</li>
     </a>
     
     <a href="c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/">
       <li>c++解除流同步与绑定</li>
-    </a>
-    
-    <a href="2019_DAC_Chunk_March/2019_DAC_Chunk_March/">
-      <li>MARCH:MAze Routing Under a Concurrent and Hierarchical Scheme for Buses</li>
-    </a>
-    
-    <a href="lc_offer_32-1/lc_offer_32-1/">
-      <li>LeetCode 剑指offer32-1</li>
     </a>
     
   </ul>
@@ -1079,7 +1082,7 @@ traces.zip)
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/07/">July 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
 </div>
 
 
@@ -1099,16 +1102,16 @@ traces.zip)
       <li>数据库</li>
     </a>
     
-    <a href="/categories/#VSCode">
-      <li>VSCode</li>
+    <a href="/categories/#c++">
+      <li>c++</li>
     </a>
     
     <a href="/categories/#计算机网络">
       <li>计算机网络</li>
     </a>
     
-    <a href="/categories/#c++">
-      <li>c++</li>
+    <a href="/categories/#VSCode">
+      <li>VSCode</li>
     </a>
     
     <a href="/categories/#LeetCode">

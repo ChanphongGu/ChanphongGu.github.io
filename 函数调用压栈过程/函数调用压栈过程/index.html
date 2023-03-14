@@ -270,9 +270,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -281,9 +281,9 @@
           
           
           <li>
-            <a href="/tags/">
+            <a href="/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -397,7 +397,7 @@
             <h2 class="subheading">函数调用</h2>
             <span class="meta">
               Posted by Gu on
-              2022-04-03
+              2022-07-03
             </span>
 
 
@@ -465,85 +465,117 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="c-函数调用压栈过程"><a href="#c-函数调用压栈过程" class="headerlink" title="c++函数调用压栈过程"></a>c++函数调用压栈过程</h1><blockquote>
+        <h1>c++函数调用压栈过程</h1>
+<blockquote>
 <p>函数调用的过程实际上是一个中断的过程，涉及到函数参数入栈、函数跳转、保存现场、函数执行、恢复现场（函数返回）等。</p>
 </blockquote>
-<p> 这里介绍六个下文要用到的寄存器：</p>
+<p>这里介绍六个下文要用到的寄存器：</p>
 <p><strong>三个重点：</strong></p>
 <ul>
 <li>EIP：指令指针，指向下一条待执行的指令的地址；</li>
 <li>EBP：基址指针，指向栈底；</li>
-<li><p>ESP：栈顶指针；</p>
+<li>ESP：栈顶指针；</li>
+</ul>
 <p><strong>三个次要：</strong></p>
-</li>
-<li><p>EBX：基址寄存器；</p>
-</li>
+<ul>
+<li>EBX：基址寄存器；</li>
 <li>ESI：源变址寄存器；</li>
 <li>EDI：目的变址寄存器。</li>
 </ul>
 <p><strong>三个汇编指令：</strong></p>
 <ul>
-<li><p>pop指令：出栈并将该值存入指定寄存器；</p>
+<li>
+<p>pop指令：出栈并将该值存入指定寄存器；</p>
 </li>
-<li><p>push指令：将指定寄存器的数据入栈；</p>
+<li>
+<p>push指令：将指定寄存器的数据入栈；</p>
 </li>
-<li>mov a, b指令：将寄存器b的值赋给a,方向是b-&gt;a。</li>
+<li>
+<p>mov a, b指令：将寄存器b的值赋给a,方向是b-&gt;a。</p>
+</li>
 </ul>
 <p><strong>代码例子：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">g_func</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">0x11111111</span>;</span><br><span class="line">    <span class="keyword">int</span> y = <span class="number">0x22222222</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">g_func</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="函数参数入栈"><a href="#函数参数入栈" class="headerlink" title="函数参数入栈"></a>函数参数入栈</h3><p>调用函数<code>g_func</code>的时候，会先将参数从右到左压入栈，即<code>c-&gt;b-&gt;a</code>的顺序入栈，此时栈顶指针ESP指向<code>a</code>。</p>
+<h3 id="函数参数入栈">函数参数入栈</h3>
+<p>调用函数<code>g_func</code>的时候，会先将参数从右到左压入栈，即<code>c-&gt;b-&gt;a</code>的顺序入栈，此时栈顶指针ESP指向<code>a</code>。</p>
 <blockquote>
 <p>压入的参数即为函数形参，后续用通用寄存器取值进行计算。</p>
 </blockquote>
 <p>下图是<code>g_func</code>调用的汇编代码：</p>
-<p><img src="函数调用-1.jpg" alt="image-20230304003657668"></p>
-<script type="math/tex; mode=display">
-图1</script><p><img src="函数调用-2.jpg" alt="image-20230304003821798"></p>
-<script type="math/tex; mode=display">
-图2</script><p><strong>图1</strong>有三条push指令，将<code>3-&gt;2-&gt;1</code>压入栈，此时<strong>图2</strong>ESP值为<code>0012FEF0</code>(注意栈地址是由内存高地址往低地址扩张的),ESP的值正是<code>a</code>,也就是<code>1</code>的地址。</p>
-<h3 id="函数跳转"><a href="#函数跳转" class="headerlink" title="函数跳转"></a>函数跳转</h3><p>函数参数压栈之后，将会跳转至<code>g_func</code>函数的执行地址。</p>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-1.jpg" alt="image-20230304003657668"><br>
+$$<br>
+图1<br>
+$$</p>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-2.jpg" alt="image-20230304003821798"><br>
+$$<br>
+图2<br>
+$$</p>
+<p><strong>图1</strong>有三条push指令，将<code>3-&gt;2-&gt;1</code>压入栈，此时<strong>图2</strong>ESP值为<code>0012FEF0</code>(注意栈地址是由内存高地址往低地址扩张的),ESP的值正是<code>a</code>,也就是<code>1</code>的地址。</p>
+<h3 id="函数跳转">函数跳转</h3>
+<p>函数参数压栈之后，将会跳转至<code>g_func</code>函数的执行地址。</p>
 <p><strong>图1</strong>中执行<code>call</code>指令跳转至地址<code>00401005</code>,这个地址在下图:</p>
-<p><img src="函数调用-3.jpg" alt="image-20230304004519784"></p>
-<script type="math/tex; mode=display">
-图3</script><p>而<code>00401005</code>地址处是一条<code>jmp</code>指令，跳转至地址<code>00401030</code>，这个地址正是<code>g_func</code>函数的入口，见下图：</p>
-<p><img src="函数调用-4.jpg" alt="image-20230304082659817"></p>
-<script type="math/tex; mode=display">
-图4</script><h3 id="保存现场"><a href="#保存现场" class="headerlink" title="保存现场"></a>保存现场</h3><p>在执行<code>call</code>指令之后，<strong>系统默认往栈中压入了执行<code>call</code>指令之前的EIP</strong>,即隐含执行了一条<code>push</code>指令。</p>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-3.jpg" alt="image-20230304004519784"><br>
+$$<br>
+图3<br>
+$$<br>
+而<code>00401005</code>地址处是一条<code>jmp</code>指令，跳转至地址<code>00401030</code>，这个地址正是<code>g_func</code>函数的入口，见下图：</p>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-4.jpg" alt="image-20230304082659817"><br>
+$$<br>
+图4<br>
+$$</p>
+<h3 id="保存现场">保存现场</h3>
+<p>在执行<code>call</code>指令之后，<strong>系统默认往栈中压入了执行<code>call</code>指令之前的EIP</strong>,即隐含执行了一条<code>push</code>指令。</p>
 <p>下图中ESP的值(栈顶)为<code>0x0012FEEC</code>，内存中在该地址的值为<code>0x00401093</code>，这值恰好是<strong>图2</strong>中下一条待执行的<code>add</code>指令的地址，所以这里保存的就是<strong>函数的返回地址</strong>。</p>
 <p>函数调用结束后，弹出该返回地址，然后跳转到该地址继续执行。</p>
 <blockquote>
-<p>这一过程是编译器隐含完成的。 </p>
+<p>这一过程是编译器隐含完成的。</p>
 </blockquote>
-<p><img src="函数调用-5.jpg" alt="image-20230304083054086"></p>
-<script type="math/tex; mode=display">
-图5</script><blockquote>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-5.jpg" alt="image-20230304083054086"><br>
+$$<br>
+图5<br>
+$$</p>
+<blockquote>
 <p>也有一部分保护现场在下面阐述，因为这些指令位于g_func函数起始地址下方，所以将其放在函数执行中说明。</p>
 </blockquote>
-<h3 id="函数执行"><a href="#函数执行" class="headerlink" title="函数执行"></a>函数执行</h3><p>进入函数体后，开始执行<strong>图5</strong>中的指令。</p>
+<h3 id="函数执行">函数执行</h3>
+<p>进入函数体后，开始执行<strong>图5</strong>中的指令。</p>
 <p>1、将EBP压入栈，每个函数都有独立的栈区域，由于函数执行过程也需要用的EBP寄存器，所以需要将此前<code>main</code>的EBP保存在栈中。</p>
 <p>2、<code>mov ebp esp</code>指令将此时的栈顶地址作为函数的栈基址EBP，从而确定了<code>g_func</code>函数的栈区域（EBP为栈底/栈基址，ESP为栈顶）。</p>
 <p>3、<code>sub esp 48h</code>指令将ESP向低地址移动<code>48h</code>字节（<code>72</code>字节），移动的区域包含两个部分：<code>g_func</code>函数的局部变量区域<code>8</code>字节（<code>x</code>4字节 + <code>y</code>4字节）、安全的间隔区域<code>64</code>字节。</p>
 <p>间隔区域为了将不同函数的栈区域隔离开，防止相互影响。</p>
 <p>4、接下来几行指令是将刚才预留出的<code>48h</code>字节的内存区域赋值为<code>0CCCCCCCCh</code>。</p>
 <figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">00401039 </span>lea edi,[ebp-<span class="number">48</span>h]</span><br><span class="line"><span class="number">0040103</span>C mov ecx,<span class="number">12</span>h</span><br><span class="line"><span class="symbol">00401041 </span>mov eax,<span class="number">0</span>CCCCCCCCh</span><br><span class="line"><span class="symbol">00401046 </span>rep stos dword ptr [edi] </span><br></pre></td></tr></table></figure>
-<p><img src="函数调用-6.jpg" alt="image-20230304084855508"></p>
-<script type="math/tex; mode=display">
-图6</script><blockquote>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-6.jpg" alt="image-20230304084855508"><br>
+$$<br>
+图6<br>
+$$</p>
+<blockquote>
 <p>上述几个操作也可以归纳为保护现场，真正执行具体函数体内容的在下面。</p>
 </blockquote>
 <p>5、开始执行两条<code>mov</code>指令，用来对变量<code>x</code>和<code>y</code>赋值。由于栈是向低地址扩张的，所以<code>x</code>和<code>y</code>的地址分别为<code>EBP-4</code>和<code>EBP-8</code>，查看内存表可发现相应内存区域已经存入<code>0x11111111</code>和<code>0x22222222</code>。</p>
-<p><img src="函数调用-7.jpg" alt="image-20230304090226022"></p>
-<script type="math/tex; mode=display">
-图7</script><p><img src="函数调用-8.jpg" alt="image-20230304090301872"></p>
-<script type="math/tex; mode=display">
-图8</script><h3 id="恢复现场"><a href="#恢复现场" class="headerlink" title="恢复现场"></a>恢复现场</h3><p>函数体执行完以后，在返回之前，如下图需要做一些善后的工作。</p>
-<p>1、将EDI、ESI、EBX出栈，即三条<code>pop</code>指令，这样就能恢复调用前的EDI、ESI、EBX的值。<br>2、恢复ESP的值，即<code>mov</code>指令,将EBP的值赋给ESP，这样EBP就跳过了<code>64</code>字节间隔区域和<code>8</code>字节局部数据区域，因为函数已经执行完毕，两个区域无用。<br>3、将EBP出栈，即<code>pop</code>指令，这样就可以恢复调用前的EBP值。</p>
-<p><img src="函数调用-10.jpg" alt="image-20230304091451068"></p>
-<script type="math/tex; mode=display">
-图9</script><p>4、执行<code>ret</code>指令之前，隐式将ESP值减小，令其指向存储前EIP值的地址。这样程序就能跳转至中断前的地方，即<strong>恢复断点</strong>。</p>
-<p><img src="函数调用-9.jpg" alt="image-20230304090637069"></p>
-<script type="math/tex; mode=display">
-图10</script><p>5、<strong>图10</strong>最后执行函数返回地址中<code>add esp, 0Ch</code>指令，该指令ESP往栈底移动<code>12</code>字节,相当于将原先压入栈的<code>c-&gt;b-&gt;a</code>弹出栈，因为函数已经执行完，没有用了。这样所有的寄存器值都恢复到了函数调用前的值。</p>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-7.jpg" alt="image-20230304090226022"></p>
+<p>$$<br>
+图7<br>
+$$</p>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-8.jpg" alt="image-20230304090301872"><br>
+$$<br>
+图8<br>
+$$</p>
+<h3 id="恢复现场">恢复现场</h3>
+<p>函数体执行完以后，在返回之前，如下图需要做一些善后的工作。</p>
+<p>1、将EDI、ESI、EBX出栈，即三条<code>pop</code>指令，这样就能恢复调用前的EDI、ESI、EBX的值。<br>
+2、恢复ESP的值，即<code>mov</code>指令,将EBP的值赋给ESP，这样EBP就跳过了<code>64</code>字节间隔区域和<code>8</code>字节局部数据区域，因为函数已经执行完毕，两个区域无用。<br>
+3、将EBP出栈，即<code>pop</code>指令，这样就可以恢复调用前的EBP值。</p>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-10.jpg" alt="image-20230304091451068"><br>
+$$<br>
+图9<br>
+$$</p>
+<p>4、执行<code>ret</code>指令之前，隐式将ESP值减小，令其指向存储前EIP值的地址。这样程序就能跳转至中断前的地方，即<strong>恢复断点</strong>。</p>
+<p><img src="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8-9.jpg" alt="image-20230304090637069"><br>
+$$<br>
+图10<br>
+$$</p>
+<p>5、<strong>图10</strong>最后执行函数返回地址中<code>add esp, 0Ch</code>指令，该指令ESP往栈底移动<code>12</code>字节,相当于将原先压入栈的<code>c-&gt;b-&gt;a</code>弹出栈，因为函数已经执行完，没有用了。这样所有的寄存器值都恢复到了函数调用前的值。</p>
 
 
         <hr>
@@ -551,12 +583,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/virtual_memory_addressing/虚拟内存寻址/" data-toggle="tooltip" data-placement="top" title="虚拟内存寻址">&larr; Previous Post</a>
+            <a href="/SQL语法简介/SQL/" data-toggle="tooltip" data-placement="top" title="SQL语法概述">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/VSCode/VSCode-Installation/" data-toggle="tooltip" data-placement="top" title="VSCode-Installation">Next Post &rarr;</a>
+            <a href="/virtual_memory_addressing/虚拟内存寻址/" data-toggle="tooltip" data-placement="top" title="虚拟内存寻址">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -640,7 +672,7 @@
       repo: 'ChanphongGu.github.io',
       owner: 'ChanphongGu',
       admin: 'ChanphongGu',
-      id: 'Sun Apr 03 2022 07:01:03 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Sun Jul 03 2022 07:01:03 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -693,7 +725,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#c-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8E%8B%E6%A0%88%E8%BF%87%E7%A8%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">c++函数调用压栈过程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%85%A5%E6%A0%88"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">函数参数入栈</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E8%B7%B3%E8%BD%AC"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">函数跳转</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BF%9D%E5%AD%98%E7%8E%B0%E5%9C%BA"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">保存现场</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C"><span class="toc-nav-number">1.0.4.</span> <span class="toc-nav-text">函数执行</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%81%A2%E5%A4%8D%E7%8E%B0%E5%9C%BA"><span class="toc-nav-number">1.0.5.</span> <span class="toc-nav-text">恢复现场</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">c++函数调用压栈过程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%85%A5%E6%A0%88"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">函数参数入栈</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E8%B7%B3%E8%BD%AC"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">函数跳转</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BF%9D%E5%AD%98%E7%8E%B0%E5%9C%BA"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">保存现场</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%87%BD%E6%95%B0%E6%89%A7%E8%A1%8C"><span class="toc-nav-number">1.0.4.</span> <span class="toc-nav-text">函数执行</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%81%A2%E5%A4%8D%E7%8E%B0%E5%9C%BA"><span class="toc-nav-number">1.0.5.</span> <span class="toc-nav-text">恢复现场</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
