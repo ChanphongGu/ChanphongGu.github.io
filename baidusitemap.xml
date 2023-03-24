@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite-url/Git%E5%91%BD%E4%BB%A4/Git%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2022-08-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/GDB%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/GDB%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2022-08-02</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/SQL%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B/SQL/</loc>
     <lastmod>2022-07-05</lastmod>
   </url>
@@ -25,7 +33,7 @@
     <lastmod>2022-05-29</lastmod>
   </url>
   <url>
-    <loc>http://yoursite-url/lc_offer_32-1/lc_offer_32-1/</loc>
+    <loc>http://yoursite-url/lc_offer_26/lc_offer_26/</loc>
     <lastmod>2022-05-28</lastmod>
   </url>
   <url>
@@ -33,7 +41,7 @@
     <lastmod>2022-05-28</lastmod>
   </url>
   <url>
-    <loc>http://yoursite-url/lc_offer_26/lc_offer_26/</loc>
+    <loc>http://yoursite-url/lc_offer_32-1/lc_offer_32-1/</loc>
     <lastmod>2022-05-28</lastmod>
   </url>
   <url>

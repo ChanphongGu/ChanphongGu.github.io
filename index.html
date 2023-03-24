@@ -248,20 +248,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/about/">
-              
-              ABOUT
+              CATEGORIES
               
               
             </a>
@@ -281,9 +270,20 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
               
               
             </a>
@@ -467,6 +467,115 @@
       <!-- Main Content -->
 
 
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/Git命令/Git命令/">
+    <h2 class="post-title">
+      Git命令
+    </h2>
+    <h3 class="post-subtitle">
+      Git
+    </h3>
+    <div class="post-content-preview">
+      Git常用命令
+git init
+
+初始化项目所在目录，初始化后会在当前目录下出现一个名为 .git 的目录。
+
+12# 初始化本地仓库，在当前目录下生成 .git 文件夹$ git init
+git clone
+
+将存储库克隆到新创建的目录中，为克隆的存储库中的每个分支创建远程跟踪分支(使用 git branch -r 可见)，并从克隆检出的存储库作为当前活动分支的初始分支。
+
+12345......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-08-05
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#c++" title="c++">c++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/GDB调试命令/GDB调试命令/">
+    <h2 class="post-title">
+      GDB调试命令
+    </h2>
+    <h3 class="post-subtitle">
+      GDB
+    </h3>
+    <div class="post-content-preview">
+      GDB
+
+
+要使用GDB调试某个程序，该程序编译时必须加上编译选项 -g，否则该程序是不包含调试信息的；
+GCC编译器支持 -O  和 -g 一起参与编译，-O表示优化，如氧气优化(-O2)，臭氧优化(-O3)。
+
+
+常用命令
+
+
+
+命令名称
+命令缩写
+命令说明
+
+
+
+
+run
+r
+运行一个待调试的程序
+
+
+continue
+c
+让暂停的程序继续运行
+
+
+next
+n
+运行到下一行
+
+
+st......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-08-02
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#c++" title="c++">c++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
 
 <div class="post-preview">
   
@@ -718,31 +827,34 @@ MARCH:MAze Routing Under a Concurrent and Hie......
   <!-- top end -->
   
 
-  <a href="/lc_offer_32-1/lc_offer_32-1/">
+  <a href="/lc_offer_26/lc_offer_26/">
     <h2 class="post-title">
-      LeetCode 剑指offer32-1
+      LeetCode 剑指offer26
     </h2>
     <h3 class="post-subtitle">
       剑指offer
     </h3>
     <div class="post-content-preview">
-      LeetCode 剑指offer32-1
+      LeetCode 剑指offer26
 题目
 
-从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
+输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)
+B是A的子结构， 即 A中有出现和B相同的结构和节点值。
+
+例如:
+给定的树 A:
+
 
 例如:
 给定二叉树: [3,9,20,null,null,15,7],
 
-返回：
+给定的树B：
+
+结果：返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。
 
 
-
-算法思想
-经典的层序遍历，可使用队列实现。从根节点开始，队首每弹出一个节点，就访问这个节点的值，并将其子节点入队。
-循环操作，直到队内没有节点，即结束。
-代码
-123456789101......
+示例：
+......
     </div>
   </a>
   
@@ -806,100 +918,6 @@ MARCH:MAze Routing Under a Concurrent and Hie......
 </div>
 <hr>
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/lc_offer_26/lc_offer_26/">
-    <h2 class="post-title">
-      LeetCode 剑指offer26
-    </h2>
-    <h3 class="post-subtitle">
-      剑指offer
-    </h3>
-    <div class="post-content-preview">
-      LeetCode 剑指offer26
-题目
-
-输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)
-B是A的子结构， 即 A中有出现和B相同的结构和节点值。
-
-例如:
-给定的树 A:
-
-
-例如:
-给定二叉树: [3,9,20,null,null,15,7],
-
-给定的树B：
-
-结果：返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。
-
-
-示例：
-......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Gu on
-    2022-05-29
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/ethernet/ethernet/">
-    <h2 class="post-title">
-      计算机自顶向下Wireshark实验ARP部分
-    </h2>
-    <h3 class="post-subtitle">
-      ARP部分
-    </h3>
-    <div class="post-content-preview">
-      实验1
-
-第一个http get报文
-
-1.What is the 48-bit Ethernet address of your computer?
-
-本机MAC: b4 : 0e : de : 6b : 1a : b1
-
-
-2.What is the 48-bit destination address in the Ethernet frame? Is this the Etherne......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Gu on
-    2022-05-08
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#计算机自顶向下Wireshark实验" title="计算机自顶向下Wireshark实验">计算机自顶向下Wireshark实验</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
 
   <!-- Pager -->
   <ul class="pager">
@@ -942,11 +960,11 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
     
     
     
+    <a href="/tags/#c++" title="c++" rel="5">c++</a>
+    
+    
+    
     <a href="/tags/#数据库" title="数据库" rel="1">数据库</a>
-    
-    
-    
-    <a href="/tags/#c++" title="c++" rel="3">c++</a>
     
     
     
@@ -1034,6 +1052,14 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
 <div class="widget">
   <ul>
     
+    <a href="Git%E5%91%BD%E4%BB%A4/Git%E5%91%BD%E4%BB%A4/">
+      <li>Git命令</li>
+    </a>
+    
+    <a href="GDB%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/GDB%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4/">
+      <li>GDB调试命令</li>
+    </a>
+    
     <a href="SQL%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B/SQL/">
       <li>SQL语法概述</li>
     </a>
@@ -1044,14 +1070,6 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
     
     <a href="virtual_memory_addressing/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%AF%BB%E5%9D%80/">
       <li>虚拟内存寻址</li>
-    </a>
-    
-    <a href="c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/c++%E4%BD%8D%E8%BF%90%E7%AE%97-lowbit/">
-      <li>c++位运算-lowbit</li>
-    </a>
-    
-    <a href="c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/c++%E8%A7%A3%E9%99%A4%E6%B5%81%E5%90%8C%E6%AD%A5%E4%B8%8E%E7%BB%91%E5%AE%9A/">
-      <li>c++解除流同步与绑定</li>
     </a>
     
   </ul>
@@ -1082,7 +1100,7 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/07/">July 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/08/">August 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/07/">July 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
 </div>
 
 
@@ -1098,12 +1116,12 @@ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
       <li>pcb</li>
     </a>
     
-    <a href="/categories/#数据库">
-      <li>数据库</li>
-    </a>
-    
     <a href="/categories/#c++">
       <li>c++</li>
+    </a>
+    
+    <a href="/categories/#数据库">
+      <li>数据库</li>
     </a>
     
     <a href="/categories/#计算机网络">
