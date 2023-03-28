@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite-url/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BAPI/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BAPI/</loc>
+    <lastmod>2022-12-01</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/Git%E5%91%BD%E4%BB%A4/Git%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2022-08-05</lastmod>
   </url>
@@ -33,15 +37,15 @@
     <lastmod>2022-05-29</lastmod>
   </url>
   <url>
+    <loc>http://yoursite-url/lc_offer_32-1/lc_offer_32-1/</loc>
+    <lastmod>2022-05-28</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/lc_offer_26/lc_offer_26/</loc>
     <lastmod>2022-05-28</lastmod>
   </url>
   <url>
     <loc>http://yoursite-url/lc_offer_32-3/lc_offer_32-3/</loc>
-    <lastmod>2022-05-28</lastmod>
-  </url>
-  <url>
-    <loc>http://yoursite-url/lc_offer_32-1/lc_offer_32-1/</loc>
     <lastmod>2022-05-28</lastmod>
   </url>
   <url>
