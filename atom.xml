@@ -6,7 +6,7 @@
   <link href="http://yoursite-url/atom.xml" rel="self"/>
   
   <link href="http://yoursite-url/"/>
-  <updated>2022-12-01T04:02:03.000Z</updated>
+  <updated>2022-12-20T09:10:43.000Z</updated>
   <id>http://yoursite-url/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>高可用策略</title>
+    <link href="http://yoursite-url/%E9%AB%98%E5%8F%AF%E7%94%A8%E7%AD%96%E7%95%A5/%E9%AB%98%E5%8F%AF%E7%94%A8%E7%AD%96%E7%95%A5/"/>
+    <id>http://yoursite-url/%E9%AB%98%E5%8F%AF%E7%94%A8%E7%AD%96%E7%95%A5/%E9%AB%98%E5%8F%AF%E7%94%A8%E7%AD%96%E7%95%A5/</id>
+    <published>2022-12-20T09:10:43.000Z</published>
+    <updated>2022-12-20T09:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1>高可用策略</h1><blockquote><p>可用性是CAP(Consistency，Availability，Partial tolerance)理论中的一个，表示每次请求都能获得响应，不会返回错误。</p><p>高可用是指通过设计减少系统不能提供服务的时间。比如100个系统时间，有1个时间不能提供服务，则可用性为99%。</p></blockquote><p>用户发送的请求通常会被拆分成各项服务的调用，服务之间有依赖调用，上游的服务处理完调用下游的服务。</p><h2 id="熔断">熔断</h2><blockquote><p>在服务的依赖调用中，被调用方出现故障时，出于自我保护的目的，调用方会主动停止调用，并根据业务需要进行相应处理。调用方这种主动停止调用的行为我们称之为熔断。</p></blockquote><p><img src="%E7%86%94%E6%96%AD.png" alt="熔断"></p><p>假设服务A依赖服务B，当B处于正常状态，则调用可以完成；</p><p>当B出现故障、处理慢或者响应超时，由于A在等待B，故而A的响应时间也会延长。换句话说<strong>B的故障传递到A</strong>，<strong>使得A也不可用</strong>。</p><h2 id="限流">限流</h2><blockquote><p>限流是针对服务请求数量的一种自我保护机制，当请求数量超出服务的处理能力时，会自动丢弃新来的请求。</p></blockquote><p><img src="%E9%99%90%E6%B5%81.png" alt="限流"></p><p>任何一个服务的处理能力都是有极限的。</p><p>假设<strong>服务B</strong>的处理能力为<code>QPS=100</code>，当<code>QPS&lt;100</code>时服务B可以提供正常的服务。</p><p>当<code>QPS&gt;100</code>时，由于请求量增大，会出现争抢服务资源的情况（数据库连接、CPU、内存等），导致<strong>服务B</strong>处理缓慢；</p><p>当<code>QPS</code>继续增大时，可能会造成<strong>服务B</strong>响应更加缓慢甚至奔溃。</p><p><strong>如果不进行限流控制</strong>，<strong>服务B始终会面临着被大流量冲击的风险</strong>。做好系统请求流量的评估，制定合理的限流策略，是我们进行系统高可用保护的第一步。</p><h2 id="降级">降级</h2><blockquote><p>降级是通过开关配置将某些不重要的业务功能屏蔽掉，以提高服务处理能力。</p><p>在大促场景中经常会对某些服务进行降级处理，大促结束之后再进行复原。</p></blockquote><p><img src="%E9%99%8D%E7%BA%A7.png" alt="降级"></p><p>在不影响业务核心链路的情况下，<strong>屏蔽某些不重要的业务功能</strong>，可以节省系统的处理时间，提供系统的响应能力，在服务器资源固定的前提下处理更多的请求。</p><blockquote><p><strong>熔断</strong>是减少由于下游服务故障对自己的影响；</p><p>而<strong>降级</strong>则是在整个系统的角度上，考虑业务整体流量，保护核心业务稳定。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;高可用策略&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可用性是CAP(Consistency，Availability，Partial tolerance)理论中的一个，表示每次请求都能获得响应，不会返回错误。&lt;/p&gt;
+&lt;p&gt;高可用是指通过设计减少系统不能提供服务的时间。</summary>
+      
+    
+    
+    
+    <category term="分布式" scheme="http://yoursite-url/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    
+    <category term="分布式" scheme="http://yoursite-url/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>网络编程API</title>
@@ -264,34 +291,6 @@
   </entry>
   
   <entry>
-    <title>LeetCode 剑指offer32-1</title>
-    <link href="http://yoursite-url/lc_offer_32-1/lc_offer_32-1/"/>
-    <id>http://yoursite-url/lc_offer_32-1/lc_offer_32-1/</id>
-    <published>2022-05-28T18:10:43.000Z</published>
-    <updated>2022-05-28T18:10:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="LeetCode-剑指offer32-1">LeetCode 剑指offer32-1</h2><h3 id="题目">题目</h3><blockquote><p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p><blockquote><p>例如:<br>给定二叉树: [3,9,20,null,null,15,7],<br><img src="question1.png" alt="树结构"><br>返回：<br><img src="question2.png" alt="结果"></p></blockquote></blockquote><h3 id="算法思想">算法思想</h3><p>经典的层序遍历，可使用队列实现。从根节点开始，队首每弹出一个节点，就访问这个节点的值，并将其子节点入队。<br>循环操作，直到队内没有节点，即结束。</p><h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">levelOrder</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//变量声明</span></span><br><span class="line">        queue&lt;TreeNode*&gt; qNode;<span class="comment">//node队列，存储当前未遍历的部分节点</span></span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; result;<span class="comment">//数组存储结果</span></span><br><span class="line">        <span class="comment">//判空条件</span></span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> result;</span><br><span class="line">        <span class="comment">//算法步骤</span></span><br><span class="line">        qNode.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">while</span>(!qNode.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            TreeNode* curNode = qNode.<span class="built_in">front</span>();</span><br><span class="line">            result.<span class="built_in">push_back</span>(curNode-&gt;val);</span><br><span class="line">            <span class="keyword">if</span>(curNode-&gt;left) qNode.<span class="built_in">push</span>(curNode-&gt;left);</span><br><span class="line">            <span class="keyword">if</span>(curNode-&gt;right) qNode.<span class="built_in">push</span>(curNode-&gt;right);</span><br><span class="line">            qNode.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//处理结果</span></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="复杂度分析">复杂度分析</h3><p>时间复杂度：对每个节点只访问一次，复杂度为O(n)。</p><p>空间复杂度：最差情况下，即当树为平衡二叉树时，最多有 N/2个树节点同时在 queue 中，使用 O(N) 大小的额外空间。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;LeetCode-剑指offer32-1&quot;&gt;LeetCode 剑指offer32-1&lt;/h2&gt;
-&lt;h3 id=&quot;题目&quot;&gt;题目&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。&lt;/p&gt;
-&lt;blockquo</summary>
-      
-    
-    
-    
-    <category term="LeetCode" scheme="http://yoursite-url/categories/LeetCode/"/>
-    
-    
-    <category term="LeetCode" scheme="http://yoursite-url/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
     <title>LeetCode 剑指offer26</title>
     <link href="http://yoursite-url/lc_offer_26/lc_offer_26/"/>
     <id>http://yoursite-url/lc_offer_26/lc_offer_26/</id>
@@ -308,6 +307,34 @@
 &lt;blockquote&gt;
 &lt;p&gt;输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)&lt;br&gt;
 B是A的子结构</summary>
+      
+    
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/categories/LeetCode/"/>
+    
+    
+    <category term="LeetCode" scheme="http://yoursite-url/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 剑指offer32-1</title>
+    <link href="http://yoursite-url/lc_offer_32-1/lc_offer_32-1/"/>
+    <id>http://yoursite-url/lc_offer_32-1/lc_offer_32-1/</id>
+    <published>2022-05-28T18:10:43.000Z</published>
+    <updated>2022-05-28T18:10:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="LeetCode-剑指offer32-1">LeetCode 剑指offer32-1</h2><h3 id="题目">题目</h3><blockquote><p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p><blockquote><p>例如:<br>给定二叉树: [3,9,20,null,null,15,7],<br><img src="question1.png" alt="树结构"><br>返回：<br><img src="question2.png" alt="结果"></p></blockquote></blockquote><h3 id="算法思想">算法思想</h3><p>经典的层序遍历，可使用队列实现。从根节点开始，队首每弹出一个节点，就访问这个节点的值，并将其子节点入队。<br>循环操作，直到队内没有节点，即结束。</p><h3 id="代码">代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">levelOrder</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//变量声明</span></span><br><span class="line">        queue&lt;TreeNode*&gt; qNode;<span class="comment">//node队列，存储当前未遍历的部分节点</span></span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; result;<span class="comment">//数组存储结果</span></span><br><span class="line">        <span class="comment">//判空条件</span></span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> result;</span><br><span class="line">        <span class="comment">//算法步骤</span></span><br><span class="line">        qNode.<span class="built_in">push</span>(root);</span><br><span class="line">        <span class="keyword">while</span>(!qNode.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            TreeNode* curNode = qNode.<span class="built_in">front</span>();</span><br><span class="line">            result.<span class="built_in">push_back</span>(curNode-&gt;val);</span><br><span class="line">            <span class="keyword">if</span>(curNode-&gt;left) qNode.<span class="built_in">push</span>(curNode-&gt;left);</span><br><span class="line">            <span class="keyword">if</span>(curNode-&gt;right) qNode.<span class="built_in">push</span>(curNode-&gt;right);</span><br><span class="line">            qNode.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//处理结果</span></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="复杂度分析">复杂度分析</h3><p>时间复杂度：对每个节点只访问一次，复杂度为O(n)。</p><p>空间复杂度：最差情况下，即当树为平衡二叉树时，最多有 N/2个树节点同时在 queue 中，使用 O(N) 大小的额外空间。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;LeetCode-剑指offer32-1&quot;&gt;LeetCode 剑指offer32-1&lt;/h2&gt;
+&lt;h3 id=&quot;题目&quot;&gt;题目&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。&lt;/p&gt;
+&lt;blockquo</summary>
       
     
     

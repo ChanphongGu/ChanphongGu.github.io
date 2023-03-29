@@ -245,6 +245,17 @@
 
           
           
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+          
           
           
           <li>
@@ -259,9 +270,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -273,17 +284,6 @@
             <a href="/categories/">
               
               CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags/">
-              
-              TAGS
               
               
             </a>
@@ -467,6 +467,47 @@
       <!-- Main Content -->
 
 
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/高可用策略/高可用策略/">
+    <h2 class="post-title">
+      高可用策略
+    </h2>
+    <h3 class="post-subtitle">
+      分布式
+    </h3>
+    <div class="post-content-preview">
+      高可用策略
+
+可用性是CAP(Consistency，Availability，Partial tolerance)理论中的一个，表示每次请求都能获得响应，不会返回错误。
+高可用是指通过设计减少系统不能提供服务的时间。比如100个系统时间，有1个时间不能提供服务，则可用性为99%。
+
+用户发送的请求通常会被拆分成各项服务的调用，服务之间有依赖调用，上游的服务处理完调用下游的服务。
+熔断
+
+在......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Gu on
+    2022-12-20
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#分布式" title="分布式">分布式</a>
+    
+  </div>
+  
+
+</div>
+<hr>
 
 <div class="post-preview">
   
@@ -871,55 +912,6 @@ MARCH:MAze Routing Under a Concurrent and Hie......
 </div>
 <hr>
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/lc_offer_32-1/lc_offer_32-1/">
-    <h2 class="post-title">
-      LeetCode 剑指offer32-1
-    </h2>
-    <h3 class="post-subtitle">
-      剑指offer
-    </h3>
-    <div class="post-content-preview">
-      LeetCode 剑指offer32-1
-题目
-
-从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
-
-例如:
-给定二叉树: [3,9,20,null,null,15,7],
-
-返回：
-
-
-
-算法思想
-经典的层序遍历，可使用队列实现。从根节点开始，队首每弹出一个节点，就访问这个节点的值，并将其子节点入队。
-循环操作，直到队内没有节点，即结束。
-代码
-123456789101......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Gu on
-    2022-05-29
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
 
   <!-- Pager -->
   <ul class="pager">
@@ -958,11 +950,11 @@ MARCH:MAze Routing Under a Concurrent and Hie......
   <div class="tags">
     
     
-    <a href="/tags/#pcb route" title="pcb route" rel="1">pcb route</a>
-    
-    
-    
     <a href="/tags/#c++" title="c++" rel="5">c++</a>
+    
+    
+    
+    <a href="/tags/#pcb route" title="pcb route" rel="1">pcb route</a>
     
     
     
@@ -979,6 +971,10 @@ MARCH:MAze Routing Under a Concurrent and Hie......
     
     
     <a href="/tags/#LeetCode" title="LeetCode" rel="3">LeetCode</a>
+    
+    
+    
+    <a href="/tags/#分布式" title="分布式" rel="1">分布式</a>
     
     
     
@@ -1058,6 +1054,10 @@ MARCH:MAze Routing Under a Concurrent and Hie......
 <div class="widget">
   <ul>
     
+    <a href="%E9%AB%98%E5%8F%AF%E7%94%A8%E7%AD%96%E7%95%A5/%E9%AB%98%E5%8F%AF%E7%94%A8%E7%AD%96%E7%95%A5/">
+      <li>高可用策略</li>
+    </a>
+    
     <a href="%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BAPI/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BAPI/">
       <li>网络编程API</li>
     </a>
@@ -1072,10 +1072,6 @@ MARCH:MAze Routing Under a Concurrent and Hie......
     
     <a href="SQL%E8%AF%AD%E6%B3%95%E7%AE%80%E4%BB%8B/SQL/">
       <li>SQL语法概述</li>
-    </a>
-    
-    <a href="%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8E%8B%E6%A0%88%E8%BF%87%E7%A8%8B/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%8E%8B%E6%A0%88%E8%BF%87%E7%A8%8B/">
-      <li>c++函数调用压栈过程</li>
     </a>
     
   </ul>
@@ -1106,7 +1102,7 @@ MARCH:MAze Routing Under a Concurrent and Hie......
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/12/">December 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/08/">August 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/07/">July 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/12/">December 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/08/">August 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/07/">July 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li></ul>
 </div>
 
 
@@ -1118,12 +1114,12 @@ MARCH:MAze Routing Under a Concurrent and Hie......
 <div class="widget">
   <ul>
     
-    <a href="/categories/#pcb">
-      <li>pcb</li>
-    </a>
-    
     <a href="/categories/#c++">
       <li>c++</li>
+    </a>
+    
+    <a href="/categories/#pcb">
+      <li>pcb</li>
     </a>
     
     <a href="/categories/#数据库">
@@ -1140,6 +1136,10 @@ MARCH:MAze Routing Under a Concurrent and Hie......
     
     <a href="/categories/#LeetCode">
       <li>LeetCode</li>
+    </a>
+    
+    <a href="/categories/#分布式">
+      <li>分布式</li>
     </a>
     
     <a href="/categories/#操作系统">
